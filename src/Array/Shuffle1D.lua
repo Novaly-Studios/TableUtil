@@ -1,12 +1,9 @@
-local function Shuffle1D(Array, Seed)
+--- Scrambles an array with an optional random seed
+local function Shuffle1D<T>(Array: {T}, Seed: number?): {T}
     local Generator = Random.new(Seed or os.clock())
 
     local ArraySize = #Array
-    local Result = table.create(ArraySize)
-
-    for Index = 1, #Array do
-        Result[Index] = Array[Index]
-    end
+    local Result = table.clone(Array)
 
     for Index = 1, ArraySize do
         local Generated = Generator:NextInteger(1, ArraySize)

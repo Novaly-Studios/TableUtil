@@ -24,7 +24,7 @@ return function()
             end).to.throw()
         end)
 
-        it("should theor an error if either index is greater than the array length", function()
+        it("should throw an error if either index is greater than the array length", function()
             expect(function()
                 Cut1D({1, 2}, 1, 3)
             end).to.throw()
@@ -39,6 +39,13 @@ return function()
             local Result = Cut1D(Test, 1, 4)
 
             expect(Result).to.equal(Test)
+        end)
+
+        it("should cut backwards", function()
+            local Result = Cut1D({1, 2, 3, 4}, 3, 1)
+            expect(Result[1]).to.equal(3)
+            expect(Result[2]).to.equal(2)
+            expect(Result[3]).to.equal(1)
         end)
     end)
 end

@@ -1,4 +1,5 @@
-local function Filter1D(Array, Condition)
+--- Filters an array for all items which satisfy some condition
+local function Filter1D<T>(Array: {T}, Condition: (T, number) -> boolean): {T}
     local Result = {}
     local Index = 1
 

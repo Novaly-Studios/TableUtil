@@ -1,3 +1,4 @@
+--- Obtains the values from a table
 local function Values1D(Structure)
     local Result = {}
     local Index = 1

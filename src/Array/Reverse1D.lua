@@ -1,4 +1,5 @@
-local function Reverse1D(Array)
+--- Flips all items in an array
+local function Reverse1D<T>(Array: {T}): {T}
     local ArraySize = #Array
     local Result = table.create(ArraySize)
 
