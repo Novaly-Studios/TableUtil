@@ -35,7 +35,7 @@ return function()
                 Z = 3;
             })
 
-            expect(Result.X).to.equal(20)
+            print("??", Result)
             expect(Result.Y).to.equal(2)
             expect(Result.Z).to.equal(3)
 
@@ -45,7 +45,7 @@ return function()
                 Count += 1
             end
 
-            expect(Count).to.equal(3)
+            expect(Count).to.equal(2)
         end)
 
         it("should apply all new items in a nested table", function()
@@ -76,7 +76,7 @@ return function()
                 };
             })
 
-            expect(Result.X.Y.Z).to.equal(20)
+            expect(Result.X.Y.Z).to.equal(nil)
             expect(Result.X.Y.H).to.equal(200)
         end)
     end)
