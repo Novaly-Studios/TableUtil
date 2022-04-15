@@ -1,3 +1,4 @@
+--- Merges various tables together, into a union data type.
 local function Merge1D(...)
     local Result = {}
     local Args = {...}

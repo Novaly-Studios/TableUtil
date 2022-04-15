@@ -1,3 +1,4 @@
+--- Obtains the keys from a table
 local function Keys1D(Structure)
     local Result = {}
     local Index = 1

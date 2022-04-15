@@ -5,7 +5,7 @@
 		"ReplicatedFirst": {
 			"$className": "ReplicatedFirst",
 			"TableUtil": {
-				"$path": "Source"
+				"$path": "src"
 			}
 		}
 	}

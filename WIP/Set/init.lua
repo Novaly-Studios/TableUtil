@@ -1,9 +1,9 @@
 return {
-    FromValues = require(script.FromValues);
-    FromKeys = require(script.FromKeys);
+    FromValues = require(script:WaitForChild("FromValues"));
+    FromKeys = require(script:WaitForChild("FromKeys"));
 
-    Intersection = require(script.Intersection);
-    Negation = require(script.Negation);
-    Union = require(script.Union);
-    Outer = require(script.Outer);
+    Intersection = require(script:WaitForChild("Intersection"));
+    Negation = require(script:WaitForChild("Negation"));
+    Union = require(script:WaitForChild("Union"));
+    Outer = require(script:WaitForChild("Outer"));
 };

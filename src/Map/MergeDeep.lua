@@ -1,3 +1,6 @@
+local TYPE_TABLE = "table"
+
+--- Creates a new data structure, representing the recursive merge of one table into another. Ensures structural sharing.
 local function MergeDeep(Structure, Into)
     local Result = {}
 
@@ -8,13 +11,13 @@ local function MergeDeep(Structure, Into)
 
     -- Structure overwrites
     for Key, Value in pairs(Structure) do
-        if (typeof(Value) ~= "table") then
+        if (type(Value) ~= TYPE_TABLE) then
             Result[Key] = Value
             continue
         end
 
         local OtherValue = Into[Key]
-        local IntoTarget = (typeof(OtherValue) == "table" and OtherValue or {})
+        local IntoTarget = (type(OtherValue) == TYPE_TABLE and OtherValue or {})
         Result[Key] = MergeDeep(Value, IntoTarget)
     end
 

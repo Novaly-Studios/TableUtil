@@ -1,3 +1,4 @@
+--- Puts each key-value pair in a table through a transformation function, mapping the outputs into a new table
 local function Map1D(Structure, Operation)
     local Result = {}
 

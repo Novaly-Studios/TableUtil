@@ -1,4 +1,5 @@
-local function Merge1D(...)
+--- Merges multiple arrays together, in order
+local function Merge1D<T>(...: {T}): {T}
     local ToMerge = {...}
     local Result = {}
     local Index = 1

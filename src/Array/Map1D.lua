@@ -1,4 +1,5 @@
-local function Map1D(Array, Operator)
+--- Puts an array's values through a transformation function, mapping the outputs into a new array - nil values will be skipped & will not leave holes in the new array
+local function Map1D<T>(Array: {T}, Operator: (T, number) -> T?): {T}
     local Result = {}
     local Index = 1
 

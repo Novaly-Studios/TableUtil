@@ -1,4 +1,5 @@
-local function Cut1D(Array, From, To)
+--- Cuts a chunk from an array given a starting and ending index - the difference in these indexes can be negative - faster if positive e.g. Cut1D(X, 1, 4) over Cut1D(X, 4, 1)
+local function Cut1D<T>(Array: {T}, From: number, To: number): {T}
     local Size = #Array
 
     assert(From >= 1, "Start index less than 1!")
@@ -14,11 +15,15 @@ local function Cut1D(Array, From, To)
         return Array
     end
 
-    local ResultIndex = 1
-    local Result = table.create(Range)
-    local Increment = Diff == 0 and 1 or math.sign(Diff)
+    if (Diff > 0) then
+        -- Faster, but table.move doesn't support iterating backwards over a range
+        return table.move(Array, From, To, 1, {})
+    end
 
-    for Index = From, To, Increment do
+    local Result = table.create(Range)
+    local ResultIndex = 1
+
+    for Index = From, To, -1 do
         Result[ResultIndex] = Array[Index]
         ResultIndex += 1
     end

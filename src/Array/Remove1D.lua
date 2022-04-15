@@ -1,4 +1,5 @@
-local function Remove1D(Array, Index)
+--- Removes a single element from an array
+local function Remove1D<T>(Array: {T}, Index: number): {T}
     local ArrayLength = #Array
 
     if (ArrayLength == 0) then
@@ -11,10 +12,7 @@ local function Remove1D(Array, Index)
     assert(Index <= ArrayLength, "Index out of bounds!")
 
     local Result = table.create(ArrayLength - 1)
-
-    for SubIndex = 1, Index - 1 do
-        Result[SubIndex] = Array[SubIndex]
-    end
+    table.move(Array, 1, Index - 1, 1, Result)
 
     for SubIndex = Index + 1, ArrayLength do
         Result[SubIndex - 1] = Array[SubIndex]
