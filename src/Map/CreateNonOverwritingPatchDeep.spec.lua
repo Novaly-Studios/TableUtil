@@ -35,7 +35,6 @@ return function()
                 Z = 3;
             })
 
-            print("??", Result)
             expect(Result.Y).to.equal(2)
             expect(Result.Z).to.equal(3)
 

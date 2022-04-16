@@ -13,10 +13,7 @@ local function Remove1D<T>(Array: {T}, Index: number): {T}
 
     local Result = table.create(ArrayLength - 1)
     table.move(Array, 1, Index - 1, 1, Result)
-
-    for SubIndex = Index + 1, ArrayLength do
-        Result[SubIndex - 1] = Array[SubIndex]
-    end
+    table.move(Array, Index + 1, ArrayLength, Index, Result)
 
     return Result
 end
