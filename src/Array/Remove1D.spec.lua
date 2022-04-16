@@ -31,6 +31,9 @@ return function()
             Result = Remove1D(Result)
             expect(Result[1]).to.equal(1)
             expect(Result[2]).never.to.be.ok()
+
+            Result = Remove1D(Result)
+            expect(Result[1]).never.to.be.ok()
         end)
 
         it("should remove an item in the middle", function()
