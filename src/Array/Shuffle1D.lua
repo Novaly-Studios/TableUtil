@@ -1,6 +1,8 @@
+local RandomGenerator = Random.new()
+
 --- Scrambles an array with an optional random seed
 local function Shuffle1D<T>(Array: {T}, Seed: number?): {T}
-    local Generator = Random.new(Seed or os.clock())
+    local Generator = Seed and Random.new(Seed) or RandomGenerator
 
     local ArraySize = #Array
     local Result = table.clone(Array)

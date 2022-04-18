@@ -1,11 +1,9 @@
 --- Filters an array for all items which satisfy some condition
-local function Filter1D<T>(Array: {T}, Condition: (T, number) -> boolean): {T}
-    local Result = {}
+local function Filter1D<T>(Array: {T}, Condition: (T, number) -> boolean, Allocate: number?): {T}
+    local Result = table.create(Allocate or 0)
     local Index = 1
 
-    for ItemIndex = 1, #Array do
-        local Value = Array[ItemIndex]
-
+    for ItemIndex, Value in ipairs(Array) do
         if (Condition(Value, ItemIndex)) then
             Result[Index] = Value
             Index += 1
