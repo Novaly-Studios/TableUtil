@@ -2,4 +2,4 @@
 
 Common table manipulation functions. Usually copies by default. Details of specific functions are given in their respective modules.
 
-Planned: Set objects, diffs
+Planned: Sets, diffs
