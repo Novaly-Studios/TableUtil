@@ -1,4 +1,8 @@
-local function Intersection(Set1, Set2)
+--!nonstrict
+local SetType = require(script.Parent:WaitForChild("_SetType"))
+type Set<T> = SetType.Set<T>
+
+local function Intersection<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
     local Result = {}
 
     for Key in pairs(Set1) do
