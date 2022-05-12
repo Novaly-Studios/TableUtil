@@ -9,14 +9,14 @@ return function()
 
         it("should return correctly for one item", function()
             local Result = FromKeys({A = 1234})
-            expect(Result.A).to.equal(true)
+            expect(Result.A).to.be.ok()
         end)
 
         it("should return correctly for multiple items", function()
             local Result = FromKeys({A = 1, B = 2, C = 3})
-            expect(Result.A).to.equal(true)
-            expect(Result.B).to.equal(true)
-            expect(Result.C).to.equal(true)
+            expect(Result.A).to.be.ok()
+            expect(Result.B).to.be.ok()
+            expect(Result.C).to.be.ok()
         end)
     end)
 end
