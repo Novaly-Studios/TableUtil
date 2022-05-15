@@ -1,0 +1,1861 @@
+<roblox version="4">
+  <Item class="ReplicatedFirst" referent="0">
+    <Properties>
+      <string name="Name">ReplicatedFirst</string>
+    </Properties>
+    <Item class="ModuleScript" referent="1">
+      <Properties>
+        <string name="Name">TableUtil</string>
+        <string name="Source">return {
+    Array = require(script:WaitForChild("Array"));
+    Dict = require(script:WaitForChild("Map"));
+    Map = require(script:WaitForChild("Map"));
+    Set = require(script:WaitForChild("Set"));
+};</string>
+      </Properties>
+      <Item class="ModuleScript" referent="2">
+        <Properties>
+          <string name="Name">Array</string>
+          <string name="Source">return {
+    SelectFirst1D = require(script:WaitForChild("SelectFirst1D"));
+    SelectLast1D = require(script:WaitForChild("SelectLast1D"));
+    FoldRight1D = require(script:WaitForChild("FoldRight1D"));
+    FoldLeft1D = require(script:WaitForChild("FoldLeft1D"));
+    Shuffle1D = require(script:WaitForChild("Shuffle1D"));
+    Reverse1D = require(script:WaitForChild("Reverse1D"));
+    Remove1D = require(script:WaitForChild("Remove1D"));
+    Filter1D = require(script:WaitForChild("Filter1D"));
+    Insert1D = require(script:WaitForChild("Insert1D"));
+    Merge1D = require(script:WaitForChild("Merge1D"));
+    Sort1D = require(script:WaitForChild("Sort1D"));
+    Copy1D = require(script:WaitForChild("Copy1D"));
+    Cut1D = require(script:WaitForChild("Cut1D"));
+    Map1D = require(script:WaitForChild("Map1D"));
+};</string>
+        </Properties>
+        <Item class="ModuleScript" referent="3">
+          <Properties>
+            <string name="Name">Copy1D</string>
+            <string name="Source">--- Copies an array
+--- @deprecated Use table.clone instead
+return table.clone</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="4">
+          <Properties>
+            <string name="Name">Copy1D.spec</string>
+            <string name="Source">return function()
+    local Copy1D = require(script.Parent.Copy1D)
+
+    describe("Array/Copy1D", function()
+        it("should copy a blank table with no contents", function()
+            local Original = {}
+            local Copied = Copy1D(Original)
+
+            expect(Copied).to.never.equal(Original)
+            expect(next(Copied)).to.never.be.ok()
+        end)
+
+        it("should copy the first element of an array", function()
+            local Original = {100}
+            local Copied = Copy1D(Original)
+
+            expect(Copied).never.to.equal(Original)
+            expect(Copied[1]).to.equal(Original[1])
+        end)
+
+        it("should copy all elements of an array", function()
+            local Original = {1, 2, 3, 4}
+            local Copied = Copy1D(Original)
+
+            expect(Copied).never.to.equal(Original)
+            expect(Copied[1]).to.equal(Original[1])
+            expect(Copied[2]).to.equal(Original[2])
+            expect(Copied[3]).to.equal(Original[3])
+            expect(Copied[4]).to.equal(Original[4])
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="5">
+          <Properties>
+            <string name="Name">Cut1D</string>
+            <string name="Source">--- Cuts a chunk from an array given a starting and ending index - the difference in these indexes can be negative - faster if positive e.g. Cut1D(X, 1, 4) over Cut1D(X, 4, 1)
+local function Cut1D&lt;T>(Array: {T}, From: number, To: number): {T}
+    local Size = #Array
+
+    assert(From >= 1, "Start index less than 1!")
+    assert(To >= 1, "End index greater than 1!")
+
+    assert(From &lt;= Size, "Start index beyond array length!")
+    assert(To &lt;= Size, "End index beyond array length!")
+
+    local Diff = To - From
+    local Range = math.abs(Diff)
+
+    if (Range == Size - 1) then
+        return Array
+    end
+
+    if (Diff > 0) then
+        -- Faster, but table.move doesn't support iterating backwards over a range
+        return table.move(Array, From, To, 1, {})
+    end
+
+    local Result = table.create(Range)
+    local ResultIndex = 1
+
+    for Index = From, To, -1 do
+        Result[ResultIndex] = Array[Index]
+        ResultIndex += 1
+    end
+
+    return Result
+end
+
+return Cut1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="6">
+          <Properties>
+            <string name="Name">Cut1D.spec</string>
+            <string name="Source">return function()
+    local Cut1D = require(script.Parent.Cut1D)
+
+    describe("Array/Cut1D", function()
+        it("should return the first element given range 1, 1", function()
+            local Result = Cut1D({1234}, 1, 1)
+            expect(Result[1]).to.equal(1234)
+        end)
+
+        it("should return the middle two elements of a 4-item array given range 2, 3", function()
+            local Result = Cut1D({1, 2, 3, 4}, 2, 3)
+            expect(Result[1]).to.equal(2)
+            expect(Result[2]).to.equal(3)
+            expect(Result[3]).never.to.be.ok()
+        end)
+
+        it("should throw an error if either index is less than 1", function()
+            expect(function()
+                Cut1D({}, 0, 1)
+            end).to.throw()
+
+            expect(function()
+                Cut1D({}, 1, 0)
+            end).to.throw()
+        end)
+
+        it("should throw an error if either index is greater than the array length", function()
+            expect(function()
+                Cut1D({1, 2}, 1, 3)
+            end).to.throw()
+
+            expect(function()
+                Cut1D({1, 2}, 3, 1)
+            end).to.throw()
+        end)
+
+        it("should return the original array if the range is equivalent to the array's length", function()
+            local Test = {1, 2, 3, 4}
+            local Result = Cut1D(Test, 1, 4)
+
+            expect(Result).to.equal(Test)
+        end)
+
+        it("should cut backwards", function()
+            local Result = Cut1D({1, 2, 3, 4}, 3, 1)
+            expect(Result[1]).to.equal(3)
+            expect(Result[2]).to.equal(2)
+            expect(Result[3]).to.equal(1)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="7">
+          <Properties>
+            <string name="Name">Filter1D</string>
+            <string name="Source">--- Filters an array for all items which satisfy some condition
+local function Filter1D&lt;T>(Array: {T}, Condition: (T, number) -> boolean, Allocate: number?): {T}
+    local Result = table.create(Allocate or 0)
+    local Index = 1
+
+    for ItemIndex, Value in ipairs(Array) do
+        if (Condition(Value, ItemIndex)) then
+            Result[Index] = Value
+            Index += 1
+        end
+    end
+
+    return Result
+end
+
+return Filter1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="8">
+          <Properties>
+            <string name="Name">Filter1D.spec</string>
+            <string name="Source">return function()
+    local Filter1D = require(script.Parent.Filter1D)
+
+    describe("Array/Filter1D", function()
+        it("should return a blank table for no data", function()
+            local Results = Filter1D({}, function()
+                return true
+            end)
+
+            expect(next(Results)).never.to.be.ok()
+        end)
+
+        it("should return all items in order for true condition", function()
+            local Results = Filter1D({3, 2, 1}, function()
+                return true
+            end)
+
+            expect(Results[1]).to.equal(3)
+            expect(Results[2]).to.equal(2)
+            expect(Results[3]).to.equal(1)
+        end)
+
+        it("should return no items for false condition", function()
+            local Results = Filter1D({3, 2, 1}, function()
+                return false
+            end)
+
+            expect(next(Results)).never.to.be.ok()
+        end)
+
+        it("should filter all items larger than some value in order", function()
+            local Results = Filter1D({8, 4, 2, 1}, function(Value)
+                return Value >= 4
+            end)
+
+            expect(Results[1]).to.equal(8)
+            expect(Results[2]).to.equal(4)
+            expect(Results[3]).never.to.be.ok()
+        end)
+
+        it("should pass the index in order", function()
+            Filter1D({1, 2, 3, 4}, function(Value, Index)
+                expect(Index).to.equal(Value)
+                return true
+            end)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="9">
+          <Properties>
+            <string name="Name">FoldLeft1D</string>
+            <string name="Source">--- Reduces an array to a single value from its left-most value to its right-most value
+local function FoldLeft1D&lt;T>(Array: {T}, Processor: (T, T, number, number) -> T, Initial: T): T
+    local Aggregate = Initial
+    local Size = #Array
+
+    for Index = 1, Size do
+        Aggregate = Processor(Aggregate, Array[Index], Index, Size)
+    end
+
+    return Aggregate
+end
+
+return FoldLeft1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="10">
+          <Properties>
+            <string name="Name">FoldLeft1D.spec</string>
+            <string name="Source">return function()
+    local FoldLeft1D = require(script.Parent.FoldLeft1D)
+
+    describe("Array/FoldLeft1D", function()
+        it("should not call on an empty table", function()
+            local Called = false
+
+            FoldLeft1D({}, function()
+                Called = true
+            end, 1)
+
+            expect(Called).to.equal(false)
+        end)
+
+        it("should return an initial value with no operations", function()
+            local Result = FoldLeft1D({}, function() end, 1)
+
+            expect(Result).to.equal(1)
+        end)
+
+        it("should call in order", function()
+            local Indexes = {}
+
+            FoldLeft1D({1, 2, 3, 4}, function(_, _, Index)
+                table.insert(Indexes, Index)
+            end)
+
+            for Index = 1, 4 do
+                expect(Indexes[Index]).to.equal(Index)
+            end
+        end)
+
+        it("should correctly give the size of the array", function()
+            FoldLeft1D({1, 2, 3, 4}, function(_, _, _, Size)
+                expect(Size).to.equal(4)
+            end)
+        end)
+
+        it("should sum up some values with a sum function", function()
+            local Result = FoldLeft1D({1, 2, 3, 4}, function(Aggr, Value)
+                return Aggr + Value
+            end, 0)
+
+            expect(Result).to.equal(10)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="11">
+          <Properties>
+            <string name="Name">FoldRight1D</string>
+            <string name="Source">--- Reduces an array to a single value from its right-most value to its left-most value
+local function FoldRight1D&lt;T>(Array: {T}, Processor: (T, T, number, number) -> T, Initial: T): T
+    local Aggregate = Initial
+    local Size = #Array
+
+    for Index = Size, 1, -1 do
+        Aggregate = Processor(Aggregate, Array[Index], Index, Size)
+    end
+
+    return Aggregate
+end
+
+return FoldRight1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="12">
+          <Properties>
+            <string name="Name">FoldRight1D.spec</string>
+            <string name="Source">return function()
+    local FoldRight1D = require(script.Parent.FoldRight1D)
+
+    describe("Array/FoldRight1D", function()
+        it("should not call on an empty table", function()
+            local Called = false
+
+            FoldRight1D({}, function()
+                Called = true
+            end, 1)
+
+            expect(Called).to.equal(false)
+        end)
+
+        it("should return an initial value with no operations", function()
+            local Result = FoldRight1D({}, function() end, 1)
+
+            expect(Result).to.equal(1)
+        end)
+
+        it("should call in order", function()
+            local Indexes = {}
+
+            FoldRight1D({1, 2, 3, 4}, function(_, _, Index)
+                table.insert(Indexes, Index)
+            end)
+
+            for Index = 1, 4 do
+                expect(Indexes[Index]).to.equal(5 - Index)
+            end
+        end)
+
+        it("should correctly give the size of the array", function()
+            FoldRight1D({1, 2, 3, 4}, function(_, _, _, Size)
+                expect(Size).to.equal(4)
+            end)
+        end)
+
+        it("should sum up some values with a sum function", function()
+            local Result = FoldRight1D({1, 2, 3, 4}, function(Aggr, Value)
+                return Aggr + Value
+            end, 0)
+
+            expect(Result).to.equal(10)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="13">
+          <Properties>
+            <string name="Name">Insert1D</string>
+            <string name="Source">--- Inserts a value into an array with an optional "insert at" index
+local function Insert1D&lt;T>(Array: {T}, Value: T, At: number?): {T}
+    local ArraySize = #Array
+    local NewSize = ArraySize + 1
+    local Result = table.create(NewSize)
+    At = At or NewSize
+
+    assert(At >= 1 and At &lt;= NewSize, "Insert index out of array range")
+
+    table.move(Array, 1, At - 1, 1, Result)
+    Result[At] = Value
+    table.move(Array, At, NewSize - 1, At + 1, Result)
+
+    return Result
+end
+
+return Insert1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="14">
+          <Properties>
+            <string name="Name">Insert1D.spec</string>
+            <string name="Source">return function()
+    local Insert1D = require(script.Parent.Insert1D)
+
+    describe("Array/Insert1D", function()
+        it("should insert an item in the first position in an empty array", function()
+            local Result = Insert1D({}, 1)
+
+            expect(Result[1]).to.be.ok()
+            expect(Result[1]).to.equal(1)
+        end)
+
+        it("should insert two items in order into an empty array", function()
+            local Result = {}
+            Result = Insert1D(Insert1D(Result, 1), 2)
+
+            for Index = 1, 2 do
+                expect(Result[Index]).to.be.ok()
+                expect(Result[Index]).to.equal(Index)
+            end
+        end)
+
+        it("should allow insertion at an inner index", function()
+            local Result = {1, 2, 4, 5}
+            Result = Insert1D(Result, 3, 3)
+
+            for Index = 1, 5 do
+                expect(Result[Index]).to.be.ok()
+                expect(Result[Index]).to.equal(Index)
+            end
+        end)
+
+        it("should allow insertion at index 1", function()
+            local Result = {2, 3}
+            Result = Insert1D(Result, 1, 1)
+
+            for Index = 1, 3 do
+                expect(Result[Index]).to.be.ok()
+                expect(Result[Index]).to.equal(Index)
+            end
+        end)
+
+        it("should disallow insertion at index length+2", function()
+            expect(function()
+                Insert1D({1, 2}, 1000, 4, true)
+            end).to.throw()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="15">
+          <Properties>
+            <string name="Name">Map1D</string>
+            <string name="Source">--- Puts an array's values through a transformation function, mapping the outputs into a new array - nil values will be skipped &amp; will not leave holes in the new array
+local function Map1D&lt;T>(Array: {T}, Operator: (T, number) -> T?, Allocate: number?): {T}
+    local Result = table.create(Allocate or 0)
+    local Index = 1
+
+    for ItemIndex = 1, #Array do
+        local Value = Array[ItemIndex]
+        local Transformed = Operator(Value, ItemIndex)
+
+        if (Transformed == nil) then
+            -- Skip nil values
+            continue
+        end
+
+        Result[Index] = Transformed
+        Index += 1
+    end
+
+    return Result
+end
+
+return Map1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="16">
+          <Properties>
+            <string name="Name">Map1D.spec</string>
+            <string name="Source">return function()
+    local Map1D = require(script.Parent.Map1D)
+
+    describe("Array/Map1D", function()
+        it("should return a blank array if passed in a blank array", function()
+            local Result = Map1D({}, function(Value, Key)
+                return Key, Value
+            end)
+
+            expect(next(Result)).to.equal(nil)
+        end)
+
+        it("should return all items in an array with a function passing back the same value, in order", function()
+            local Result = Map1D({1, 2, 3, 4}, function(Value)
+                return Value
+            end)
+
+            for Index = 1, 4 do
+                expect(Result[Index]).to.equal(Index)
+            end
+        end)
+
+        it("should double all items in an array with a double function, in order", function()
+            local Result = Map1D({1, 2, 3, 4}, function(Value)
+                return Value * 2
+            end)
+
+            for Index = 1, 4 do
+                expect(Result[Index]).to.equal(Index * 2)
+            end
+        end)
+
+        it("should ignore nil returns from the operation function", function()
+            local Result = Map1D({1, 2, 3, 4}, function(Value)
+                if (Value &lt; 3) then
+                    return nil
+                end
+
+                return Value
+            end)
+
+            expect(Result[1]).to.equal(3)
+            expect(Result[2]).to.equal(4)
+            expect(Result[3]).never.to.be.ok()
+        end)
+
+        it("should send the index to the operation function", function()
+            Map1D({2, 4, 6, 8}, function(Value, Index)
+                expect(Value / 2).to.equal(Index)
+            end)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="17">
+          <Properties>
+            <string name="Name">Merge1D</string>
+            <string name="Source">--- Merges multiple arrays together, in order
+local function Merge1D&lt;T>(...: {T}): {T}
+    local Result = table.clone(select(1, ...))
+    local Index = #Result + 1
+
+    for SubArrayIndex = 2, select("#", ...) do
+        local SubArray = select(SubArrayIndex, ...)
+        local Size = #SubArray
+        table.move(SubArray, 1, Size, Index, Result)
+        Index += Size
+    end
+
+    return Result
+end
+
+return Merge1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="18">
+          <Properties>
+            <string name="Name">Merge1D.spec</string>
+            <string name="Source">return function()
+    local Merge1D = require(script.Parent.Merge1D)
+
+    describe("Array/Merge1D", function()
+        it("should merge two blank arrays into a blank array", function()
+            local Result = Merge1D({}, {})
+            expect(next(Result)).to.never.be.ok()
+        end)
+
+        it("should merge more than two blank arrays into a blank array", function()
+            local Result = Merge1D({}, {}, {}, {})
+            expect(next(Result)).to.never.be.ok()
+        end)
+
+        it("should merge several one-item arrays into a final array, in order", function()
+            local Result = Merge1D({1}, {2}, {3}, {4})
+
+            for Index = 1, 4 do
+                expect(Result[Index]).to.equal(Index)
+            end
+        end)
+
+        it("should merge several multiple-item arrays into a final array, in order", function()
+            local Result = Merge1D({1, 2, 3}, {4}, {5, 6}, {7, 8, 9, 10})
+
+            for Index = 1, 10 do
+                expect(Result[Index]).to.equal(Index)
+            end
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="19">
+          <Properties>
+            <string name="Name">Remove1D</string>
+            <string name="Source">--- Removes a single element from an array
+local function Remove1D&lt;T>(Array: {T}, Index: number): {T}
+    local ArrayLength = #Array
+
+    if (ArrayLength == 0) then
+        return {}
+    end
+
+    Index = Index or ArrayLength
+
+    assert(Index > 0, "Index must be greater than 0!")
+    assert(Index &lt;= ArrayLength, "Index out of bounds!")
+
+    local Result = table.create(ArrayLength - 1)
+    table.move(Array, 1, Index - 1, 1, Result)
+    table.move(Array, Index + 1, ArrayLength, Index, Result)
+
+    return Result
+end
+
+return Remove1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="20">
+          <Properties>
+            <string name="Name">Remove1D.spec</string>
+            <string name="Source">return function()
+    local Remove1D = require(script.Parent.Remove1D)
+
+    describe("Array/Remove1D", function()
+        it("should return an empty array upon removing from an empty array", function()
+            local Original = {}
+            local Result = Remove1D(Original)
+
+            expect(next(Result)).to.equal(nil)
+            expect(Original).never.to.equal(Result)
+        end)
+
+        it("should remove the last item in a two-item array", function()
+            local Result = Remove1D({1, 2})
+            expect(Result[1]).to.equal(1)
+            expect(Result[2]).never.to.be.ok()
+        end)
+
+        it("should remove the last item multiple times", function()
+            local Result = Remove1D({1, 2, 3, 4})
+            expect(Result[1]).to.equal(1)
+            expect(Result[2]).to.equal(2)
+            expect(Result[3]).to.equal(3)
+            expect(Result[4]).never.to.be.ok()
+
+            Result = Remove1D(Result)
+            expect(Result[1]).to.equal(1)
+            expect(Result[2]).to.equal(2)
+            expect(Result[3]).never.to.be.ok()
+
+            Result = Remove1D(Result)
+            expect(Result[1]).to.equal(1)
+            expect(Result[2]).never.to.be.ok()
+
+            Result = Remove1D(Result)
+            expect(Result[1]).never.to.be.ok()
+        end)
+
+        it("should remove an item in the middle", function()
+            local Result = Remove1D({1, 2, 3, 4}, 2)
+            expect(Result[1]).to.equal(1)
+            expect(Result[2]).to.equal(3)
+            expect(Result[3]).to.equal(4)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="21">
+          <Properties>
+            <string name="Name">Reverse1D</string>
+            <string name="Source">--- Flips all items in an array
+local function Reverse1D&lt;T>(Array: {T}): {T}
+    local ArraySize = #Array
+    local Result = table.create(ArraySize)
+
+    for Index = 1, ArraySize do
+        Result[Index] = Array[ArraySize - Index + 1]
+    end
+
+    return Result
+end
+
+return Reverse1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="22">
+          <Properties>
+            <string name="Name">Reverse1D.spec</string>
+            <string name="Source">return function()
+    local Reverse1D = require(script.Parent.Reverse1D)
+
+    describe("Array/Reverse1D", function()
+        it("should return an empty array if passed an empty array", function()
+            local Result = Reverse1D({})
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return a one-item array from a one-item array", function()
+            local Result = Reverse1D({1})
+            expect(Result[1]).to.equal(1)
+        end)
+
+        it("should swap two items in a two-item array", function()
+            local Result = Reverse1D({1, 2})
+            expect(Result[1]).to.equal(2)
+            expect(Result[2]).to.equal(1)
+        end)
+
+        it("should swap items in an odd-number-of-items array", function()
+            local Result = Reverse1D({1, 2, 3})
+            expect(Result[1]).to.equal(3)
+            expect(Result[2]).to.equal(2)
+            expect(Result[3]).to.equal(1)
+        end)
+
+        it("should reverse 1000 items", function()
+            local Result = {}
+
+            for Index = 1, 1000 do
+                table.insert(Result, Index)
+            end
+
+            Result = Reverse1D(Result)
+
+            for Index = 1, 1000 do
+                expect(Result[Index]).to.equal(1000 - Index + 1)
+            end
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="23">
+          <Properties>
+            <string name="Name">SelectFirst1D</string>
+            <string name="Source">--- Selects the first item in an array which satisfies some condition
+local function SelectFirst1D&lt;T>(Array: {T}, Condition: (T, number) -> boolean): T?
+    for Index = 1, #Array do
+        local Value = Array[Index]
+
+        if (Condition(Value, Index)) then
+            return Value
+        end
+    end
+
+    return nil
+end
+
+return SelectFirst1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="24">
+          <Properties>
+            <string name="Name">SelectFirst1D.spec</string>
+            <string name="Source">return function()
+    local SelectFirst1D = require(script.Parent.SelectFirst1D)
+
+    describe("Array/SelectFirst1D", function()
+        it("should select nothing on an empty array", function()
+            expect(SelectFirst1D({}, function() end)).never.to.be.ok()
+        end)
+
+        it("should select the first item in an array for a return-true function", function()
+            expect(SelectFirst1D({1}, function()
+                return true
+            end)).to.equal(1)
+        end)
+
+        it("should select the first item greater than some number", function()
+            expect(SelectFirst1D({1, 2, 4, 8, 16, 32}, function(Value)
+                return Value >= 8
+            end)).to.equal(8)
+        end)
+
+        it("should select the first index greater than some number", function()
+            expect(SelectFirst1D({1, 2, 4, 8, 16, 32}, function(_, Index)
+                return Index >= 3
+            end)).to.equal(4)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="25">
+          <Properties>
+            <string name="Name">SelectLast1D</string>
+            <string name="Source">--- Selects the last item in an array which satisfies some condition
+local function SelectLast1D&lt;T>(Array: {T}, Condition: (T, number) -> boolean): T?
+    for Index = #Array, 1, -1 do
+        local Value = Array[Index]
+
+        if (Condition(Value, Index)) then
+            return Value
+        end
+    end
+
+    return nil
+end
+
+return SelectLast1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="26">
+          <Properties>
+            <string name="Name">SelectLast1D.spec</string>
+            <string name="Source">return function()
+    local SelectLast1D = require(script.Parent.SelectLast1D)
+
+    describe("Array/SelectLast1D", function()
+        it("should select nothing on an empty array", function()
+            expect(SelectLast1D({}, function() end)).never.to.be.ok()
+        end)
+
+        it("should select the last item in an array for a return-true function", function()
+            expect(SelectLast1D({1}, function()
+                return true
+            end)).to.equal(1)
+        end)
+
+        it("should select the last item greater than some number", function()
+            expect(SelectLast1D({1, 2, 4, 8, 16, 32}, function(Value)
+                return Value >= 8
+            end)).to.equal(32)
+        end)
+
+        it("should select the last index greater than some number", function()
+            expect(SelectLast1D({1, 2, 4, 8, 16, 32}, function(_, Index)
+                return Index >= 3
+            end)).to.equal(32)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="27">
+          <Properties>
+            <string name="Name">Shuffle1D</string>
+            <string name="Source">local RandomGenerator = Random.new()
+
+--- Scrambles an array with an optional random seed
+local function Shuffle1D&lt;T>(Array: {T}, Seed: number?): {T}
+    local Generator = Seed and Random.new(Seed) or RandomGenerator
+
+    local ArraySize = #Array
+    local Result = table.clone(Array)
+
+    for Index = 1, ArraySize do
+        local Generated = Generator:NextInteger(1, ArraySize)
+        Result[Index], Result[Generated] = Result[Generated], Result[Index]
+    end
+
+    return Result
+end
+
+return Shuffle1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="28">
+          <Properties>
+            <string name="Name">Shuffle1D.spec</string>
+            <string name="Source">return function()
+    local Shuffle1D = require(script.Parent.Shuffle1D)
+
+    describe("Array/Shuffle1D", function()
+        it("should return an empty array given an empty array", function()
+            local Result = Shuffle1D({})
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return a one-item array given a one-item array", function()
+            local Result = Shuffle1D({1})
+            expect(Result[1]).to.equal(1)
+        end)
+
+        it("should shuffle items given a seed", function()
+            local Original = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+            -- Two tests to ensure seed is locally deterministic
+            local Result1 = Shuffle1D(Original, 100)
+            local Result2 = Shuffle1D(Original, 100)
+
+            local Sum0 = 0
+            local Sum1 = 0
+            local Sum2 = 0
+
+            local Different1 = false
+            local Different2 = false
+
+            for Index = 1, #Result1 do
+                Sum0 += Original[Index]
+                Sum1 += Result1[Index]
+                Sum2 += Result2[Index]
+
+                Different1 = Different1 or Result1[Index] ~= Original[Index]
+                Different2 = Different2 or Result2[Index] ~= Original[Index]
+                expect(Result1[Index]).to.equal(Result2[Index])
+            end
+
+            expect(Sum0).to.equal(Sum1)
+            expect(Sum1).to.equal(Sum2)
+            expect(Different1).to.equal(true)
+            expect(Different2).to.equal(true)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="29">
+          <Properties>
+            <string name="Name">Sort1D</string>
+            <string name="Source">--- Copies &amp; sorts an array according to some condition
+local function Sort1D&lt;T>(Array: {T}, Condition: (T, T) -> boolean): {T}
+    local Result = table.clone(Array)
+    table.sort(Result, Condition)
+    return Result
+end
+
+return Sort1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="30">
+          <Properties>
+            <string name="Name">Sort1D.spec</string>
+            <string name="Source">return function()
+    local Sort1D = require(script.Parent.Sort1D)
+
+    describe("Array/Sort1D", function()
+        it("should return an empty array given an empty array", function()
+            local Result = Sort1D({})
+            expect(next(Result)).to.equal(nil)
+        end)
+
+        it("should return a one-item array given a one-item array", function()
+            local Result = Sort1D({1})
+            expect(Result[1]).to.equal(1)
+        end)
+
+        it("should sort ascending given an ascending function", function()
+            local Result = Sort1D({4, 8, 1, 2}, function(Initial, Other)
+                return Initial &lt; Other
+            end)
+
+            expect(Result[1]).to.equal(1)
+            expect(Result[2]).to.equal(2)
+            expect(Result[3]).to.equal(4)
+            expect(Result[4]).to.equal(8)
+        end)
+
+        it("should sort descending given an ascending function", function()
+            local Result = Sort1D({4, 8, 1, 2}, function(Initial, Other)
+                return Initial > Other
+            end)
+
+            expect(Result[1]).to.equal(8)
+            expect(Result[2]).to.equal(4)
+            expect(Result[3]).to.equal(2)
+            expect(Result[4]).to.equal(1)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+      </Item>
+      <Item class="ModuleScript" referent="31">
+        <Properties>
+          <string name="Name">Map</string>
+          <string name="Source">return {
+    MergeDeep = require(script:WaitForChild("MergeDeep"));
+    Filter1D = require(script:WaitForChild("Filter1D"));
+    Values1D = require(script:WaitForChild("Values1D"));
+    Merge1D = require(script:WaitForChild("Merge1D"));
+    Keys1D = require(script:WaitForChild("Keys1D"));
+    Map1D = require(script:WaitForChild("Map1D"));
+};</string>
+        </Properties>
+        <Item class="ModuleScript" referent="32">
+          <Properties>
+            <string name="Name">CreateNonOverwritingPatchDeep</string>
+            <string name="Source">--- Creates a "patch template" into another object recursively.
+--- This allows us to apply an additional merge to add new fields to values which were not originally nil.
+--- Good use case: want to merge in new default fields to a player's data structure without overwriting existing fields.
+--- @todo Return nil if result is empty &amp; wrap top level with another function? That way we trim recursive merge work for the resulting empty tables, which will be the common use case.
+local TYPE_TABLE = "table"
+
+local function CreateNonOverwritingPatchDeep(Previous, Template)
+    local Result = {}
+
+    for Key, Value in pairs(Template) do
+        local ExistingValue = Previous[Key]
+
+        if (type(Value) == TYPE_TABLE and type(ExistingValue) == TYPE_TABLE) then
+            Result[Key] = CreateNonOverwritingPatchDeep(ExistingValue or {}, Value)
+            continue
+        end
+
+        if (ExistingValue ~= nil) then
+            continue
+        end
+
+        Result[Key] = Value
+    end
+
+    return Result
+end
+
+return CreateNonOverwritingPatchDeep</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="33">
+          <Properties>
+            <string name="Name">CreateNonOverwritingPatchDeep.spec</string>
+            <string name="Source">return function()
+    local CreateNonOverwritingPatchDeep = require(script.Parent.CreateNonOverwritingPatchDeep)
+
+    describe("Map/CreateNonOverwritingPatchDeep", function()
+        it("should return a blank table for no data", function()
+            expect(next(CreateNonOverwritingPatchDeep({}, {}))).never.to.be.ok()
+        end)
+
+        it("should apply all new items in a flat table", function()
+            local Result = CreateNonOverwritingPatchDeep({}, {
+                X = 1;
+                Y = 2;
+                Z = 3;
+            })
+
+            expect(Result.X).to.equal(1)
+            expect(Result.Y).to.equal(2)
+            expect(Result.Z).to.equal(3)
+
+            local Count = 0
+
+            for _ in pairs(Result) do
+                Count += 1
+            end
+
+            expect(Count).to.equal(3)
+        end)
+
+        it("should not overwrite existing items in a flat table but apply new", function()
+            local Result = CreateNonOverwritingPatchDeep({
+                X = 20;
+            }, {
+                X = 1;
+                Y = 2;
+                Z = 3;
+            })
+
+            expect(Result.Y).to.equal(2)
+            expect(Result.Z).to.equal(3)
+
+            local Count = 0
+
+            for _ in pairs(Result) do
+                Count += 1
+            end
+
+            expect(Count).to.equal(2)
+        end)
+
+        it("should apply all new items in a nested table", function()
+            local Result = CreateNonOverwritingPatchDeep({}, {
+                X = {
+                    Y = {
+                        Z = 1;
+                    };
+                };
+            })
+
+            expect(Result.X.Y.Z).to.equal(1)
+        end)
+
+        it("should not overwrite existing items in a nested table but apply new", function()
+            local Result = CreateNonOverwritingPatchDeep({
+                X = {
+                    Y = {
+                        Z = 20;
+                    };
+                };
+            }, {
+                X = {
+                    Y = {
+                        Z = 1;
+                        H = 200;
+                    };
+                };
+            })
+
+            expect(Result.X.Y.Z).to.equal(nil)
+            expect(Result.X.Y.H).to.equal(200)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="34">
+          <Properties>
+            <string name="Name">Filter1D</string>
+            <string name="Source">--- Filters a table for all items which satisfy some condition
+local function Filter1D(Structure, Condition)
+    local Result = {}
+
+    for Key, Value in pairs(Structure) do
+        if (Condition(Value, Key)) then
+            Result[Key] = Value
+        end
+    end
+
+    return Result
+end
+
+return Filter1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="35">
+          <Properties>
+            <string name="Name">Filter1D.spec</string>
+            <string name="Source">return function()
+    local Filter1D = require(script.Parent.Filter1D)
+
+    describe("Map/Filter1D", function()
+        it("should return a blank table for no data", function()
+            local Results = Filter1D({}, function()
+                return true
+            end)
+
+            expect(next(Results)).never.to.be.ok()
+        end)
+
+        it("should return all items for true condition", function()
+            local Results = Filter1D({A = 1, B = 2, C =3}, function()
+                return true
+            end)
+
+            expect(Results.A).to.equal(1)
+            expect(Results.B).to.equal(2)
+            expect(Results.C).to.equal(3)
+        end)
+
+        it("should return all items greater than 3", function()
+            local Results = Filter1D({A = 2, B = 4, C =8}, function(Value)
+                return Value > 3
+            end)
+
+            expect(Results.A).never.to.be.ok()
+            expect(Results.B).to.equal(4)
+            expect(Results.C).to.equal(8)
+        end)
+
+        it("should pass the keys", function()
+            local Results = Filter1D({A = 2, B = 4, C =8}, function(_, Key)
+                return Key == "A" or Key == "B"
+            end)
+
+            expect(Results.A).to.equal(2)
+            expect(Results.B).to.equal(4)
+            expect(Results.C).never.to.be.ok()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="36">
+          <Properties>
+            <string name="Name">Keys1D</string>
+            <string name="Source">--- Obtains the keys from a table
+local function Keys1D(Structure)
+    local Result = {}
+    local Index = 1
+
+    for Key in pairs(Structure) do
+        Result[Index] = Key
+        Index += 1
+    end
+
+    return Result
+end
+
+return Keys1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="37">
+          <Properties>
+            <string name="Name">Keys1D.spec</string>
+            <string name="Source">return function()
+    local Keys1D = require(script.Parent.Keys1D)
+
+    describe("Map/Keys1D", function()
+        it("should return a blank table given a blank table", function()
+            local Result = Keys1D({})
+            expect(Result).to.be.ok()
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return one key given a one key table", function()
+            local Result = Keys1D({A = 1000})
+            expect(table.find(Result, "A")).to.be.ok()
+        end)
+
+        it("should return multiple keys given a multiple key table", function()
+            local Result = Keys1D({A = 1000, B = 2000, C = true})
+            expect(table.find(Result, "A")).to.be.ok()
+            expect(table.find(Result, "B")).to.be.ok()
+            expect(table.find(Result, "C")).to.be.ok()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="38">
+          <Properties>
+            <string name="Name">Map1D</string>
+            <string name="Source">--- Puts each key-value pair in a table through a transformation function, mapping the outputs into a new table
+local function Map1D(Structure, Operation)
+    local Result = {}
+
+    for Key, Value in pairs(Structure) do
+        local NewValue, NewKey = Operation(Value, Key)
+        Result[NewKey or Key] = NewValue
+    end
+
+    return Result
+end
+
+return Map1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="39">
+          <Properties>
+            <string name="Name">Map1D.spec</string>
+            <string name="Source">return function()
+    local Map1D = require(script.Parent.Map1D)
+
+    describe("Map/Map1D", function()
+        it("should return a blank array if passed in a blank array", function()
+            local Result = Map1D({}, function(Value, Key)
+                return Key, Value
+            end)
+
+            expect(next(Result)).to.equal(nil)
+        end)
+
+        it("should return all items given a return-same-value function", function()
+            local Result = Map1D({A = 1, B = 2}, function(Value)
+                return Value
+            end)
+
+            expect(Result.A).to.equal(1)
+            expect(Result.B).to.equal(2)
+        end)
+
+        it("should pass in keys and allow for custom keys", function()
+            local Result = Map1D({A = 1, B = 2}, function(Value, Key)
+                return Value, Key:lower()
+            end)
+
+            expect(Result.a).to.equal(1)
+            expect(Result.b).to.equal(2)
+            expect(Result.A).never.to.be.ok()
+            expect(Result.B).never.to.be.ok()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="40">
+          <Properties>
+            <string name="Name">Merge1D</string>
+            <string name="Source">--- Merges various tables together, into a union data type.
+local function Merge1D(...)
+    local Result = {}
+
+    for Index = 1, select("#", ...) do
+        for Key, Value in pairs(select(Index, ...)) do
+            Result[Key] = Value
+        end
+    end
+
+    return Result
+end
+
+return Merge1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="41">
+          <Properties>
+            <string name="Name">Merge1D.spec</string>
+            <string name="Source">return function()
+    local Merge1D = require(script.Parent.Merge1D)
+
+    describe("Map/Merge1D", function()
+        it("should return a blank table for no inputs", function()
+            local Result = Merge1D()
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return a blank table for one blank table input", function()
+            local Result = Merge1D({})
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return a blank table for multiple blank table inputs", function()
+            local Result = Merge1D({}, {}, {}, {})
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should merge two tables", function()
+            local Result = Merge1D({A = 1, B = 2}, {C = 3})
+            expect(Result.A).to.equal(1)
+            expect(Result.B).to.equal(2)
+            expect(Result.C).to.equal(3)
+        end)
+
+        it("should overwrite former tables", function()
+            local Result = Merge1D({A = 1, B = 2}, {B = 3}, {B = 4})
+            expect(Result.A).to.equal(1)
+            expect(Result.B).to.equal(4)
+        end)
+
+        it("should merge several tables", function()
+            local Result = Merge1D({A = 1, B = 2}, {C = 3}, {D = 4})
+            expect(Result.A).to.equal(1)
+            expect(Result.B).to.equal(2)
+            expect(Result.C).to.equal(3)
+            expect(Result.D).to.equal(4)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="42">
+          <Properties>
+            <string name="Name">MergeDeep</string>
+            <string name="Source">local TYPE_TABLE = "table"
+
+--- Creates a new data structure, representing the recursive merge of one table into another. Ensures structural sharing.
+local function MergeDeep(Structure, Into)
+    local Result = {}
+
+    -- Copy top level
+    for Key, Value in pairs(Into) do
+        Result[Key] = Value
+    end
+
+    -- Structure overwrites
+    for Key, Value in pairs(Structure) do
+        if (type(Value) ~= TYPE_TABLE) then
+            Result[Key] = Value
+            continue
+        end
+
+        local OtherValue = Into[Key]
+        local IntoTarget = (type(OtherValue) == TYPE_TABLE and OtherValue or {})
+        Result[Key] = MergeDeep(Value, IntoTarget)
+    end
+
+    return Result
+end
+
+return MergeDeep</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="43">
+          <Properties>
+            <string name="Name">Values1D</string>
+            <string name="Source">--- Obtains the values from a table
+local function Values1D(Structure)
+    local Result = {}
+    local Index = 1
+
+    for _, Value in pairs(Structure) do
+        Result[Index] = Value
+        Index += 1
+    end
+
+    return Result
+end
+
+return Values1D</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="44">
+          <Properties>
+            <string name="Name">Values1D.spec</string>
+            <string name="Source">return function()
+    local Values1D = require(script.Parent.Values1D)
+
+    describe("Map/Values1D", function()
+        it("should return a blank table given a blank table", function()
+            local Result = Values1D({})
+            expect(Result).to.be.ok()
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return one value given a one value table", function()
+            local Result = Values1D({A = 1000})
+            expect(table.find(Result, 1000)).to.be.ok()
+        end)
+
+        it("should return multiple values given a multiple value table", function()
+            local Result = Values1D({A = 1000, B = 2000, C = true})
+            expect(table.find(Result, 1000)).to.be.ok()
+            expect(table.find(Result, 2000)).to.be.ok()
+            expect(table.find(Result, true)).to.be.ok()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+      </Item>
+      <Item class="ModuleScript" referent="45">
+        <Properties>
+          <string name="Name">Set</string>
+          <string name="Source">return {
+    FromValues = require(script:WaitForChild("FromValues"));
+    FromKeys = require(script:WaitForChild("FromKeys"));
+
+    Intersection = require(script:WaitForChild("Intersection"));
+    Negation = require(script:WaitForChild("Negation"));
+    Union = require(script:WaitForChild("Union"));
+    Outer = require(script:WaitForChild("Outer"));
+};</string>
+        </Properties>
+        <Item class="ModuleScript" referent="46">
+          <Properties>
+            <string name="Name">Equals</string>
+            <string name="Source">--!nonstrict
+local SetType = require(script.Parent:WaitForChild("_SetType"))
+type Set&lt;T> = SetType.Set&lt;T>
+
+local function Equals&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): boolean
+    for Key in pairs(Set1) do
+        if (not Set2[Key]) then
+            return false
+        end
+    end
+
+    for Key in pairs(Set2) do
+        if (not Set1[Key]) then
+            return false
+        end
+    end
+
+    return true
+end
+
+return Equals</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="47">
+          <Properties>
+            <string name="Name">Equals.spec</string>
+            <string name="Source">return function()
+    local FromValues = require(script.Parent.FromValues)
+    local Equals = require(script.Parent.Equals)
+
+    describe("Set/Equals", function()
+        it("should return true for two empty sets", function()
+            expect(Equals(FromValues({}), FromValues({}))).to.equal(true)
+        end)
+
+        it("should return false for two sets with different values", function()
+            expect(Equals(FromValues({1, 2, 3}), FromValues({4, 5, 6}))).to.equal(false)
+        end)
+
+        it("should return true for two sets with the same values", function()
+            expect(Equals(FromValues({1, 2, 3}), FromValues({1, 2, 3}))).to.equal(true)
+            expect(Equals(FromValues({1, 2, 3}), FromValues({3, 2, 1}))).to.equal(true)
+        end)
+
+        it("should return false for an intersection which is not equal to A or B", function()
+            expect(Equals(FromValues({1, 2, 3}), FromValues({2, 3, 4}))).to.equal(false)
+            expect(Equals(FromValues({1, 2, 3}), FromValues({1, 2, 4}))).to.equal(false)
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="48">
+          <Properties>
+            <string name="Name">FromKeys</string>
+            <string name="Source">--!nonstrict
+local SetType = require(script.Parent:WaitForChild("_SetType"))
+type Set&lt;T> = SetType.Set&lt;T>
+
+local function FromKeys&lt;T>(KeysTable: {[T]: any}): Set&lt;T>
+    local Result = {}
+
+    for Key in pairs(KeysTable) do
+        Result[Key] = true
+    end
+
+    return Result
+end
+
+return FromKeys</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="49">
+          <Properties>
+            <string name="Name">FromKeys.spec</string>
+            <string name="Source">return function()
+    local FromKeys = require(script.Parent.FromKeys)
+
+    describe("Set/FromKeys", function()
+        it("should return an empty table given an empty table", function()
+            local Result = FromKeys({})
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return correctly for one item", function()
+            local Result = FromKeys({A = 1234})
+            expect(Result.A).to.be.ok()
+        end)
+
+        it("should return correctly for multiple items", function()
+            local Result = FromKeys({A = 1, B = 2, C = 3})
+            expect(Result.A).to.be.ok()
+            expect(Result.B).to.be.ok()
+            expect(Result.C).to.be.ok()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="50">
+          <Properties>
+            <string name="Name">FromValues</string>
+            <string name="Source">--!nonstrict
+local SetType = require(script.Parent:WaitForChild("_SetType"))
+type Set&lt;T> = SetType.Set&lt;T>
+
+local function FromValues&lt;T>(ValuesTable: {[any]: T}): Set&lt;T>
+    local Result = {}
+
+    for _, Value in pairs(ValuesTable) do
+        Result[Value] = true
+    end
+
+    return Result
+end
+
+return FromValues</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="51">
+          <Properties>
+            <string name="Name">FromValues.spec</string>
+            <string name="Source">return function()
+    local FromValues = require(script.Parent.FromValues)
+
+    describe("Set/FromValues", function()
+        it("should return an empty table given an empty table", function()
+            local Result = FromValues({})
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return correctly for one item", function()
+            local Result = FromValues({A = "1234"})
+            expect(Result["1234"]).to.be.ok()
+        end)
+
+        it("should return correctly for multiple items", function()
+            local Result = FromValues({A = "1", B = "2", C = "3"})
+            expect(Result["1"]).to.be.ok()
+            expect(Result["2"]).to.be.ok()
+            expect(Result["3"]).to.be.ok()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="52">
+          <Properties>
+            <string name="Name">Intersection</string>
+            <string name="Source">--!nonstrict
+local SetType = require(script.Parent:WaitForChild("_SetType"))
+type Set&lt;T> = SetType.Set&lt;T>
+
+local function Intersection&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
+    local Result = {}
+
+    for Key in pairs(Set1) do
+        if (Set2[Key] and Set1[Key]) then
+            Result[Key] = true
+        end
+    end
+
+    return Result
+end
+
+return Intersection</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="53">
+          <Properties>
+            <string name="Name">Intersection.spec</string>
+            <string name="Source">return function()
+    local Intersection = require(script.Parent.Intersection)
+    local FromValues = require(script.Parent.FromValues)
+
+    describe("Set/Intersection", function()
+        it("should find no intersection with two empty sets", function()
+            local Result = Intersection({}, {})
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should find an intersection between one common element", function()
+            local Result = Intersection(FromValues( {"A", "B"} ), FromValues( {"A", "C"} ))
+            expect(Result.A).to.be.ok()
+            expect(Result.B).never.to.be.ok()
+            expect(Result.C).never.to.be.ok()
+        end)
+
+        it("should find multiple intersecting elements", function()
+            local Result = Intersection(FromValues( {"A", "B", "X"} ), FromValues( {"A", "B", "Y"} ))
+            expect(Result.A).to.be.ok()
+            expect(Result.B).to.be.ok()
+            expect(Result.X).never.to.be.ok()
+            expect(Result.Y).never.to.be.ok()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="54">
+          <Properties>
+            <string name="Name">Negation</string>
+            <string name="Source">--!nonstrict
+local SetType = require(script.Parent:WaitForChild("_SetType"))
+type Set&lt;T> = SetType.Set&lt;T>
+
+local function Negation&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
+    local Result = {}
+
+    for Key in pairs(Set1) do
+        if (Set2[Key] == nil) then
+            Result[Key] = true
+        end
+    end
+
+    return Result
+end
+
+return Negation</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="55">
+          <Properties>
+            <string name="Name">Negation.spec</string>
+            <string name="Source">return function()
+    local Negation = require(script.Parent.Negation)
+    local FromValues = require(script.Parent.FromValues)
+
+    describe("Set/Negation", function()
+        it("should return a blank set from two blank set inputs", function()
+            local Result = Negation(FromValues( {} ), FromValues( {} ))
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should remove the latter from the former with one item", function()
+            local Result = Negation(FromValues( {1} ), FromValues( {1} ))
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should remove the latter from the former with multiple items", function()
+            local Result = Negation(FromValues( {1, 4, 8} ), FromValues( {4, 8, 1} ))
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should remove the latter from the former with multiple items and leave non-negated present", function()
+            local Result = Negation(FromValues( {1, 4, 8, 2} ), FromValues( {4, 8, 1} ))
+            expect(Result[2]).to.be.ok()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="56">
+          <Properties>
+            <string name="Name">Outer</string>
+            <string name="Source">--!nonstrict
+local SetType = require(script.Parent:WaitForChild("_SetType"))
+type Set&lt;T> = SetType.Set&lt;T>
+
+local function Outer&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
+    local Result = {}
+
+    for Key in pairs(Set1) do
+        if (not (Set2[Key] and Set1[Key])) then
+            Result[Key] = true
+        end
+    end
+
+    for Key in pairs(Set2) do
+        if (not (Set2[Key] and Set1[Key])) then
+            Result[Key] = true
+        end
+    end
+
+    return Result
+end
+
+return Outer</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="57">
+          <Properties>
+            <string name="Name">Outer.spec</string>
+            <string name="Source">return function()
+    local Outer = require(script.Parent.Outer)
+    local FromValues = require(script.Parent.FromValues)
+
+    describe("Set/Outer", function()
+        it("should return a blank set from two blank set inputs", function()
+            local Result = Outer(FromValues( {} ), FromValues( {} ))
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return the left items given a left set and a blank right set", function()
+            local Result = Outer(FromValues( {1, 2, 3} ), FromValues( {} ))
+            expect(Result[1]).to.be.ok()
+            expect(Result[2]).to.be.ok()
+            expect(Result[3]).to.be.ok()
+        end)
+
+        it("should return the right items given a blank left set and a right set", function()
+            local Result = Outer(FromValues( {} ), FromValues( {1, 2, 3} ))
+            expect(Result[1]).to.be.ok()
+            expect(Result[2]).to.be.ok()
+            expect(Result[3]).to.be.ok()
+        end)
+
+        it("should return the outer items without the intersections", function()
+            local Result = Outer(FromValues( {1, 2, 3, 4} ), FromValues( {3, 4, 5, 6} ))
+            expect(Result[1]).to.be.ok()
+            expect(Result[2]).to.be.ok()
+            expect(Result[3]).never.to.be.ok()
+            expect(Result[4]).never.to.be.ok()
+            expect(Result[5]).to.be.ok()
+            expect(Result[6]).to.be.ok()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="58">
+          <Properties>
+            <string name="Name">Union</string>
+            <string name="Source">--!nonstrict
+local SetType = require(script.Parent:WaitForChild("_SetType"))
+type Set&lt;T> = SetType.Set&lt;T>
+
+local function Union&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
+    if (next(Set1) == nil) then
+        return Set2
+    end
+
+    if (next(Set2) == nil) then
+        return Set1
+    end
+
+    local Result = {}
+
+    for Key in pairs(Set1) do
+        Result[Key] = true
+    end
+
+    for Key in pairs(Set2) do
+        Result[Key] = true
+    end
+
+    return Result
+end
+
+return Union</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="59">
+          <Properties>
+            <string name="Name">Union.spec</string>
+            <string name="Source">return function()
+    local Union = require(script.Parent.Union)
+    local FromValues = require(script.Parent.FromValues)
+
+    describe("Set/Union", function()
+        it("should combine two empty sets into an empty set", function()
+            local Result = Union({}, {})
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return A for A union B where B is empty" , function()
+            local A = FromValues({"x", "y", "z"})
+            local B = FromValues({})
+
+            expect(Union(A, B)).to.equal(A)
+        end)
+
+        it("should return B for A union B where A is empty" , function()
+            local A = FromValues({})
+            local B = FromValues({"x", "y", "z"})
+
+            expect(Union(A, B)).to.equal(B)
+        end)
+
+        it("should return an equal set for two equivalent sets", function()
+            local A = FromValues({"x", "y", "z"})
+            local B = FromValues({"x", "y", "z"})
+
+            for Key in pairs(A) do
+                expect(B[Key]).to.equal(A[Key])
+            end
+
+            for Key in pairs(B) do
+                expect(A[Key]).to.equal(B[Key])
+            end
+        end)
+
+        it("should return a union of two sets", function()
+            local A = FromValues({"X", "Y", "Z"})
+            local B = FromValues({"P", "Q", "R"})
+            local Merge = Union(A, B)
+
+            expect(Merge.X).to.be.ok()
+            expect(Merge.Y).to.be.ok()
+            expect(Merge.Z).to.be.ok()
+            expect(Merge.P).to.be.ok()
+            expect(Merge.Q).to.be.ok()
+            expect(Merge.R).to.be.ok()
+        end)
+    end)
+end</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="60">
+          <Properties>
+            <string name="Name">_SetType</string>
+            <string name="Source">export type Set&lt;T> = {[T]: boolean}
+return true</string>
+          </Properties>
+        </Item>
+      </Item>
+    </Item>
+  </Item>
+</roblox>
