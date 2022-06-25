@@ -1,22 +1,343 @@
-<roblox version="4">
-  <Item class="ReplicatedFirst" referent="0">
-    <Properties>
-      <string name="Name">ReplicatedFirst</string>
-    </Properties>
-    <Item class="ModuleScript" referent="1">
-      <Properties>
-        <string name="Name">TableUtil</string>
-        <string name="Source">return {
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Workspace" referent="RBXD1361325A3C64F83BD4DD77E3B2ADD9F">
+		<Properties>
+			<bool name="AllowThirdPartySales">false</bool>
+			<token name="AnimationWeightedBlendFix">0</token>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<token name="ClientAnimatorThrottling">0</token>
+			<string name="CollisionGroups">Default^0^-1</string>
+			<Ref name="CurrentCamera">RBXF27B3FEF21B648D297743584886682F7</Ref>
+			<double name="DistributedGameTime">0</double>
+			<bool name="ExplicitAutoJoints">true</bool>
+			<float name="FallenPartsDestroyHeight">-500</float>
+			<Vector3 name="GlobalWind">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+			</Vector3>
+			<float name="Gravity">196.199997</float>
+			<token name="HumanoidOnlySetCollisionsOnStateChange">0</token>
+			<token name="InterpolationThrottling">0</token>
+			<token name="LevelOfDetail">0</token>
+			<token name="MeshPartHeadsAndAccessories">0</token>
+			<CoordinateFrame name="ModelMeshCFrame">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<SharedString name="ModelMeshData">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
+			<Vector3 name="ModelMeshSize">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+			</Vector3>
+			<string name="Name">Workspace</string>
+			<bool name="NeedsPivotMigration">false</bool>
+			<token name="PhysicsInertiaAndVolumeFix">0</token>
+			<token name="PhysicsSteppingMethod">0</token>
+			<Ref name="PrimaryPart">null</Ref>
+			<token name="ReplicateInstanceDestroySetting">0</token>
+			<token name="Retargeting">0</token>
+			<token name="SignalBehavior">0</token>
+			<int64 name="SourceAssetId">-1</int64>
+			<token name="StreamOutBehavior">0</token>
+			<bool name="StreamingEnabled">false</bool>
+			<int name="StreamingMinRadius">64</int>
+			<token name="StreamingPauseMode">0</token>
+			<int name="StreamingTargetRadius">1024</int>
+			<BinaryString name="Tags"></BinaryString>
+			<bool name="TerrainWeldsFixed">true</bool>
+			<bool name="TouchesUseCollisionGroups">false</bool>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001e0ea</UniqueId>
+			<OptionalCoordinateFrame name="WorldPivotData">
+				<CFrame>
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CFrame>
+			</OptionalCoordinateFrame>
+		</Properties>
+		<Item class="Camera" referent="RBXF27B3FEF21B648D297743584886682F7">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<CoordinateFrame name="CFrame">
+					<X>10.7506285</X>
+					<Y>15.2252979</Y>
+					<Z>-19.7745552</Z>
+					<R00>-0.926407576</R00>
+					<R01>0.0932141542</R01>
+					<R02>-0.364801496</R02>
+					<R10>-0</R10>
+					<R11>0.968870997</R11>
+					<R12>0.247566104</R12>
+					<R20>0.376522273</R20>
+					<R21>0.22934711</R21>
+					<R22>-0.897569418</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">70</float>
+				<token name="FieldOfViewMode">0</token>
+				<CoordinateFrame name="Focus">
+					<X>11.4802332</X>
+					<Y>14.7301645</Y>
+					<Z>-17.9794121</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">Camera</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb16</UniqueId>
+			</Properties>
+		</Item>
+		<Item class="Terrain" referent="RBX347B1B199187498987A5BF232F7DDB44">
+			<Properties>
+				<token name="AcquisitionMethod">0</token>
+				<bool name="Anchored">true</bool>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<bool name="CanQuery">true</bool>
+				<bool name="CanTouch">true</bool>
+				<bool name="CastShadow">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<bool name="Decoration">false</bool>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<bool name="Massless">false</bool>
+				<token name="Material">256</token>
+				<BinaryString name="MaterialColors"><![CDATA[AAAAAAAAan8/P39rf2Y/ilY+j35fi21PZmxvZbDqw8faiVpHOi4kHh4lZlw76JxKc3trhHta
+gcLgc4RKxr21zq2UlJSM]]></BinaryString>
+				<string name="MaterialVariantSerialized"></string>
+				<string name="Name">Terrain</string>
+				<BinaryString name="PhysicsGrid">AgMAAAAAAAAAAAAAAAA=</BinaryString>
+				<CoordinateFrame name="PivotOffset">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<int name="RootPriority">0</int>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="SmoothGrid">AQU=</BinaryString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbbd</UniqueId>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<Color3 name="WaterColor">
+					<R>0.0500000007</R>
+					<G>0.330000013</G>
+					<B>0.360000014</B>
+				</Color3>
+				<float name="WaterReflectance">1</float>
+				<float name="WaterTransparency">0.300000012</float>
+				<float name="WaterWaveSize">0.150000006</float>
+				<float name="WaterWaveSpeed">10</float>
+				<Vector3 name="size">
+					<X>2044</X>
+					<Y>252</Y>
+					<Z>2044</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX904F5928EEF345C68DA0DFBD94640AA4">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Script</string>
+				<string name="ScriptGuid">{24B6E9CB-84A6-48A2-BE30-D1B04DB0ECEA}</string>
+				<ProtectedString name="Source"></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">04106338adabb71e02c7f9e70002c6b3</UniqueId>
+			</Properties>
+		</Item>
+	</Item>
+	<Item class="SoundService" referent="RBXE4CDFDDEE4014F99AA25968F2E883BB2">
+		<Properties>
+			<token name="AmbientReverb">0</token>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<float name="DistanceFactor">3.32999992</float>
+			<float name="DopplerScale">1</float>
+			<string name="Name">SoundService</string>
+			<bool name="RespectFilteringEnabled">false</bool>
+			<float name="RolloffScale">1</float>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fac9</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="NonReplicatedCSGDictionaryService" referent="RBX0A282A97F72642FD942DB1B209FF1FAC">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">NonReplicatedCSGDictionaryService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fad5</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="CSGDictionaryService" referent="RBX5BBCBEEAEFAE4732A7439FF8DEE25575">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">CSGDictionaryService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fad6</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="Chat" referent="RBXEE2F62749668475CBE2151ED02FD23CA">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<bool name="BubbleChatEnabled">false</bool>
+			<bool name="LoadDefaultChat">true</bool>
+			<string name="Name">Chat</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fadb</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="TimerService" referent="RBX46C417C5179945BEA2FE4280D91C7336">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">Instance</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fadc</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="Players" referent="RBX4F1FBB0B21C34910B06581E3A3584F34">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<bool name="CharacterAutoLoads">true</bool>
+			<int name="MaxPlayersInternal">12</int>
+			<string name="Name">Players</string>
+			<int name="PreferredPlayersInternal">0</int>
+			<float name="RespawnTime">5</float>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fade</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="ReplicatedFirst" referent="0">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">ReplicatedFirst</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fae2</UniqueId>
+		</Properties>
+		<Item class="ModuleScript" referent="1">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">TableUtil</string>
+				<string name="ScriptGuid">{509A71C9-3D07-48E7-B6D3-4F677814722A}</string>
+				<ProtectedString name="Source"><![CDATA[return {
     Array = require(script:WaitForChild("Array"));
     Dict = require(script:WaitForChild("Map"));
     Map = require(script:WaitForChild("Map"));
     Set = require(script:WaitForChild("Set"));
-};</string>
-      </Properties>
-      <Item class="ModuleScript" referent="2">
-        <Properties>
-          <string name="Name">Array</string>
-          <string name="Source">return {
+};]]></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb81</UniqueId>
+			</Properties>
+			<Item class="ModuleScript" referent="2">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Array</string>
+					<string name="ScriptGuid">{C4C34391-9861-4270-B6C6-98973CC5B091}</string>
+					<ProtectedString name="Source"><![CDATA[return {
     SelectFirst1D = require(script:WaitForChild("SelectFirst1D"));
     SelectLast1D = require(script:WaitForChild("SelectLast1D"));
     FoldRight1D = require(script:WaitForChild("FoldRight1D"));
@@ -31,20 +352,32 @@
     Copy1D = require(script:WaitForChild("Copy1D"));
     Cut1D = require(script:WaitForChild("Cut1D"));
     Map1D = require(script:WaitForChild("Map1D"));
-};</string>
-        </Properties>
-        <Item class="ModuleScript" referent="3">
-          <Properties>
-            <string name="Name">Copy1D</string>
-            <string name="Source">--- Copies an array
+};]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb82</UniqueId>
+				</Properties>
+				<Item class="ModuleScript" referent="3">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Copy1D</string>
+						<string name="ScriptGuid">{980898CB-370A-441C-A7AA-EF4E48E8CA7C}</string>
+						<ProtectedString name="Source"><![CDATA[--- Copies an array
 --- @deprecated Use table.clone instead
-return table.clone</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="4">
-          <Properties>
-            <string name="Name">Copy1D.spec</string>
-            <string name="Source">return function()
+return table.clone]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb83</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="4">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Copy1D.spec</string>
+						<string name="ScriptGuid">{063C7008-E31B-442D-B719-2DB9FF46A567}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Copy1D = require(script.Parent.Copy1D)
 
     describe("Array/Copy1D", function()
@@ -75,21 +408,27 @@ return table.clone</string>
             expect(Copied[4]).to.equal(Original[4])
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="5">
-          <Properties>
-            <string name="Name">Cut1D</string>
-            <string name="Source">--- Cuts a chunk from an array given a starting and ending index - the difference in these indexes can be negative - faster if positive e.g. Cut1D(X, 1, 4) over Cut1D(X, 4, 1)
-local function Cut1D&lt;T>(Array: {T}, From: number, To: number): {T}
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb84</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="5">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Cut1D</string>
+						<string name="ScriptGuid">{620A90F6-730A-4D29-B1C5-E9A8ABB93C82}</string>
+						<ProtectedString name="Source"><![CDATA[--- Cuts a chunk from an array given a starting and ending index - the difference in these indexes can be negative - faster if positive e.g. Cut1D(X, 1, 4) over Cut1D(X, 4, 1)
+local function Cut1D<T>(Array: {T}, From: number, To: number): {T}
     local Size = #Array
 
     assert(From >= 1, "Start index less than 1!")
     assert(To >= 1, "End index greater than 1!")
 
-    assert(From &lt;= Size, "Start index beyond array length!")
-    assert(To &lt;= Size, "End index beyond array length!")
+    assert(From <= Size, "Start index beyond array length!")
+    assert(To <= Size, "End index beyond array length!")
 
     local Diff = To - From
     local Range = math.abs(Diff)
@@ -114,13 +453,19 @@ local function Cut1D&lt;T>(Array: {T}, From: number, To: number): {T}
     return Result
 end
 
-return Cut1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="6">
-          <Properties>
-            <string name="Name">Cut1D.spec</string>
-            <string name="Source">return function()
+return Cut1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb85</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="6">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Cut1D.spec</string>
+						<string name="ScriptGuid">{DBAD3CE6-AEED-46C2-A8E0-54C5F92E8E54}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Cut1D = require(script.Parent.Cut1D)
 
     describe("Array/Cut1D", function()
@@ -170,18 +515,24 @@ return Cut1D</string>
             expect(Result[3]).to.equal(1)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="7">
-          <Properties>
-            <string name="Name">Filter1D</string>
-            <string name="Source">--- Filters an array for all items which satisfy some condition
-local function Filter1D&lt;T>(Array: {T}, Condition: (T, number) -> boolean, Allocate: number?): {T}
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb86</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="7">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Filter1D</string>
+						<string name="ScriptGuid">{59EF3E89-B3BA-4E1A-9528-AAEBE23D44D8}</string>
+						<ProtectedString name="Source"><![CDATA[--- Filters an array for all items which satisfy some condition
+local function Filter1D<T>(Array: {T}, Condition: (T, number) -> boolean, Allocate: number?): {T}
     local Result = table.create(Allocate or 0)
     local Index = 1
 
-    for ItemIndex, Value in ipairs(Array) do
+    for ItemIndex, Value in Array do
         if (Condition(Value, ItemIndex)) then
             Result[Index] = Value
             Index += 1
@@ -191,13 +542,19 @@ local function Filter1D&lt;T>(Array: {T}, Condition: (T, number) -> boolean, All
     return Result
 end
 
-return Filter1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="8">
-          <Properties>
-            <string name="Name">Filter1D.spec</string>
-            <string name="Source">return function()
+return Filter1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb87</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="8">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Filter1D.spec</string>
+						<string name="ScriptGuid">{FE65B8AC-7660-4B26-9D55-F635538A3D6B}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Filter1D = require(script.Parent.Filter1D)
 
     describe("Array/Filter1D", function()
@@ -244,14 +601,20 @@ return Filter1D</string>
             end)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="9">
-          <Properties>
-            <string name="Name">FoldLeft1D</string>
-            <string name="Source">--- Reduces an array to a single value from its left-most value to its right-most value
-local function FoldLeft1D&lt;T>(Array: {T}, Processor: (T, T, number, number) -> T, Initial: T): T
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb88</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="9">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">FoldLeft1D</string>
+						<string name="ScriptGuid">{DB085DFB-938E-4A61-B556-02A90D57BFE9}</string>
+						<ProtectedString name="Source"><![CDATA[--- Reduces an array to a single value from its left-most value to its right-most value
+local function FoldLeft1D<T>(Array: {T}, Processor: (T, T, number, number) -> T, Initial: T): T
     local Aggregate = Initial
     local Size = #Array
 
@@ -262,13 +625,19 @@ local function FoldLeft1D&lt;T>(Array: {T}, Processor: (T, T, number, number) ->
     return Aggregate
 end
 
-return FoldLeft1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="10">
-          <Properties>
-            <string name="Name">FoldLeft1D.spec</string>
-            <string name="Source">return function()
+return FoldLeft1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb89</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="10">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">FoldLeft1D.spec</string>
+						<string name="ScriptGuid">{B465259E-83E9-42FA-A461-245274A21BB7}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local FoldLeft1D = require(script.Parent.FoldLeft1D)
 
     describe("Array/FoldLeft1D", function()
@@ -314,14 +683,20 @@ return FoldLeft1D</string>
             expect(Result).to.equal(10)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="11">
-          <Properties>
-            <string name="Name">FoldRight1D</string>
-            <string name="Source">--- Reduces an array to a single value from its right-most value to its left-most value
-local function FoldRight1D&lt;T>(Array: {T}, Processor: (T, T, number, number) -> T, Initial: T): T
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb8a</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="11">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">FoldRight1D</string>
+						<string name="ScriptGuid">{4109DA01-C6B5-4AC0-AF7D-21B1BB6D9A1F}</string>
+						<ProtectedString name="Source"><![CDATA[--- Reduces an array to a single value from its right-most value to its left-most value
+local function FoldRight1D<T>(Array: {T}, Processor: (T, T, number, number) -> T, Initial: T): T
     local Aggregate = Initial
     local Size = #Array
 
@@ -332,13 +707,19 @@ local function FoldRight1D&lt;T>(Array: {T}, Processor: (T, T, number, number) -
     return Aggregate
 end
 
-return FoldRight1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="12">
-          <Properties>
-            <string name="Name">FoldRight1D.spec</string>
-            <string name="Source">return function()
+return FoldRight1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb8b</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="12">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">FoldRight1D.spec</string>
+						<string name="ScriptGuid">{E0148878-C7A6-4B41-9808-7351EBB46539}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local FoldRight1D = require(script.Parent.FoldRight1D)
 
     describe("Array/FoldRight1D", function()
@@ -384,20 +765,25 @@ return FoldRight1D</string>
             expect(Result).to.equal(10)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="13">
-          <Properties>
-            <string name="Name">Insert1D</string>
-            <string name="Source">--- Inserts a value into an array with an optional "insert at" index
-local function Insert1D&lt;T>(Array: {T}, Value: T, At: number?): {T}
-    local ArraySize = #Array
-    local NewSize = ArraySize + 1
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb8c</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="13">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Insert1D</string>
+						<string name="ScriptGuid">{7C2FF7E9-0CC8-40DA-97E9-0B16BFDB6DC3}</string>
+						<ProtectedString name="Source"><![CDATA[--- Inserts a value into an array with an optional "insert at" index
+local function Insert1D<T>(Array: {T}, Value: T, At: number?): {T}
+    local NewSize = #Array + 1
     local Result = table.create(NewSize)
     At = At or NewSize
 
-    assert(At >= 1 and At &lt;= NewSize, "Insert index out of array range")
+    assert(At >= 1 and At <= NewSize, "Insert index out of array range")
 
     table.move(Array, 1, At - 1, 1, Result)
     Result[At] = Value
@@ -406,13 +792,19 @@ local function Insert1D&lt;T>(Array: {T}, Value: T, At: number?): {T}
     return Result
 end
 
-return Insert1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="14">
-          <Properties>
-            <string name="Name">Insert1D.spec</string>
-            <string name="Source">return function()
+return Insert1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb8d</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="14">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Insert1D.spec</string>
+						<string name="ScriptGuid">{E786FE72-0A57-4EB9-B6F1-9A8366A712B0}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Insert1D = require(script.Parent.Insert1D)
 
     describe("Array/Insert1D", function()
@@ -459,14 +851,20 @@ return Insert1D</string>
             end).to.throw()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="15">
-          <Properties>
-            <string name="Name">Map1D</string>
-            <string name="Source">--- Puts an array's values through a transformation function, mapping the outputs into a new array - nil values will be skipped &amp; will not leave holes in the new array
-local function Map1D&lt;T>(Array: {T}, Operator: (T, number) -> T?, Allocate: number?): {T}
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb8e</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="15">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Map1D</string>
+						<string name="ScriptGuid">{C64DA744-F76E-40F8-95F6-82EC55C2A5DB}</string>
+						<ProtectedString name="Source"><![CDATA[--- Puts an array's values through a transformation function, mapping the outputs into a new array - nil values will be skipped & will not leave holes in the new array
+local function Map1D<T>(Array: {T}, Operator: (T, number) -> T?, Allocate: number?): {T}
     local Result = table.create(Allocate or 0)
     local Index = 1
 
@@ -486,13 +884,19 @@ local function Map1D&lt;T>(Array: {T}, Operator: (T, number) -> T?, Allocate: nu
     return Result
 end
 
-return Map1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="16">
-          <Properties>
-            <string name="Name">Map1D.spec</string>
-            <string name="Source">return function()
+return Map1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb8f</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="16">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Map1D.spec</string>
+						<string name="ScriptGuid">{5F6B416E-565E-4245-AE99-E0A5F560C7BF}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Map1D = require(script.Parent.Map1D)
 
     describe("Array/Map1D", function()
@@ -526,7 +930,7 @@ return Map1D</string>
 
         it("should ignore nil returns from the operation function", function()
             local Result = Map1D({1, 2, 3, 4}, function(Value)
-                if (Value &lt; 3) then
+                if (Value < 3) then
                     return nil
                 end
 
@@ -544,14 +948,20 @@ return Map1D</string>
             end)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="17">
-          <Properties>
-            <string name="Name">Merge1D</string>
-            <string name="Source">--- Merges multiple arrays together, in order
-local function Merge1D&lt;T>(...: {T}): {T}
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb90</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="17">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Merge1D</string>
+						<string name="ScriptGuid">{D11C478F-0EC6-4434-94AA-51DF38BAF032}</string>
+						<ProtectedString name="Source"><![CDATA[--- Merges multiple arrays together, in order
+local function Merge1D<T>(...: {T}): {T}
     local Result = table.clone(select(1, ...))
     local Index = #Result + 1
 
@@ -565,13 +975,19 @@ local function Merge1D&lt;T>(...: {T}): {T}
     return Result
 end
 
-return Merge1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="18">
-          <Properties>
-            <string name="Name">Merge1D.spec</string>
-            <string name="Source">return function()
+return Merge1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb91</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="18">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Merge1D.spec</string>
+						<string name="ScriptGuid">{F10D9FC1-3305-48E1-AE27-0DB3581B2339}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Merge1D = require(script.Parent.Merge1D)
 
     describe("Array/Merge1D", function()
@@ -601,14 +1017,20 @@ return Merge1D</string>
             end
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="19">
-          <Properties>
-            <string name="Name">Remove1D</string>
-            <string name="Source">--- Removes a single element from an array
-local function Remove1D&lt;T>(Array: {T}, Index: number): {T}
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb92</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="19">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Remove1D</string>
+						<string name="ScriptGuid">{7F9C5F2F-50D3-4E4A-B7E4-584208146F73}</string>
+						<ProtectedString name="Source"><![CDATA[--- Removes a single element from an array
+local function Remove1D<T>(Array: {T}, Index: number): {T}
     local ArrayLength = #Array
 
     if (ArrayLength == 0) then
@@ -618,7 +1040,7 @@ local function Remove1D&lt;T>(Array: {T}, Index: number): {T}
     Index = Index or ArrayLength
 
     assert(Index > 0, "Index must be greater than 0!")
-    assert(Index &lt;= ArrayLength, "Index out of bounds!")
+    assert(Index <= ArrayLength, "Index out of bounds!")
 
     local Result = table.create(ArrayLength - 1)
     table.move(Array, 1, Index - 1, 1, Result)
@@ -627,13 +1049,19 @@ local function Remove1D&lt;T>(Array: {T}, Index: number): {T}
     return Result
 end
 
-return Remove1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="20">
-          <Properties>
-            <string name="Name">Remove1D.spec</string>
-            <string name="Source">return function()
+return Remove1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb93</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="20">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Remove1D.spec</string>
+						<string name="ScriptGuid">{7C5DE893-964E-4E99-BC01-7653AF9E304B}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Remove1D = require(script.Parent.Remove1D)
 
     describe("Array/Remove1D", function()
@@ -678,14 +1106,20 @@ return Remove1D</string>
             expect(Result[3]).to.equal(4)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="21">
-          <Properties>
-            <string name="Name">Reverse1D</string>
-            <string name="Source">--- Flips all items in an array
-local function Reverse1D&lt;T>(Array: {T}): {T}
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb94</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="21">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Reverse1D</string>
+						<string name="ScriptGuid">{A318C66D-5DCE-4E72-B926-0CE24729D557}</string>
+						<ProtectedString name="Source"><![CDATA[--- Flips all items in an array
+local function Reverse1D<T>(Array: {T}): {T}
     local ArraySize = #Array
     local Result = table.create(ArraySize)
 
@@ -696,13 +1130,19 @@ local function Reverse1D&lt;T>(Array: {T}): {T}
     return Result
 end
 
-return Reverse1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="22">
-          <Properties>
-            <string name="Name">Reverse1D.spec</string>
-            <string name="Source">return function()
+return Reverse1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb95</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="22">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Reverse1D.spec</string>
+						<string name="ScriptGuid">{639B3F6C-E5AA-4C6C-A248-E85288584717}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Reverse1D = require(script.Parent.Reverse1D)
 
     describe("Array/Reverse1D", function()
@@ -743,14 +1183,20 @@ return Reverse1D</string>
             end
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="23">
-          <Properties>
-            <string name="Name">SelectFirst1D</string>
-            <string name="Source">--- Selects the first item in an array which satisfies some condition
-local function SelectFirst1D&lt;T>(Array: {T}, Condition: (T, number) -> boolean): T?
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb96</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="23">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">SelectFirst1D</string>
+						<string name="ScriptGuid">{2EA68A5C-F4C0-4C2B-8A48-4ED771A50A58}</string>
+						<ProtectedString name="Source"><![CDATA[--- Selects the first item in an array which satisfies some condition
+local function SelectFirst1D<T>(Array: {T}, Condition: (T, number) -> boolean): T?
     for Index = 1, #Array do
         local Value = Array[Index]
 
@@ -762,13 +1208,19 @@ local function SelectFirst1D&lt;T>(Array: {T}, Condition: (T, number) -> boolean
     return nil
 end
 
-return SelectFirst1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="24">
-          <Properties>
-            <string name="Name">SelectFirst1D.spec</string>
-            <string name="Source">return function()
+return SelectFirst1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb97</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="24">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">SelectFirst1D.spec</string>
+						<string name="ScriptGuid">{AD98CEDA-9354-43CE-821E-CA2AAB86FB00}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local SelectFirst1D = require(script.Parent.SelectFirst1D)
 
     describe("Array/SelectFirst1D", function()
@@ -794,14 +1246,20 @@ return SelectFirst1D</string>
             end)).to.equal(4)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="25">
-          <Properties>
-            <string name="Name">SelectLast1D</string>
-            <string name="Source">--- Selects the last item in an array which satisfies some condition
-local function SelectLast1D&lt;T>(Array: {T}, Condition: (T, number) -> boolean): T?
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb98</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="25">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">SelectLast1D</string>
+						<string name="ScriptGuid">{7AC76A15-D7FE-4F69-8544-7C16FD42D1C6}</string>
+						<ProtectedString name="Source"><![CDATA[--- Selects the last item in an array which satisfies some condition
+local function SelectLast1D<T>(Array: {T}, Condition: (T, number) -> boolean): T?
     for Index = #Array, 1, -1 do
         local Value = Array[Index]
 
@@ -813,13 +1271,19 @@ local function SelectLast1D&lt;T>(Array: {T}, Condition: (T, number) -> boolean)
     return nil
 end
 
-return SelectLast1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="26">
-          <Properties>
-            <string name="Name">SelectLast1D.spec</string>
-            <string name="Source">return function()
+return SelectLast1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb99</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="26">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">SelectLast1D.spec</string>
+						<string name="ScriptGuid">{BFFBA6E6-EEB5-433E-A3F5-7E5D44D8678F}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local SelectLast1D = require(script.Parent.SelectLast1D)
 
     describe("Array/SelectLast1D", function()
@@ -845,16 +1309,22 @@ return SelectLast1D</string>
             end)).to.equal(32)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="27">
-          <Properties>
-            <string name="Name">Shuffle1D</string>
-            <string name="Source">local RandomGenerator = Random.new()
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb9a</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="27">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Shuffle1D</string>
+						<string name="ScriptGuid">{D1A4B6FC-ABC3-405F-BE6D-15B6A4711634}</string>
+						<ProtectedString name="Source"><![CDATA[local RandomGenerator = Random.new()
 
 --- Scrambles an array with an optional random seed
-local function Shuffle1D&lt;T>(Array: {T}, Seed: number?): {T}
+local function Shuffle1D<T>(Array: {T}, Seed: number?): {T}
     local Generator = Seed and Random.new(Seed) or RandomGenerator
 
     local ArraySize = #Array
@@ -868,13 +1338,19 @@ local function Shuffle1D&lt;T>(Array: {T}, Seed: number?): {T}
     return Result
 end
 
-return Shuffle1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="28">
-          <Properties>
-            <string name="Name">Shuffle1D.spec</string>
-            <string name="Source">return function()
+return Shuffle1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb9b</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="28">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Shuffle1D.spec</string>
+						<string name="ScriptGuid">{603822F1-CCD3-4644-9188-8491C794B4F1}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Shuffle1D = require(script.Parent.Shuffle1D)
 
     describe("Array/Shuffle1D", function()
@@ -918,26 +1394,38 @@ return Shuffle1D</string>
             expect(Different2).to.equal(true)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="29">
-          <Properties>
-            <string name="Name">Sort1D</string>
-            <string name="Source">--- Copies &amp; sorts an array according to some condition
-local function Sort1D&lt;T>(Array: {T}, Condition: (T, T) -> boolean): {T}
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb9c</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="29">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Sort1D</string>
+						<string name="ScriptGuid">{BA540090-8629-4C0A-8537-52B35C17A186}</string>
+						<ProtectedString name="Source"><![CDATA[--- Copies & sorts an array according to some condition
+local function Sort1D<T>(Array: {T}, Condition: (T, T) -> boolean): {T}
     local Result = table.clone(Array)
     table.sort(Result, Condition)
     return Result
 end
 
-return Sort1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="30">
-          <Properties>
-            <string name="Name">Sort1D.spec</string>
-            <string name="Source">return function()
+return Sort1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb9d</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="30">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Sort1D.spec</string>
+						<string name="ScriptGuid">{2D3125E2-9830-42CB-BAAD-AE330EBA70D4}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Sort1D = require(script.Parent.Sort1D)
 
     describe("Array/Sort1D", function()
@@ -953,7 +1441,7 @@ return Sort1D</string>
 
         it("should sort ascending given an ascending function", function()
             local Result = Sort1D({4, 8, 1, 2}, function(Initial, Other)
-                return Initial &lt; Other
+                return Initial < Other
             end)
 
             expect(Result[1]).to.equal(1)
@@ -973,35 +1461,47 @@ return Sort1D</string>
             expect(Result[4]).to.equal(1)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-      </Item>
-      <Item class="ModuleScript" referent="31">
-        <Properties>
-          <string name="Name">Map</string>
-          <string name="Source">return {
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb9e</UniqueId>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="ModuleScript" referent="31">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Map</string>
+					<string name="ScriptGuid">{B0B3DF66-8625-4EDF-AE10-0B15F1A0EC9A}</string>
+					<ProtectedString name="Source"><![CDATA[return {
     MergeDeep = require(script:WaitForChild("MergeDeep"));
     Filter1D = require(script:WaitForChild("Filter1D"));
     Values1D = require(script:WaitForChild("Values1D"));
     Merge1D = require(script:WaitForChild("Merge1D"));
     Keys1D = require(script:WaitForChild("Keys1D"));
     Map1D = require(script:WaitForChild("Map1D"));
-};</string>
-        </Properties>
-        <Item class="ModuleScript" referent="32">
-          <Properties>
-            <string name="Name">CreateNonOverwritingPatchDeep</string>
-            <string name="Source">--- Creates a "patch template" into another object recursively.
+};]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb9f</UniqueId>
+				</Properties>
+				<Item class="ModuleScript" referent="32">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">CreateNonOverwritingPatchDeep</string>
+						<string name="ScriptGuid">{0FEED340-A1DC-4204-AE6C-01BB2CC620F9}</string>
+						<ProtectedString name="Source"><![CDATA[--- Creates a "patch template" into another object recursively.
 --- This allows us to apply an additional merge to add new fields to values which were not originally nil.
 --- Good use case: want to merge in new default fields to a player's data structure without overwriting existing fields.
---- @todo Return nil if result is empty &amp; wrap top level with another function? That way we trim recursive merge work for the resulting empty tables, which will be the common use case.
+--- @todo Return nil if result is empty & wrap top level with another function? That way we trim recursive merge work for the resulting empty tables, which will be the common use case.
 local TYPE_TABLE = "table"
 
 local function CreateNonOverwritingPatchDeep(Previous, Template)
     local Result = {}
 
-    for Key, Value in pairs(Template) do
+    for Key, Value in Template do
         local ExistingValue = Previous[Key]
 
         if (type(Value) == TYPE_TABLE and type(ExistingValue) == TYPE_TABLE) then
@@ -1019,13 +1519,19 @@ local function CreateNonOverwritingPatchDeep(Previous, Template)
     return Result
 end
 
-return CreateNonOverwritingPatchDeep</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="33">
-          <Properties>
-            <string name="Name">CreateNonOverwritingPatchDeep.spec</string>
-            <string name="Source">return function()
+return CreateNonOverwritingPatchDeep]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fba0</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="33">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">CreateNonOverwritingPatchDeep.spec</string>
+						<string name="ScriptGuid">{91EE8C33-8C07-4687-9682-1939E174B25D}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local CreateNonOverwritingPatchDeep = require(script.Parent.CreateNonOverwritingPatchDeep)
 
     describe("Map/CreateNonOverwritingPatchDeep", function()
@@ -1046,7 +1552,7 @@ return CreateNonOverwritingPatchDeep</string>
 
             local Count = 0
 
-            for _ in pairs(Result) do
+            for _ in Result do
                 Count += 1
             end
 
@@ -1067,7 +1573,7 @@ return CreateNonOverwritingPatchDeep</string>
 
             local Count = 0
 
-            for _ in pairs(Result) do
+            for _ in Result do
                 Count += 1
             end
 
@@ -1106,17 +1612,23 @@ return CreateNonOverwritingPatchDeep</string>
             expect(Result.X.Y.H).to.equal(200)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="34">
-          <Properties>
-            <string name="Name">Filter1D</string>
-            <string name="Source">--- Filters a table for all items which satisfy some condition
-local function Filter1D(Structure, Condition)
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fba1</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="34">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Filter1D</string>
+						<string name="ScriptGuid">{546AC422-2329-4EE8-A703-9C23932FC4F7}</string>
+						<ProtectedString name="Source"><![CDATA[--- Filters a table for all items which satisfy some condition
+local function Filter1D<K, V>(Structure: {[K]: V}, Condition: (V, K) -> boolean): {[K]: V}
     local Result = {}
 
-    for Key, Value in pairs(Structure) do
+    for Key, Value in Structure do
         if (Condition(Value, Key)) then
             Result[Key] = Value
         end
@@ -1125,13 +1637,19 @@ local function Filter1D(Structure, Condition)
     return Result
 end
 
-return Filter1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="35">
-          <Properties>
-            <string name="Name">Filter1D.spec</string>
-            <string name="Source">return function()
+return Filter1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fba2</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="35">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Filter1D.spec</string>
+						<string name="ScriptGuid">{F41F7E46-91E1-40E1-8AC2-1E0775A416B2}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Filter1D = require(script.Parent.Filter1D)
 
     describe("Map/Filter1D", function()
@@ -1173,18 +1691,24 @@ return Filter1D</string>
             expect(Results.C).never.to.be.ok()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="36">
-          <Properties>
-            <string name="Name">Keys1D</string>
-            <string name="Source">--- Obtains the keys from a table
-local function Keys1D(Structure)
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fba3</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="36">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Keys1D</string>
+						<string name="ScriptGuid">{93D4AA20-568B-4371-90F8-C8ECBB490AC0}</string>
+						<ProtectedString name="Source"><![CDATA[--- Obtains the keys from a table
+local function Keys1D<K>(Structure: {[K]: any}): {K}
     local Result = {}
     local Index = 1
 
-    for Key in pairs(Structure) do
+    for Key in Structure do
         Result[Index] = Key
         Index += 1
     end
@@ -1192,13 +1716,19 @@ local function Keys1D(Structure)
     return Result
 end
 
-return Keys1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="37">
-          <Properties>
-            <string name="Name">Keys1D.spec</string>
-            <string name="Source">return function()
+return Keys1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fba4</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="37">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Keys1D.spec</string>
+						<string name="ScriptGuid">{723D6040-ED60-48C5-8A69-7FEEB2914374}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Keys1D = require(script.Parent.Keys1D)
 
     describe("Map/Keys1D", function()
@@ -1220,17 +1750,23 @@ return Keys1D</string>
             expect(table.find(Result, "C")).to.be.ok()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="38">
-          <Properties>
-            <string name="Name">Map1D</string>
-            <string name="Source">--- Puts each key-value pair in a table through a transformation function, mapping the outputs into a new table
-local function Map1D(Structure, Operation)
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fba5</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="38">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Map1D</string>
+						<string name="ScriptGuid">{1228DABB-B7C7-47BD-A97E-1BE560673F6E}</string>
+						<ProtectedString name="Source"><![CDATA[--- Puts each key-value pair in a table through a transformation function, mapping the outputs into a new table
+local function Map1D<K, V, KT, VT>(Structure: {[K]: V}, Operation: (V, K) -> (VT?, KT?)): {[KT | K]: VT}
     local Result = {}
 
-    for Key, Value in pairs(Structure) do
+    for Key, Value in Structure do
         local NewValue, NewKey = Operation(Value, Key)
         Result[NewKey or Key] = NewValue
     end
@@ -1238,13 +1774,19 @@ local function Map1D(Structure, Operation)
     return Result
 end
 
-return Map1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="39">
-          <Properties>
-            <string name="Name">Map1D.spec</string>
-            <string name="Source">return function()
+return Map1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fba6</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="39">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Map1D.spec</string>
+						<string name="ScriptGuid">{59E9C022-4B85-422A-AE5C-3F42B5AAEF78}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Map1D = require(script.Parent.Map1D)
 
     describe("Map/Map1D", function()
@@ -1276,18 +1818,24 @@ return Map1D</string>
             expect(Result.B).never.to.be.ok()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="40">
-          <Properties>
-            <string name="Name">Merge1D</string>
-            <string name="Source">--- Merges various tables together, into a union data type.
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fba7</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="40">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Merge1D</string>
+						<string name="ScriptGuid">{16F9B1C4-189D-4788-B980-EDDAFACA5FE9}</string>
+						<ProtectedString name="Source"><![CDATA[--- Merges various tables together, into a union data type.
 local function Merge1D(...)
     local Result = {}
 
     for Index = 1, select("#", ...) do
-        for Key, Value in pairs(select(Index, ...)) do
+        for Key, Value in select(Index, ...) do
             Result[Key] = Value
         end
     end
@@ -1295,13 +1843,19 @@ local function Merge1D(...)
     return Result
 end
 
-return Merge1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="41">
-          <Properties>
-            <string name="Name">Merge1D.spec</string>
-            <string name="Source">return function()
+return Merge1D :: <K0, V0, K1, V1>({[K0]: V0}, {[K1]: V1}, ...any) -> ({[K0 | K1]: {V0 | V1}})]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fba8</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="41">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Merge1D.spec</string>
+						<string name="ScriptGuid">{48E916E3-371B-4445-B590-C8F7148C9A4C}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Merge1D = require(script.Parent.Merge1D)
 
     describe("Map/Merge1D", function()
@@ -1341,25 +1895,31 @@ return Merge1D</string>
             expect(Result.D).to.equal(4)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="42">
-          <Properties>
-            <string name="Name">MergeDeep</string>
-            <string name="Source">local TYPE_TABLE = "table"
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fba9</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="42">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">MergeDeep</string>
+						<string name="ScriptGuid">{A6B83654-5BA2-4288-ADA0-E1A578580CD1}</string>
+						<ProtectedString name="Source"><![CDATA[local TYPE_TABLE = "table"
 
 --- Creates a new data structure, representing the recursive merge of one table into another. Ensures structural sharing.
 local function MergeDeep(Structure, Into)
     local Result = {}
 
     -- Copy top level
-    for Key, Value in pairs(Into) do
+    for Key, Value in Into do
         Result[Key] = Value
     end
 
     -- Structure overwrites
-    for Key, Value in pairs(Structure) do
+    for Key, Value in Structure do
         if (type(Value) ~= TYPE_TABLE) then
             Result[Key] = Value
             continue
@@ -1373,18 +1933,24 @@ local function MergeDeep(Structure, Into)
     return Result
 end
 
-return MergeDeep</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="43">
-          <Properties>
-            <string name="Name">Values1D</string>
-            <string name="Source">--- Obtains the values from a table
-local function Values1D(Structure)
+return MergeDeep]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbaa</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="43">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Values1D</string>
+						<string name="ScriptGuid">{36053ACC-83F2-4F34-931C-465D23CDE562}</string>
+						<ProtectedString name="Source"><![CDATA[--- Obtains the values from a table
+local function Values1D<T>(Structure: {[any]: T}): T
     local Result = {}
     local Index = 1
 
-    for _, Value in pairs(Structure) do
+    for _, Value in Structure do
         Result[Index] = Value
         Index += 1
     end
@@ -1392,13 +1958,19 @@ local function Values1D(Structure)
     return Result
 end
 
-return Values1D</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="44">
-          <Properties>
-            <string name="Name">Values1D.spec</string>
-            <string name="Source">return function()
+return Values1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbab</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="44">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Values1D.spec</string>
+						<string name="ScriptGuid">{A6105DB4-F605-4C07-8071-649208FED5E4}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Values1D = require(script.Parent.Values1D)
 
     describe("Map/Values1D", function()
@@ -1420,14 +1992,20 @@ return Values1D</string>
             expect(table.find(Result, true)).to.be.ok()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-      </Item>
-      <Item class="ModuleScript" referent="45">
-        <Properties>
-          <string name="Name">Set</string>
-          <string name="Source">return {
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbac</UniqueId>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="ModuleScript" referent="45">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Set</string>
+					<string name="ScriptGuid">{F47ECC11-C03E-44D2-BEA0-5606AD28BE9F}</string>
+					<ProtectedString name="Source"><![CDATA[return {
     FromValues = require(script:WaitForChild("FromValues"));
     FromKeys = require(script:WaitForChild("FromKeys"));
 
@@ -1435,23 +2013,29 @@ end</string>
     Negation = require(script:WaitForChild("Negation"));
     Union = require(script:WaitForChild("Union"));
     Outer = require(script:WaitForChild("Outer"));
-};</string>
-        </Properties>
-        <Item class="ModuleScript" referent="46">
-          <Properties>
-            <string name="Name">Equals</string>
-            <string name="Source">--!nonstrict
+};]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbad</UniqueId>
+				</Properties>
+				<Item class="ModuleScript" referent="46">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Equals</string>
+						<string name="ScriptGuid">{889D6FEB-144B-49CB-8D20-B4143C242E96}</string>
+						<ProtectedString name="Source"><![CDATA[--!nonstrict
 local SetType = require(script.Parent:WaitForChild("_SetType"))
-type Set&lt;T> = SetType.Set&lt;T>
+type Set<T> = SetType.Set<T>
 
-local function Equals&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): boolean
-    for Key in pairs(Set1) do
+local function Equals<T>(Set1: Set<T>, Set2: Set<T>): boolean
+    for Key in Set1 do
         if (not Set2[Key]) then
             return false
         end
     end
 
-    for Key in pairs(Set2) do
+    for Key in Set2 do
         if (not Set1[Key]) then
             return false
         end
@@ -1460,13 +2044,19 @@ local function Equals&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): boolean
     return true
 end
 
-return Equals</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="47">
-          <Properties>
-            <string name="Name">Equals.spec</string>
-            <string name="Source">return function()
+return Equals]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbae</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="47">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Equals.spec</string>
+						<string name="ScriptGuid">{4DA40CBB-9F08-4E39-B76A-4510780E6DE0}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local FromValues = require(script.Parent.FromValues)
     local Equals = require(script.Parent.Equals)
 
@@ -1489,33 +2079,45 @@ return Equals</string>
             expect(Equals(FromValues({1, 2, 3}), FromValues({1, 2, 4}))).to.equal(false)
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="48">
-          <Properties>
-            <string name="Name">FromKeys</string>
-            <string name="Source">--!nonstrict
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbaf</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="48">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">FromKeys</string>
+						<string name="ScriptGuid">{51B44294-7259-43D3-937D-A4C95173ECB1}</string>
+						<ProtectedString name="Source"><![CDATA[--!nonstrict
 local SetType = require(script.Parent:WaitForChild("_SetType"))
-type Set&lt;T> = SetType.Set&lt;T>
+type Set<T> = SetType.Set<T>
 
-local function FromKeys&lt;T>(KeysTable: {[T]: any}): Set&lt;T>
+local function FromKeys<T>(KeysTable: {[T]: any}): Set<T>
     local Result = {}
 
-    for Key in pairs(KeysTable) do
+    for Key in KeysTable do
         Result[Key] = true
     end
 
     return Result
 end
 
-return FromKeys</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="49">
-          <Properties>
-            <string name="Name">FromKeys.spec</string>
-            <string name="Source">return function()
+return FromKeys]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbb0</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="49">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">FromKeys.spec</string>
+						<string name="ScriptGuid">{8F9E5AC0-CA4D-4865-98C0-90259A0288E6}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local FromKeys = require(script.Parent.FromKeys)
 
     describe("Set/FromKeys", function()
@@ -1536,33 +2138,45 @@ return FromKeys</string>
             expect(Result.C).to.be.ok()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="50">
-          <Properties>
-            <string name="Name">FromValues</string>
-            <string name="Source">--!nonstrict
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbb1</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="50">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">FromValues</string>
+						<string name="ScriptGuid">{7B9518D5-1FDF-4304-BA9C-9BE2BCA74A5F}</string>
+						<ProtectedString name="Source"><![CDATA[--!nonstrict
 local SetType = require(script.Parent:WaitForChild("_SetType"))
-type Set&lt;T> = SetType.Set&lt;T>
+type Set<T> = SetType.Set<T>
 
-local function FromValues&lt;T>(ValuesTable: {[any]: T}): Set&lt;T>
+local function FromValues<T>(ValuesTable: {[any]: T}): Set<T>
     local Result = {}
 
-    for _, Value in pairs(ValuesTable) do
+    for _, Value in ValuesTable do
         Result[Value] = true
     end
 
     return Result
 end
 
-return FromValues</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="51">
-          <Properties>
-            <string name="Name">FromValues.spec</string>
-            <string name="Source">return function()
+return FromValues]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbb2</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="51">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">FromValues.spec</string>
+						<string name="ScriptGuid">{F54C8DD4-CED3-4D0F-91FC-0108584CB3DD}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local FromValues = require(script.Parent.FromValues)
 
     describe("Set/FromValues", function()
@@ -1583,20 +2197,26 @@ return FromValues</string>
             expect(Result["3"]).to.be.ok()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="52">
-          <Properties>
-            <string name="Name">Intersection</string>
-            <string name="Source">--!nonstrict
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbb3</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="52">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Intersection</string>
+						<string name="ScriptGuid">{B1B17A99-9DC7-430C-862A-04EFACD9567F}</string>
+						<ProtectedString name="Source"><![CDATA[--!nonstrict
 local SetType = require(script.Parent:WaitForChild("_SetType"))
-type Set&lt;T> = SetType.Set&lt;T>
+type Set<T> = SetType.Set<T>
 
-local function Intersection&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
+local function Intersection<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
     local Result = {}
 
-    for Key in pairs(Set1) do
+    for Key in Set1 do
         if (Set2[Key] and Set1[Key]) then
             Result[Key] = true
         end
@@ -1605,13 +2225,19 @@ local function Intersection&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
     return Result
 end
 
-return Intersection</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="53">
-          <Properties>
-            <string name="Name">Intersection.spec</string>
-            <string name="Source">return function()
+return Intersection]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbb4</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="53">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Intersection.spec</string>
+						<string name="ScriptGuid">{FA7B93A6-4D3F-4055-9EB2-586D1845C3F1}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Intersection = require(script.Parent.Intersection)
     local FromValues = require(script.Parent.FromValues)
 
@@ -1636,20 +2262,26 @@ return Intersection</string>
             expect(Result.Y).never.to.be.ok()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="54">
-          <Properties>
-            <string name="Name">Negation</string>
-            <string name="Source">--!nonstrict
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbb5</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="54">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Negation</string>
+						<string name="ScriptGuid">{9EC8543B-2CD6-4A6E-A7C6-EC391BA14E53}</string>
+						<ProtectedString name="Source"><![CDATA[--!nonstrict
 local SetType = require(script.Parent:WaitForChild("_SetType"))
-type Set&lt;T> = SetType.Set&lt;T>
+type Set<T> = SetType.Set<T>
 
-local function Negation&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
+local function Negation<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
     local Result = {}
 
-    for Key in pairs(Set1) do
+    for Key in Set1 do
         if (Set2[Key] == nil) then
             Result[Key] = true
         end
@@ -1658,13 +2290,19 @@ local function Negation&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
     return Result
 end
 
-return Negation</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="55">
-          <Properties>
-            <string name="Name">Negation.spec</string>
-            <string name="Source">return function()
+return Negation]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbb6</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="55">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Negation.spec</string>
+						<string name="ScriptGuid">{97003467-CC52-4B11-8156-FE8B2AF1F3C3}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Negation = require(script.Parent.Negation)
     local FromValues = require(script.Parent.FromValues)
 
@@ -1689,26 +2327,32 @@ return Negation</string>
             expect(Result[2]).to.be.ok()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="56">
-          <Properties>
-            <string name="Name">Outer</string>
-            <string name="Source">--!nonstrict
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbb7</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="56">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Outer</string>
+						<string name="ScriptGuid">{9B4A8CA9-D251-462B-B4A1-FBBD0882DE15}</string>
+						<ProtectedString name="Source"><![CDATA[--!nonstrict
 local SetType = require(script.Parent:WaitForChild("_SetType"))
-type Set&lt;T> = SetType.Set&lt;T>
+type Set<T> = SetType.Set<T>
 
-local function Outer&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
+local function Outer<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
     local Result = {}
 
-    for Key in pairs(Set1) do
+    for Key in Set1 do
         if (not (Set2[Key] and Set1[Key])) then
             Result[Key] = true
         end
     end
 
-    for Key in pairs(Set2) do
+    for Key in Set2 do
         if (not (Set2[Key] and Set1[Key])) then
             Result[Key] = true
         end
@@ -1717,13 +2361,19 @@ local function Outer&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
     return Result
 end
 
-return Outer</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="57">
-          <Properties>
-            <string name="Name">Outer.spec</string>
-            <string name="Source">return function()
+return Outer]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbb8</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="57">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Outer.spec</string>
+						<string name="ScriptGuid">{AF4E5F2F-BE67-40CF-A57D-837DBF41C127}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Outer = require(script.Parent.Outer)
     local FromValues = require(script.Parent.FromValues)
 
@@ -1757,17 +2407,23 @@ return Outer</string>
             expect(Result[6]).to.be.ok()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="58">
-          <Properties>
-            <string name="Name">Union</string>
-            <string name="Source">--!nonstrict
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbb9</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="58">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Union</string>
+						<string name="ScriptGuid">{D7B41669-8089-4ED5-B242-3CECBB947E1E}</string>
+						<ProtectedString name="Source"><![CDATA[--!nonstrict
 local SetType = require(script.Parent:WaitForChild("_SetType"))
-type Set&lt;T> = SetType.Set&lt;T>
+type Set<T> = SetType.Set<T>
 
-local function Union&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
+local function Union<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
     if (next(Set1) == nil) then
         return Set2
     end
@@ -1778,24 +2434,30 @@ local function Union&lt;T>(Set1: Set&lt;T>, Set2: Set&lt;T>): Set&lt;T>
 
     local Result = {}
 
-    for Key in pairs(Set1) do
+    for Key in Set1 do
         Result[Key] = true
     end
 
-    for Key in pairs(Set2) do
+    for Key in Set2 do
         Result[Key] = true
     end
 
     return Result
 end
 
-return Union</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="59">
-          <Properties>
-            <string name="Name">Union.spec</string>
-            <string name="Source">return function()
+return Union]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbba</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="59">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Union.spec</string>
+						<string name="ScriptGuid">{340F1A0B-6133-4A06-B247-1B8EBDFE614B}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
     local Union = require(script.Parent.Union)
     local FromValues = require(script.Parent.FromValues)
 
@@ -1823,11 +2485,11 @@ return Union</string>
             local A = FromValues({"x", "y", "z"})
             local B = FromValues({"x", "y", "z"})
 
-            for Key in pairs(A) do
+            for Key in A do
                 expect(B[Key]).to.equal(A[Key])
             end
 
-            for Key in pairs(B) do
+            for Key in B do
                 expect(A[Key]).to.equal(B[Key])
             end
         end)
@@ -1845,17 +2507,563 @@ return Union</string>
             expect(Merge.R).to.be.ok()
         end)
     end)
-end</string>
-          </Properties>
-        </Item>
-        <Item class="ModuleScript" referent="60">
-          <Properties>
-            <string name="Name">_SetType</string>
-            <string name="Source">export type Set&lt;T> = {[T]: boolean}
-return true</string>
-          </Properties>
-        </Item>
-      </Item>
-    </Item>
-  </Item>
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbbb</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="60">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">_SetType</string>
+						<string name="ScriptGuid">{EDEFFD45-29CC-4511-8F51-2B8059A011D4}</string>
+						<ProtectedString name="Source"><![CDATA[export type Set<T> = {[T]: boolean}
+return true]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbbc</UniqueId>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+	</Item>
+	<Item class="TweenService" referent="RBX450DB6E45D464419A7A69D9CE73FA376">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">TweenService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fae4</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="MaterialService" referent="RBXD7CB13472A7B4145B8027D25425EBA76">
+		<Properties>
+			<string name="AsphaltName">Asphalt</string>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="BasaltName">Basalt</string>
+			<string name="BrickName">Brick</string>
+			<string name="CobblestoneName">Cobblestone</string>
+			<string name="ConcreteName">Concrete</string>
+			<string name="CorrodedMetalName">CorrodedMetal</string>
+			<string name="CrackedLavaName">CrackedLava</string>
+			<string name="DiamondPlateName">DiamondPlate</string>
+			<string name="FabricName">Fabric</string>
+			<string name="FoilName">Foil</string>
+			<string name="GlacierName">Glacier</string>
+			<string name="GraniteName">Granite</string>
+			<string name="GrassName">Grass</string>
+			<string name="GroundName">Ground</string>
+			<string name="IceName">Ice</string>
+			<string name="LeafyGrassName">LeafyGrass</string>
+			<string name="LimestoneName">Limestone</string>
+			<string name="MarbleName">Marble</string>
+			<string name="MetalName">Metal</string>
+			<string name="MudName">Mud</string>
+			<string name="Name">MaterialService</string>
+			<string name="PavementName">Pavement</string>
+			<string name="PebbleName">Pebble</string>
+			<string name="PlasticName">Plastic</string>
+			<string name="RockName">Rock</string>
+			<string name="SaltName">Salt</string>
+			<string name="SandName">Sand</string>
+			<string name="SandstoneName">Sandstone</string>
+			<string name="SlateName">Slate</string>
+			<string name="SmoothPlasticName">SmoothPlastic</string>
+			<string name="SnowName">Snow</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fae5</UniqueId>
+			<bool name="Use2022MaterialsXml">false</bool>
+			<string name="WoodName">Wood</string>
+			<string name="WoodPlanksName">WoodPlanks</string>
+		</Properties>
+	</Item>
+	<Item class="TextChatService" referent="RBX547BFE7338C9496390C0BC63A2F718CC">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<token name="ChatVersion">0</token>
+			<bool name="CreateDefaultCommands">true</bool>
+			<bool name="CreateDefaultTextChannels">true</bool>
+			<string name="Name">TextChatService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fae6</UniqueId>
+		</Properties>
+		<Item class="ChatWindowConfiguration" referent="RBX9B39228A5A91418884E258F817695C53">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="Enabled">true</bool>
+				<string name="Name">ChatWindowConfiguration</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbc0</UniqueId>
+			</Properties>
+		</Item>
+		<Item class="ChatInputBarConfiguration" referent="RBXCEFC466DC7914C5E82D92BD57ED75357">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="Enabled">true</bool>
+				<string name="Name">ChatInputBarConfiguration</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<Ref name="TargetTextChannel">null</Ref>
+				<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbc1</UniqueId>
+			</Properties>
+		</Item>
+	</Item>
+	<Item class="PermissionsService" referent="RBX32F54731E61843A3B7433DEBB2C7B2C4">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">PermissionsService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001faea</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="PlayerEmulatorService" referent="RBXFDCE0D7EF4D94F398BB6A6ADB9CBE98C">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<bool name="CustomPoliciesEnabled">false</bool>
+			<string name="EmulatedCountryCode"></string>
+			<string name="EmulatedGameLocale"></string>
+			<string name="Name">PlayerEmulatorService</string>
+			<bool name="PlayerEmulationEnabled">false</bool>
+			<BinaryString name="SerializedEmulatedPolicyInfo"></BinaryString>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001faec</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="StudioData" referent="RBX004E7CCC9F814051A7D35D0C2C3099DD">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<int64 name="CommitInflightAuthorId">0</int64>
+			<string name="CommitInflightGuid"></string>
+			<int name="CommitInflightPlaceVersion">0</int>
+			<bool name="EnableScriptCollabByDefaultOnLoad">false</bool>
+			<string name="Name">StudioData</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<int64 name="SrcPlaceId">0</int64>
+			<int64 name="SrcUniverseId">0</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001faef</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="StarterPlayer" referent="RBX9ED6C122EEF84654A29D4F1ABC459CAD">
+		<Properties>
+			<bool name="AllowCustomAnimations">true</bool>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<bool name="AutoJumpEnabled">true</bool>
+			<float name="CameraMaxZoomDistance">400</float>
+			<float name="CameraMinZoomDistance">0.5</float>
+			<token name="CameraMode">0</token>
+			<float name="CharacterJumpHeight">7.19999981</float>
+			<float name="CharacterJumpPower">50</float>
+			<float name="CharacterMaxSlopeAngle">89</float>
+			<bool name="CharacterUseJumpPower">true</bool>
+			<float name="CharacterWalkSpeed">16</float>
+			<token name="DevCameraOcclusionMode">0</token>
+			<token name="DevComputerCameraMovementMode">0</token>
+			<token name="DevComputerMovementMode">0</token>
+			<token name="DevTouchCameraMovementMode">0</token>
+			<token name="DevTouchMovementMode">0</token>
+			<bool name="EnableMouseLockOption">true</bool>
+			<int64 name="GameSettingsAssetIDFace">0</int64>
+			<int64 name="GameSettingsAssetIDHead">0</int64>
+			<int64 name="GameSettingsAssetIDLeftArm">0</int64>
+			<int64 name="GameSettingsAssetIDLeftLeg">0</int64>
+			<int64 name="GameSettingsAssetIDPants">0</int64>
+			<int64 name="GameSettingsAssetIDRightArm">0</int64>
+			<int64 name="GameSettingsAssetIDRightLeg">0</int64>
+			<int64 name="GameSettingsAssetIDShirt">0</int64>
+			<int64 name="GameSettingsAssetIDTeeShirt">0</int64>
+			<int64 name="GameSettingsAssetIDTorso">0</int64>
+			<token name="GameSettingsAvatar">1</token>
+			<token name="GameSettingsR15Collision">0</token>
+			<NumberRange name="GameSettingsScaleRangeBodyType">0 1 </NumberRange>
+			<NumberRange name="GameSettingsScaleRangeHead">0.95 1 </NumberRange>
+			<NumberRange name="GameSettingsScaleRangeHeight">0.9 1.05 </NumberRange>
+			<NumberRange name="GameSettingsScaleRangeProportion">0 1 </NumberRange>
+			<NumberRange name="GameSettingsScaleRangeWidth">0.7 1 </NumberRange>
+			<float name="HealthDisplayDistance">100</float>
+			<bool name="LoadCharacterAppearance">true</bool>
+			<token name="LoadCharacterLayeredClothing">0</token>
+			<string name="Name">StarterPlayer</string>
+			<float name="NameDisplayDistance">100</float>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001faf0</UniqueId>
+			<bool name="UserEmotesEnabled">true</bool>
+		</Properties>
+		<Item class="StarterPlayerScripts" referent="RBXB6718F6E6EB146B4A7B228011B7B9337">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<string name="Name">StarterPlayerScripts</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbbe</UniqueId>
+			</Properties>
+		</Item>
+		<Item class="StarterCharacterScripts" referent="RBX9CA62B2D43BB4E5ABF9DFFFA7FAF7B72">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<string name="Name">StarterCharacterScripts</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fbbf</UniqueId>
+			</Properties>
+		</Item>
+	</Item>
+	<Item class="StarterPack" referent="RBXBC6BBC59420C42C3B5AE1D07DC63CE1E">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">StarterPack</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001faf1</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="StarterGui" referent="RBXEDCC8EE0E54C4B47BDF9D3150ED96AB9">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">StarterGui</string>
+			<bool name="ResetPlayerGuiOnSpawn">true</bool>
+			<token name="ScreenOrientation">2</token>
+			<bool name="ShowDevelopmentGui">true</bool>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001faf2</UniqueId>
+			<token name="VirtualCursorMode">0</token>
+		</Properties>
+	</Item>
+	<Item class="LocalizationService" referent="RBXC6B5F7D808D24FA7909C25E12844B8AC">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">LocalizationService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001faf4</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="TeleportService" referent="RBX2EA64667016441FDAC4396907FEF70A9">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">Teleport Service</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001faf8</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="CollectionService" referent="RBXBB3ADCD66434459A875B4E07045955D0">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">CollectionService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fafa</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="PhysicsService" referent="RBXAB11FF1C34834FE5A2C8097FC85E9F4A">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">PhysicsService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fafb</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="Geometry" referent="RBXE18DC025F1AB49AF9443A0BB8E1A111B">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">Geometry</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fafd</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="InsertService" referent="RBXB6D2B0F426CE4C1280C4338E6C988D5B">
+		<Properties>
+			<bool name="AllowClientInsertModels">false</bool>
+			<bool name="AllowInsertFreeModels">false</bool>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">InsertService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001faff</UniqueId>
+		</Properties>
+		<Item class="StringValue" referent="RBXA028BCC22F054037B97A70CD2EED3AD1">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<string name="Name">InsertionHash</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">04106338adabb71e02c7f9e70002c61c</UniqueId>
+				<string name="Value">{71FF7C8E-E7C3-4001-B4C6-0AB7CE6DADD2}</string>
+			</Properties>
+		</Item>
+	</Item>
+	<Item class="GamePassService" referent="RBX27B6D50319F04584876A6ACB2DCA39D2">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">GamePassService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb00</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="Debris" referent="RBX3AF45B337F584ADE9163B166C1B0FB6D">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<int name="MaxItems">1000</int>
+			<string name="Name">Debris</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb01</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="CookiesService" referent="RBXEB9CAEA3D6714054901801138575AD17">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">CookiesService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb02</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="VRService" referent="RBXE174C5EAF4F741A0AA407D7480098815">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">VRService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb0c</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="ContextActionService" referent="RBX0868E692100542488EE5191758FEE8C0">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">ContextActionService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb0e</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="ScriptService" referent="RBX0DDDD216F01240A187D3348BDDE0D89F">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">Instance</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb10</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="AssetService" referent="RBX7C61C59237924952B556632BE100D863">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">AssetService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb11</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="TouchInputService" referent="RBXFB57BF1C6AE946E49C5DD5BCE9968DDE">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">TouchInputService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb12</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="AnalyticsService" referent="RBXCB596903F2AD47A89065A48FFF4221C8">
+		<Properties>
+			<string name="ApiKey"></string>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">AnalyticsService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb15</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="Selection" referent="RBX6DE4EF8ABF3D4095AEE66FEC12A1A461">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">Selection</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb18</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="ServerScriptService" referent="RBXB0F3831AB2BC4707A7D6975B2D8C87D6">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<bool name="LoadStringEnabled">false</bool>
+			<string name="Name">ServerScriptService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb1a</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="ServerStorage" referent="RBXB4236EBC51484422A49420D5BA49ADAC">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">ServerStorage</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb1b</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="ReplicatedStorage" referent="RBX10634B7992E84A53A1CA4E383CF9E1FB">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">ReplicatedStorage</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb1c</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="LuaWebService" referent="RBX112938666CAD4D5481960BB75216BBF2">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">Instance</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb23</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="ProcessInstancePhysicsService" referent="RBXF8878E4C264C4E85A16A532652B624D0">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">ProcessInstancePhysicsService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb24</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="Lighting" referent="RBX1B50D25660DB488CA84ADA5ED91C3375">
+		<Properties>
+			<Color3 name="Ambient">
+				<R>0.5</R>
+				<G>0.5</G>
+				<B>0.5</B>
+			</Color3>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<float name="Brightness">1</float>
+			<Color3 name="ColorShift_Bottom">
+				<R>0</R>
+				<G>0</G>
+				<B>0</B>
+			</Color3>
+			<Color3 name="ColorShift_Top">
+				<R>0</R>
+				<G>0</G>
+				<B>0</B>
+			</Color3>
+			<float name="EnvironmentDiffuseScale">0</float>
+			<float name="EnvironmentSpecularScale">0</float>
+			<float name="ExposureCompensation">0</float>
+			<Color3 name="FogColor">
+				<R>0.75</R>
+				<G>0.75</G>
+				<B>0.75</B>
+			</Color3>
+			<float name="FogEnd">100000</float>
+			<float name="FogStart">0</float>
+			<float name="GeographicLatitude">41.7332993</float>
+			<bool name="GlobalShadows">false</bool>
+			<string name="Name">Lighting</string>
+			<Color3 name="OutdoorAmbient">
+				<R>0.5</R>
+				<G>0.5</G>
+				<B>0.5</B>
+			</Color3>
+			<bool name="Outlines">true</bool>
+			<float name="ShadowSoftness">0.5</float>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<token name="Technology">2</token>
+			<string name="TimeOfDay">14:00:00</string>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb50</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="LodDataService" referent="RBX3301B78D1CE44FA68AEB318239FF1DA4">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">Instance</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70001fb53</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="HttpService" referent="RBX0BC6C8BD879441509DFA02C1FFE18BAD">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<bool name="HttpEnabled">false</bool>
+			<string name="Name">HttpService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e700027c32</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="Teams" referent="RBX05AF6AC7747844B4AEC0BA5CDEBDB10A">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">Teams</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70002b3ea</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="VirtualInputManager" referent="RBX7C678ACD7806472EB6D921DCC6A3E50C">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">VirtualInputManager</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70002b408</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="LanguageService" referent="RBX32C16A8D974B477DB3FB10AB8F868BAF">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">LanguageService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70002b643</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="ProximityPromptService" referent="RBX6B9D11C8FDDD401DA231CC7AA5BBF707">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<bool name="Enabled">true</bool>
+			<int name="MaxPromptsVisible">16</int>
+			<string name="Name">ProximityPromptService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70002b7dd</UniqueId>
+		</Properties>
+	</Item>
+	<Item class="TestService" referent="RBX6072773E85F34ED2AE40B62530F79894">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<bool name="AutoRuns">true</bool>
+			<string name="Description"></string>
+			<bool name="ExecuteWithStudioRun">false</bool>
+			<bool name="Is30FpsThrottleEnabled">true</bool>
+			<bool name="IsPhysicsEnvironmentalThrottled">true</bool>
+			<bool name="IsSleepAllowed">true</bool>
+			<string name="Name">TestService</string>
+			<int name="NumberOfPlayers">0</int>
+			<double name="SimulateSecondsLag">0</double>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+			<double name="Timeout">10</double>
+			<UniqueId name="UniqueId">04106338adabb71e02c7f9e70002c663</UniqueId>
+		</Properties>
+	</Item>
+	<SharedStrings>
+		<SharedString md5="yuZpQdnvvUBOTYh1jqZ2cA=="></SharedString>
+	</SharedStrings>
 </roblox>

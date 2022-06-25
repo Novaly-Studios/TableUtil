@@ -5,7 +5,7 @@ type Set<T> = SetType.Set<T>
 local function FromValues<T>(ValuesTable: {[any]: T}): Set<T>
     local Result = {}
 
-    for _, Value in pairs(ValuesTable) do
+    for _, Value in ValuesTable do
         Result[Value] = true
     end
 

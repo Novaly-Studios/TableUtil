@@ -5,12 +5,12 @@ local function MergeDeep(Structure, Into)
     local Result = {}
 
     -- Copy top level
-    for Key, Value in pairs(Into) do
+    for Key, Value in Into do
         Result[Key] = Value
     end
 
     -- Structure overwrites
-    for Key, Value in pairs(Structure) do
+    for Key, Value in Structure do
         if (type(Value) ~= TYPE_TABLE) then
             Result[Key] = Value
             continue

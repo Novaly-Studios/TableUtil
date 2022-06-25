@@ -7,7 +7,7 @@ local TYPE_TABLE = "table"
 local function CreateNonOverwritingPatchDeep(Previous, Template)
     local Result = {}
 
-    for Key, Value in pairs(Template) do
+    for Key, Value in Template do
         local ExistingValue = Previous[Key]
 
         if (type(Value) == TYPE_TABLE and type(ExistingValue) == TYPE_TABLE) then

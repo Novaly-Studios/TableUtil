@@ -1,9 +1,9 @@
 --- Obtains the keys from a table
-local function Keys1D(Structure)
+local function Keys1D<K>(Structure: {[K]: any}): {K}
     local Result = {}
     local Index = 1
 
-    for Key in pairs(Structure) do
+    for Key in Structure do
         Result[Index] = Key
         Index += 1
     end
