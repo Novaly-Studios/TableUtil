@@ -3,7 +3,7 @@ local function Filter1D<T>(Array: {T}, Condition: (T, number) -> boolean, Alloca
     local Result = table.create(Allocate or 0)
     local Index = 1
 
-    for ItemIndex, Value in ipairs(Array) do
+    for ItemIndex, Value in Array do
         if (Condition(Value, ItemIndex)) then
             Result[Index] = Value
             Index += 1

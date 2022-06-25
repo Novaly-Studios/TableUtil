@@ -19,7 +19,7 @@ return function()
 
             local Count = 0
 
-            for _ in pairs(Result) do
+            for _ in Result do
                 Count += 1
             end
 
@@ -40,7 +40,7 @@ return function()
 
             local Count = 0
 
-            for _ in pairs(Result) do
+            for _ in Result do
                 Count += 1
             end
 

@@ -26,11 +26,11 @@ return function()
             local A = FromValues({"x", "y", "z"})
             local B = FromValues({"x", "y", "z"})
 
-            for Key in pairs(A) do
+            for Key in A do
                 expect(B[Key]).to.equal(A[Key])
             end
 
-            for Key in pairs(B) do
+            for Key in B do
                 expect(A[Key]).to.equal(B[Key])
             end
         end)

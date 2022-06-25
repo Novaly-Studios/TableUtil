@@ -13,11 +13,11 @@ local function Union<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
 
     local Result = {}
 
-    for Key in pairs(Set1) do
+    for Key in Set1 do
         Result[Key] = true
     end
 
-    for Key in pairs(Set2) do
+    for Key in Set2 do
         Result[Key] = true
     end
 
