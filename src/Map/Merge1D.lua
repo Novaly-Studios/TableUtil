@@ -3,6 +3,12 @@ local function Merge1D(...)
     local Result = {}
 
     for Index = 1, select("#", ...) do
+        local Table = select(Index, ...)
+
+        if (not Table) then
+            continue
+        end
+
         for Key, Value in select(Index, ...) do
             Result[Key] = Value
         end
