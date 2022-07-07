@@ -5,6 +5,11 @@ local function Merge1D<T>(...: {T}): {T}
 
     for SubArrayIndex = 2, select("#", ...) do
         local SubArray = select(SubArrayIndex, ...)
+
+        if (not SubArray) then
+            continue
+        end
+
         local Size = #SubArray
         table.move(SubArray, 1, Size, Index, Result)
         Index += Size
