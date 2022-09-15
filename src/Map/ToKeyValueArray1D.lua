@@ -1,4 +1,4 @@
-local function ToKeyValuePairs1D<K, V>(Structure: {[K]: V}): {{Key: K, Value: V}}
+local function ToKeyValueArray1D<K, V>(Structure: {[K]: V}): {{Key: K, Value: V}}
     local Result = {}
 
     for Key, Value in Structure do
@@ -11,4 +11,4 @@ local function ToKeyValuePairs1D<K, V>(Structure: {[K]: V}): {{Key: K, Value: V}
     return Result
 end
 
-return ToKeyValuePairs1D
+return ToKeyValueArray1D

@@ -2249,6 +2249,83 @@ end]]></ProtectedString>
 						<UniqueId name="UniqueId">7eba3597f692b7fc03344ea10002fcfa</UniqueId>
 					</Properties>
 				</Item>
+				<Item class="ModuleScript" referent="RBX72FDEC46B2C44764ACBB508D86B427EF">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">ToKeyValueArray1D</string>
+						<string name="ScriptGuid">{4120227C-D0C0-468B-B61F-A1FE2CEB42FA}</string>
+						<ProtectedString name="Source"><![CDATA[local function ToKeyValueArray1D<K, V>(Structure: {[K]: V}): {{Key: K, Value: V}}
+    local Result = {}
+
+    for Key, Value in Structure do
+        table.insert(Result, {
+            Key = Key;
+            Value = Value;
+        })
+    end
+
+    return Result
+end
+
+return ToKeyValueArray1D]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">5b80fd3fb4682776033466b40002f834</UniqueId>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="RBXD0369C77CDFE42B7811EDE78C9CD92C7">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">ToKeyValueArray1D.spec</string>
+						<string name="ScriptGuid">{D9ABE727-7F2C-45E8-AB94-05C8DDACC198}</string>
+						<ProtectedString name="Source"><![CDATA[return function()
+    local ToKeyValueArray1D = require(script.Parent.ToKeyValueArray1D)
+
+    describe("Map/ToKeyValueArray1D", function()
+        it("should return a blank array given an empty table", function()
+            expect(#ToKeyValueArray1D({})).to.equal(0)
+        end)
+
+        it("should return a single key-value pair for a single item table", function()
+            local Result = ToKeyValueArray1D({A = 1})
+            expect(#Result).to.equal(1)
+            expect(Result[1].Key).to.equal("A")
+            expect(Result[1].Value).to.equal(1)
+        end)
+
+        it("should return a key-value pair for each item in the table", function()
+            local Result = ToKeyValueArray1D({A = 1, B = 2, C = 3})
+            expect(#Result).to.equal(3)
+
+            local function ArrayItemSatisfies(Condition)
+                for _, Pair in Result do
+                    if Condition(Pair) then
+                        return true
+                    end
+                end
+            end
+
+            expect(ArrayItemSatisfies(function(Pair)
+                return Pair.Key == "A" and Pair.Value == 1
+            end)).to.equal(true)
+
+            expect(ArrayItemSatisfies(function(Pair)
+                return Pair.Key == "B" and Pair.Value == 2
+            end)).to.equal(true)
+
+            expect(ArrayItemSatisfies(function(Pair)
+                return Pair.Key == "C" and Pair.Value == 3
+            end)).to.equal(true)
+        end)
+    end)
+end]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<UniqueId name="UniqueId">5b80fd3fb4682776033466b40002f836</UniqueId>
+					</Properties>
+				</Item>
 			</Item>
 			<Item class="ModuleScript" referent="45">
 				<Properties>
