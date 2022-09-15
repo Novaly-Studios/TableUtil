@@ -980,6 +980,11 @@ local function Merge1D<T>(...: {T}): {T}
 
     for SubArrayIndex = 2, select("#", ...) do
         local SubArray = select(SubArrayIndex, ...)
+
+        if (not SubArray) then
+            continue
+        end
+
         local Size = #SubArray
         table.move(SubArray, 1, Size, Index, Result)
         Index += Size
@@ -1848,6 +1853,12 @@ local function Merge1D(...)
     local Result = {}
 
     for Index = 1, select("#", ...) do
+        local Table = select(Index, ...)
+
+        if (not Table) then
+            continue
+        end
+
         for Key, Value in select(Index, ...) do
             Result[Key] = Value
         end
