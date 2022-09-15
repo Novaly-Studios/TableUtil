@@ -1,4 +1,4 @@
-return {
+local Result = {
     FromValues = require(script:WaitForChild("FromValues"));
     FromKeys = require(script:WaitForChild("FromKeys"));
 
@@ -7,3 +7,11 @@ return {
     Union = require(script:WaitForChild("Union"));
     Outer = require(script:WaitForChild("Outer"));
 };
+
+setmetatable(Result, { -- Allows for Set({"X", "Y", "Z"})
+    __call = function(_, ...)
+        return Result.FromValues(...)
+    end;
+})
+
+return Result
