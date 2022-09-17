@@ -1,4 +1,4 @@
---- Obtains the keys from a table
+--- Obtains the keys from a table.
 local function Keys1D<K>(Structure: {[K]: any}): {K}
     local Result = {}
     local Index = 1

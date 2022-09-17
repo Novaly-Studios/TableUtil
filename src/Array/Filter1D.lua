@@ -1,4 +1,4 @@
---- Filters an array for all items which satisfy some condition
+--- Filters an array for all items which satisfy some condition.
 local function Filter1D<T>(Array: {T}, Condition: (T, number) -> boolean, Allocate: number?): {T}
     local Result = table.create(Allocate or 0)
     local Index = 1

@@ -1,4 +1,4 @@
---- Obtains the values from a table
+--- Obtains the values from a table.
 local function Values1D<T>(Structure: {[any]: T}): T
     local Result = {}
     local Index = 1

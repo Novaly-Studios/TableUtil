@@ -1,6 +1,6 @@
 local TYPE_TABLE = "table"
 
---- Copies a data structure on all depth levels
+--- Copies a data structure on all depth levels.
 local function CopyDeep<K, V>(Structure: {[K]: V}): {[K]: V}
     local Result = {}
 

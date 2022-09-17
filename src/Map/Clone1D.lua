@@ -1,4 +1,4 @@
---- Copies a data structure on the top level
+--- Copies a data structure on the top level.
 local function Clone1D<K, V>(Structure: {[K]: V}): {[K]: V}
     local Result = {}
 

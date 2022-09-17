@@ -1,4 +1,4 @@
---- Removes a single element from an array
+--- Removes a single element from an array.
 local function Remove1D<T>(Array: {T}, Index: number): {T}
     local ArrayLength = #Array
 

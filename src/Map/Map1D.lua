@@ -1,4 +1,4 @@
---- Puts each key-value pair in a table through a transformation function, mapping the outputs into a new table
+--- Puts each key-value pair in a table through a transformation function, mapping the outputs into a new table.
 local function Map1D<K, V, KT, VT>(Structure: {[K]: V}, Operation: (V, K) -> (VT?, KT?)): {[KT | K]: VT}
     local Result = {}
 
