@@ -1,3 +1,4 @@
+--- Converts a table into an array of key-value objects.
 local function ToKeyValueArray1D<K, V>(Structure: {[K]: V}): {{Key: K, Value: V}}
     local Result = {}
 

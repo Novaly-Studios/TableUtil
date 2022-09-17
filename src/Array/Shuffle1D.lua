@@ -1,6 +1,6 @@
 local RandomGenerator = Random.new()
 
---- Scrambles an array with an optional random seed
+--- Scrambles an array with an optional random seed.
 local function Shuffle1D<T>(Array: {T}, Seed: number?): {T}
     local Generator = Seed and Random.new(Seed) or RandomGenerator
 

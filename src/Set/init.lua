@@ -1,3 +1,6 @@
+local SetType = require(script:WaitForChild("_SetType"))
+export type Set<T> = SetType.Set<T>
+
 local Result = {
     FromValues = require(script:WaitForChild("FromValues"));
     FromKeys = require(script:WaitForChild("FromKeys"));

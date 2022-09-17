@@ -1,4 +1,4 @@
---- Puts an array's values through a transformation function, mapping the outputs into a new array - nil values will be skipped & will not leave holes in the new array
+--- Puts an array's values through a transformation function, mapping the outputs into a new array - nil values will be skipped & will not leave holes in the new array.
 local function Map1D<T>(Array: {T}, Operator: (T, number) -> T?, Allocate: number?): {T}
     local Result = table.create(Allocate or 0)
     local Index = 1

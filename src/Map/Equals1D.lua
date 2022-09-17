@@ -1,4 +1,4 @@
---- Checks if two structures are equal on their top level
+--- Checks if two structures are equal on their top level.
 local function Equals1D(X: any, Y: any): boolean
     for Key, Value in X do
         if (Value ~= Y[Key]) then

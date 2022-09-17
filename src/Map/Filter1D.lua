@@ -1,4 +1,4 @@
---- Filters a table for all items which satisfy some condition
+--- Filters a table for all items which satisfy some condition.
 local function Filter1D<K, V>(Structure: {[K]: V}, Condition: (V, K) -> boolean): {[K]: V}
     local Result = {}
 
