@@ -2,6 +2,7 @@
 local SetType = require(script.Parent:WaitForChild("_SetType"))
 type Set<T> = SetType.Set<T>
 
+--- Creates a new set with the given value inserted.
 local function Insert<T>(Set1: Set<T>, Value: T): Set<T>
     if (Value == nil) then
         return Set1

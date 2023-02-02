@@ -2,6 +2,7 @@
 local SetType = require(script.Parent:WaitForChild("_SetType"))
 type Set<T> = SetType.Set<T>
 
+--- Creates a new set from a table of keys.
 local function FromKeys<T>(KeysTable: {[T]: any}): Set<T>
     local Result = {}
 

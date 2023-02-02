@@ -2,6 +2,7 @@
 local SetType = require(script.Parent:WaitForChild("_SetType"))
 type Set<T> = SetType.Set<T>
 
+--- Returns a new set, containing the elements that are in either set, but not both (their intersection).
 local function SymmetricDifference<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
     local Result = {}
 

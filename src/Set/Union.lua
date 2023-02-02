@@ -2,6 +2,7 @@
 local SetType = require(script.Parent:WaitForChild("_SetType"))
 type Set<T> = SetType.Set<T>
 
+--- Merges two sets together.
 local function Union<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
     if (next(Set1) == nil) then
         return Set2
