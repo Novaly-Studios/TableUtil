@@ -1,3 +1,4 @@
+--- Creates a new table with the keys and values swapped. Duplicate values will overwrite each other when swapped to keys.
 local function InverseKeysValues1D<K, V>(Structure: {[K]: V}): {[V]: K}
     local Result = {}
 

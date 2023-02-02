@@ -1,3 +1,4 @@
+--- Flattens a deep table, merging all sub-tables into the top level. Takes an optional depth limit.
 local function Flatten(Structure: any, DepthLimit: number?)
     DepthLimit = DepthLimit or math.huge
 
