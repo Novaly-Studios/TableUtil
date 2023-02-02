@@ -5,14 +5,17 @@ return {
     MutableMergeDeep = require(script:WaitForChild("MutableMergeDeep"));
     CreatePatchDeep = require(script:WaitForChild("CreatePatchDeep"));
     MutableMerge1D = require(script:WaitForChild("MutableMerge1D"));
+    IsPureMap1D = require(script:WaitForChild("IsPureMap1D"));
     Creations1D = require(script:WaitForChild("Creations1D"));
     Removals1D = require(script:WaitForChild("Removals1D"));
+    IsMixed1D = require(script:WaitForChild("IsMixed1D"));
     Changes1D = require(script:WaitForChild("Changes1D"));
     CloneDeep = require(script:WaitForChild("CloneDeep"));
     MergeDeep = require(script:WaitForChild("MergeDeep"));
     Equals1D = require(script:WaitForChild("Equals1D"));
     Filter1D = require(script:WaitForChild("Filter1D"));
     Values1D = require(script:WaitForChild("Values1D"));
+    IsMap1D = require(script:WaitForChild("IsMap1D"));
     Clone1D = require(script:WaitForChild("Clone1D"));
     Flatten = require(script:WaitForChild("Flatten"));
     Merge1D = require(script:WaitForChild("Merge1D"));

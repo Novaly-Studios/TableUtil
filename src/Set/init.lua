@@ -4,6 +4,7 @@ export type Set<T> = SetType.Set<T>
 local Result = {
     FromValues = require(script:WaitForChild("FromValues"));
     FromKeys = require(script:WaitForChild("FromKeys"));
+    ToArray = require(script:WaitForChild("ToArray"));
 
     SymmetricDifference = require(script:WaitForChild("SymmetricDifference"));
     Intersection = require(script:WaitForChild("Intersection"));

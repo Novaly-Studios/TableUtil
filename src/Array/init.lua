@@ -5,6 +5,7 @@ return {
     BinarySearch1D = require(script:WaitForChild("BinarySearch1D"));
     SelectRandom1D = require(script:WaitForChild("SelectRandom1D"));
     SelectFirst1D = require(script:WaitForChild("SelectFirst1D"));
+    IsPureArray1D = require(script:WaitForChild("IsPureArray1D"));
     SelectLast1D = require(script:WaitForChild("SelectLast1D"));
     FoldRight1D = require(script:WaitForChild("FoldRight1D"));
     IsOrdered1D = require(script:WaitForChild("IsOrdered1D"));
@@ -16,6 +17,7 @@ return {
     Filter1D = require(script:WaitForChild("Filter1D"));
     Insert1D = require(script:WaitForChild("Insert1D"));
     Merge1D = require(script:WaitForChild("Merge1D"));
+    GroupBy = require(script:WaitForChild("GroupBy"));
     Sort1D = require(script:WaitForChild("Sort1D"));
     Copy1D = require(script:WaitForChild("Copy1D"));
     Cut1D = require(script:WaitForChild("Cut1D"));
