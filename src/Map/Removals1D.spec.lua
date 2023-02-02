@@ -33,5 +33,12 @@ return function()
             expect(Removals.B).to.be.ok()
             expect(Removals.B).to.equal(2)
         end)
+
+        it("should correctly identify false values", function()
+            local Removals = Removals1D({A = false}, {})
+
+            expect(Removals.A).to.be.ok()
+            expect(Removals.A).to.equal(false)
+        end)
     end)
 end

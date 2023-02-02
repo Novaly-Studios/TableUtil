@@ -1,13 +1,13 @@
 return function()
-    local CreateNonOverwritingPatchDeep = require(script.Parent.CreateNonOverwritingPatchDeep)
+    local CreatePatchDeep = require(script.Parent.CreatePatchDeep)
 
-    describe("Map/CreateNonOverwritingPatchDeep", function()
+    describe("Map/CreatePatchDeep", function()
         it("should return a blank table for no data", function()
-            expect(next(CreateNonOverwritingPatchDeep({}, {}))).never.to.be.ok()
+            expect(next(CreatePatchDeep({}, {}))).never.to.be.ok()
         end)
 
         it("should apply all new items in a flat table", function()
-            local Result = CreateNonOverwritingPatchDeep({}, {
+            local Result = CreatePatchDeep({}, {
                 X = 1;
                 Y = 2;
                 Z = 3;
@@ -27,7 +27,7 @@ return function()
         end)
 
         it("should not overwrite existing items in a flat table but apply new", function()
-            local Result = CreateNonOverwritingPatchDeep({
+            local Result = CreatePatchDeep({
                 X = 20;
             }, {
                 X = 1;
@@ -48,7 +48,7 @@ return function()
         end)
 
         it("should apply all new items in a nested table", function()
-            local Result = CreateNonOverwritingPatchDeep({}, {
+            local Result = CreatePatchDeep({}, {
                 X = {
                     Y = {
                         Z = 1;
@@ -60,7 +60,7 @@ return function()
         end)
 
         it("should not overwrite existing items in a nested table but apply new", function()
-            local Result = CreateNonOverwritingPatchDeep({
+            local Result = CreatePatchDeep({
                 X = {
                     Y = {
                         Z = 20;

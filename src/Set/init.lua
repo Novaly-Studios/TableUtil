@@ -5,10 +5,16 @@ local Result = {
     FromValues = require(script:WaitForChild("FromValues"));
     FromKeys = require(script:WaitForChild("FromKeys"));
 
+    SymmetricDifference = require(script:WaitForChild("SymmetricDifference"));
     Intersection = require(script:WaitForChild("Intersection"));
-    Negation = require(script:WaitForChild("Negation"));
+    Difference = require(script:WaitForChild("Difference"));
+    Insert = require(script:WaitForChild("Insert"));
+    Remove = require(script:WaitForChild("Remove"));
     Union = require(script:WaitForChild("Union"));
-    Outer = require(script:WaitForChild("Outer"));
+
+    IsProperSubset = require(script:WaitForChild("IsProperSubset"));
+    IsSubset = require(script:WaitForChild("IsSubset"));
+    Equals = require(script:WaitForChild("Equals"));
 };
 
 setmetatable(Result, { -- Allows for Set({"X", "Y", "Z"})

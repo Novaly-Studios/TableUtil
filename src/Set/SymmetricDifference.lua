@@ -2,7 +2,7 @@
 local SetType = require(script.Parent:WaitForChild("_SetType"))
 type Set<T> = SetType.Set<T>
 
-local function Outer<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
+local function SymmetricDifference<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
     local Result = {}
 
     for Key in Set1 do
@@ -20,4 +20,4 @@ local function Outer<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
     return Result
 end
 
-return Outer
+return SymmetricDifference

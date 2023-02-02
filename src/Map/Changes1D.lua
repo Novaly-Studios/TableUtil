@@ -1,5 +1,5 @@
 --- Finds unequal values with the same key, returns a table of the new values from Y.
-local function Changed1D<K, V>(X: {[K]: V}, Y: {[K]: V}): {[K]: V}
+local function Changes1D<K, V>(X: {[K]: V}, Y: {[K]: V}): {[K]: V}
     local Result = {}
 
     for Key, Value in X do
@@ -13,4 +13,4 @@ local function Changed1D<K, V>(X: {[K]: V}, Y: {[K]: V}): {[K]: V}
     return Result
 end
 
-return Changed1D
+return Changes1D

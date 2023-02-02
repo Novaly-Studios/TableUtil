@@ -1,20 +1,8 @@
---- Merges various tables together, into a union data type.
+local MutableMerge1D = require(script.Parent:WaitForChild("MutableMerge1D"))
+
+--- Merges various tables together.
 local function Merge1D(...)
-    local Result = {}
-
-    for Index = 1, select("#", ...) do
-        local Table = select(Index, ...)
-
-        if (not Table) then
-            continue
-        end
-
-        for Key, Value in select(Index, ...) do
-            Result[Key] = Value
-        end
-    end
-
-    return Result
+    return MutableMerge1D({}, ...)
 end
 
-return Merge1D :: <K0, V0, K1, V1>({[K0]: V0}, {[K1]: V1}, ...any) -> ({[K0 | K1]: {V0 | V1}})
+return Merge1D

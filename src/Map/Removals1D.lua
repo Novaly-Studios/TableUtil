@@ -3,7 +3,7 @@ local function Removals1D<K, V>(X: {[K]: V}, Y: {[K]: V}): {[K]: V}
     local Result = {}
 
     for Key, Value in X do
-        if (not Y[Key]) then
+        if (Y[Key] == nil) then
             Result[Key] = Value
         end
     end

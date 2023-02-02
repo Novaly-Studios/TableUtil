@@ -1,6 +1,10 @@
 return {
-    CreateNonOverwritingPatchDeep = require(script:WaitForChild("CreateNonOverwritingPatchDeep"));
+    FromKeyValueArray1D = require(script:WaitForChild("FromKeyValueArray1D"));
+    InverseKeysValues1D = require(script:WaitForChild("InverseKeysValues1D"));
     ToKeyValueArray1D = require(script:WaitForChild("ToKeyValueArray1D"));
+    MutableMergeDeep = require(script:WaitForChild("MutableMergeDeep"));
+    CreatePatchDeep = require(script:WaitForChild("CreatePatchDeep"));
+    MutableMerge1D = require(script:WaitForChild("MutableMerge1D"));
     Creations1D = require(script:WaitForChild("Creations1D"));
     Removals1D = require(script:WaitForChild("Removals1D"));
     Changes1D = require(script:WaitForChild("Changes1D"));
@@ -10,7 +14,9 @@ return {
     Filter1D = require(script:WaitForChild("Filter1D"));
     Values1D = require(script:WaitForChild("Values1D"));
     Clone1D = require(script:WaitForChild("Clone1D"));
+    Flatten = require(script:WaitForChild("Flatten"));
     Merge1D = require(script:WaitForChild("Merge1D"));
+    Count1D = require(script:WaitForChild("Count1D"));
     Keys1D = require(script:WaitForChild("Keys1D"));
     Map1D = require(script:WaitForChild("Map1D"));
 };

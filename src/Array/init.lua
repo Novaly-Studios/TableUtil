@@ -1,10 +1,17 @@
 return {
+    MutableBinaryInsert1D = require(script:WaitForChild("MutableBinaryInsert1D"));
+    MutableReverse1D = require(script:WaitForChild("MutableReverse1D"));
+    MutableShuffle1D = require(script:WaitForChild("MutableShuffle1D"));
+    BinarySearch1D = require(script:WaitForChild("BinarySearch1D"));
+    SelectRandom1D = require(script:WaitForChild("SelectRandom1D"));
     SelectFirst1D = require(script:WaitForChild("SelectFirst1D"));
     SelectLast1D = require(script:WaitForChild("SelectLast1D"));
     FoldRight1D = require(script:WaitForChild("FoldRight1D"));
+    IsOrdered1D = require(script:WaitForChild("IsOrdered1D"));
     FoldLeft1D = require(script:WaitForChild("FoldLeft1D"));
     Shuffle1D = require(script:WaitForChild("Shuffle1D"));
     Reverse1D = require(script:WaitForChild("Reverse1D"));
+    IsArray1D = require(script:WaitForChild("IsArray1D"));
     Remove1D = require(script:WaitForChild("Remove1D"));
     Filter1D = require(script:WaitForChild("Filter1D"));
     Insert1D = require(script:WaitForChild("Insert1D"));

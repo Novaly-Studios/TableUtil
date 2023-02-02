@@ -9,8 +9,8 @@ return function()
         it("should return a single key-value pair for a single item table", function()
             local Result = ToKeyValueArray1D({A = 1})
             expect(#Result).to.equal(1)
-            expect(Result[1].Key).to.equal("A")
-            expect(Result[1].Value).to.equal(1)
+            expect(Result[1][1]).to.equal("A")
+            expect(Result[1][2]).to.equal(1)
         end)
 
         it("should return a key-value pair for each item in the table", function()
@@ -26,15 +26,15 @@ return function()
             end
 
             expect(ArrayItemSatisfies(function(Pair)
-                return Pair.Key == "A" and Pair.Value == 1
+                return Pair[1] == "A" and Pair[2] == 1
             end)).to.equal(true)
 
             expect(ArrayItemSatisfies(function(Pair)
-                return Pair.Key == "B" and Pair.Value == 2
+                return Pair[1] == "B" and Pair[2] == 2
             end)).to.equal(true)
 
             expect(ArrayItemSatisfies(function(Pair)
-                return Pair.Key == "C" and Pair.Value == 3
+                return Pair[1] == "C" and Pair[2] == 3
             end)).to.equal(true)
         end)
     end)
