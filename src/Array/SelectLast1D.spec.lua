@@ -23,5 +23,13 @@ return function()
                 return Index >= 3
             end)).to.equal(32)
         end)
+
+        it("should return the index of the last matched value", function()
+            local _, index = SelectLast1D({1, 2, 3, 4, 5, 6}, function(Value)
+                return Value % 2 == 0
+            end)
+
+            expect(index).to.equal(6)
+        end)
     end)
 end
