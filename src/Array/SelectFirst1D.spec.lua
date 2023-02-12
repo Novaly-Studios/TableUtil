@@ -23,5 +23,13 @@ return function()
                 return Index >= 3
             end)).to.equal(4)
         end)
+
+        it("should return the index of the first matched value", function()
+            local _, index = SelectFirst1D({1, 2, 3, 4, 5, 6}, function(Value)
+                return Value % 2 == 0
+            end)
+
+            expect(index).to.equal(2)
+        end)
     end)
 end
