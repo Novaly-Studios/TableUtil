@@ -1,21 +1,34 @@
 --- Creates a new data structure, representing the recursive merge of one table into another. Ensures structural sharing.
 local function MergeDeep(Into, Structure)
-    local Result = {}
-
-    -- Copy top level
-    for Key, Value in Into do
-        Result[Key] = Value
+    if (next(Into) == nil) then
+        return Structure
     end
 
-    -- Structure overwrites
-    for Key, Value in Structure do
-        if (type(Value) == "table") then
-            local OtherValue = Into[Key]
-            Result[Key] = MergeDeep(type(OtherValue) == "table" and OtherValue or {}, Value)
-            continue
+    if (next(Structure) == nil) then
+        return Into
+    end
+
+    if (Structure == Into) then
+        return Structure
+    end
+
+    local Result = {}
+
+    for Key, IntoValue in Into do
+        Result[Key] = IntoValue
+    end
+
+    for Key, StructureValue in Structure do
+        if (typeof(StructureValue) == "table") then
+            local IntoValue = Into[Key]
+
+            if (typeof(IntoValue) == "table") then
+                Result[Key] = MergeDeep(IntoValue, StructureValue)
+                continue
+            end
         end
 
-        Result[Key] = Value
+        Result[Key] = StructureValue
     end
 
     return Result

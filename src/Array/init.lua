@@ -1,5 +1,6 @@
 return {
     MutableBinaryInsert1D = require(script:WaitForChild("MutableBinaryInsert1D"));
+    SelectWeighted1D = require(script:WaitForChild("SelectWeighted1D"));
     MutableReverse1D = require(script:WaitForChild("MutableReverse1D"));
     MutableShuffle1D = require(script:WaitForChild("MutableShuffle1D"));
     BinarySearch1D = require(script:WaitForChild("BinarySearch1D"));

@@ -1,6 +1,8 @@
 return {
+    MutableUnresizable1D = require(script:WaitForChild("MutableUnresizable1D"));
     FromKeyValueArray1D = require(script:WaitForChild("FromKeyValueArray1D"));
     InverseKeysValues1D = require(script:WaitForChild("InverseKeysValues1D"));
+    MutableLockdown1D = require(script:WaitForChild("MutableLockdown1D"));
     ToKeyValueArray1D = require(script:WaitForChild("ToKeyValueArray1D"));
     MutableMergeDeep = require(script:WaitForChild("MutableMergeDeep"));
     CreatePatchDeep = require(script:WaitForChild("CreatePatchDeep"));
