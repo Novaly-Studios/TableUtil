@@ -22,9 +22,9 @@ return function()
             expect(Result.C).to.equal(3)
         end)
 
-        it("should overwrite former tables", function()
+        it("should overwrite the former table", function()
             local Result = {A = 1, B = 2}
-            MutableMergeDeep(Result, {B = 3}, {B = 4})
+            MutableMergeDeep(Result, {B = 4})
             expect(Result.A).to.equal(1)
             expect(Result.B).to.equal(4)
         end)

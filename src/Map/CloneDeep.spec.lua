@@ -1,6 +1,6 @@
 return function()
     local CloneDeep = require(script.Parent.CloneDeep)
-    local Equals1D = require(script.Parent.Equals1D)
+    local Equals = require(script.Parent.Equals)
 
     describe("Map/CloneDeep", function()
         it("it should copy a blank array into a new blank array", function()
@@ -16,7 +16,7 @@ return function()
             local Copied = CloneDeep(Target)
 
             expect(Target).never.to.equal(Copied)
-            expect(Equals1D(Target, Copied)).to.equal(true)
+            expect(Equals(Target, Copied)).to.equal(true)
         end)
 
         it("should copy a multiple elements", function()
@@ -24,7 +24,7 @@ return function()
             local Copied = CloneDeep(Target)
 
             expect(Target).never.to.equal(Copied)
-            expect(Equals1D(Target, Copied)).to.equal(true)
+            expect(Equals(Target, Copied)).to.equal(true)
         end)
 
         it("should copy a nested table", function()

@@ -78,5 +78,25 @@ return function()
             expect(Result.X.Y.Z).to.equal(nil)
             expect(Result.X.Y.H).to.equal(200)
         end)
+
+        it("should fully copy tables returned in the patch", function()
+            local Test1 = {
+                X = 1;
+                Y = 2;
+            }
+            local Result1 = CreatePatchDeep({}, {
+                Test = Test1;
+            })
+            expect(Result1.Test).never.to.equal(Test1)
+
+            local Test2 = {
+                X = {
+                    Y = {};
+                };
+            }
+            local Result2 = CreatePatchDeep({}, Test2)
+            expect(Result2.X).never.to.equal(Test2.X)
+            expect(Result2.X.Y).never.to.equal(Test2.X.Y)
+        end)
     end)
 end

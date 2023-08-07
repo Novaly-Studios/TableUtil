@@ -1,4 +1,4 @@
-local function CoreMerge(Into, Data)
+local function MutableMergeDeep(Into, Data)
     for Key, Value in Data do
         if (typeof(Value) == "table") then
             local Got = Into[Key]
@@ -8,30 +8,12 @@ local function CoreMerge(Into, Data)
                 Into[Key] = Got
             end
 
-            CoreMerge(Got, Value)
-
+            MutableMergeDeep(Got, Value)
             continue
         end
 
         Into[Key] = Value
     end
-end
-
---- Merges multiple tables into one, mutating the first table.
-local function MutableMergeDeep(...: {any}): {any}
-    local Target = select(1, ...)
-
-    for Index = 2, select("#", ...) do
-        local Table = select(Index, ...)
-
-        if (not Table) then
-            continue
-        end
-
-        CoreMerge(Target, Table)
-    end
-
-    return Target
 end
 
 return MutableMergeDeep

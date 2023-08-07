@@ -2,20 +2,18 @@ local SetType = require(script:WaitForChild("_SetType"))
 export type Set<T> = SetType.Set<T>
 
 local Result = {
-    FromValues = require(script:WaitForChild("FromValues"));
-    FromKeys = require(script:WaitForChild("FromKeys"));
-    ToArray = require(script:WaitForChild("ToArray"));
-
-    SymmetricDifference = require(script:WaitForChild("SymmetricDifference"));
-    Intersection = require(script:WaitForChild("Intersection"));
     Difference = require(script:WaitForChild("Difference"));
+    Equals = require(script:WaitForChild("Equals"));
+    FromKeys = require(script:WaitForChild("FromKeys"));
+    FromValues = require(script:WaitForChild("FromValues"));
     Insert = require(script:WaitForChild("Insert"));
-    Remove = require(script:WaitForChild("Remove"));
-    Union = require(script:WaitForChild("Union"));
-
+    Intersection = require(script:WaitForChild("Intersection"));
     IsProperSubset = require(script:WaitForChild("IsProperSubset"));
     IsSubset = require(script:WaitForChild("IsSubset"));
-    Equals = require(script:WaitForChild("Equals"));
+    Remove = require(script:WaitForChild("Remove"));
+    SymmetricDifference = require(script:WaitForChild("SymmetricDifference"));
+    ToArray = require(script:WaitForChild("ToArray"));
+    Union = require(script:WaitForChild("Union"));
 };
 
 setmetatable(Result, { -- Allows for Set({"X", "Y", "Z"})
