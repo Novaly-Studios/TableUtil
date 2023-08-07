@@ -34,7 +34,8 @@ return function()
             local MergeIn1 = {X = {Value = 1}}
             local MergeIn2 = {Y = {Value = 2}}
 
-            MutableMergeDeep(Result, MergeIn1, MergeIn2)
+            MutableMergeDeep(Result, MergeIn1)
+            MutableMergeDeep(Result, MergeIn2)
 
             expect(Result.X.Value).to.equal(1)
             expect(Result.Y.Value).to.equal(2)
