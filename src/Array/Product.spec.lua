@@ -1,5 +1,5 @@
 return function()
-    --[[ local Product = require(script.Parent.Product)
+    local Product = require(script.Parent.Product)
 
     local function Check(Test, Index, Expected)
         local Pairing = Test[Index]
@@ -58,5 +58,5 @@ return function()
             Check(Test, 7, {2, 2, 1})
             Check(Test, 8, {2, 2, 2})
         end)
-    end) ]]
+    end)
 end

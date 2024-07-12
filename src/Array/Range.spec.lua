@@ -1,5 +1,5 @@
 return function()
-    --[[ local Range = require(script.Parent.Range)
+    local Range = require(script.Parent.Range)
 
     describe("Array/Range", function()
         it("should return a single element list for a range of 1", function()
@@ -22,5 +22,5 @@ return function()
                 Range(2, 1)
             end).to.throw()
         end)
-    end) ]]
+    end)
 end

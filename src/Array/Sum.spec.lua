@@ -1,5 +1,5 @@
 return function()
-    --[[ local Sum = require(script.Parent.Sum)
+    local Sum = require(script.Parent.Sum)
 
     describe("Array/Sum", function()
         it("should return the sum of a single element for From & To being equal", function()
@@ -13,5 +13,5 @@ return function()
         it("should return the sum of a subset of multiple elements where From is greater than To", function()
             expect(Sum({1, 2, 3, 4}, 3, 1)).to.equal(6)
         end)
-    end) ]]
+    end)
 end

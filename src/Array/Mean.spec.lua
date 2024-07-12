@@ -1,5 +1,5 @@
 return function()
-    --[[ local Mean = require(script.Parent.Mean)
+    local Mean = require(script.Parent.Mean)
 
     describe("Array/Mean", function()
         it("should return 0 for no elements", function()
@@ -17,5 +17,5 @@ return function()
         it("should return the mean of a multiple elements with a range", function()
             expect(Mean({1, 2, 3, 4}, 2, 4)).to.equal(3)
         end)
-    end) ]]
+    end)
 end

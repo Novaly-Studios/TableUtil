@@ -1,5 +1,5 @@
 return function()
-    --[[ local Percentile = require(script.Parent.Percentile)
+    local Percentile = require(script.Parent.Percentile)
 
     describe("Array/Percentile", function()
         it("should return nil for no elements", function()
@@ -17,5 +17,5 @@ return function()
         it("should return the last element for 100th percentile", function()
             expect(Percentile({1, 2, 3, 4, 5}, 1)).to.equal(5)
         end)
-    end) ]]
+    end)
 end
