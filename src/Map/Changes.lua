@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 --- Finds unequal values with the same key, returns a table of the new values from Y.
 local function Changes<K, V>(X: {[K]: V}, Y: {[K]: V}): {[K]: V}
     local Result = {}

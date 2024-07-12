@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 --- Merges the second given array into the first.
 local function MutableMergeMany(Into: {any}, ...: {any})
     for Index = 1, select("#", ...) do

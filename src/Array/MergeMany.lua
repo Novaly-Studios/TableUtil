@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 --- Merges multiple arrays together, in order.
 local function MergeMany<T>(...: {T}): {T}
     local First = select(1, ...)

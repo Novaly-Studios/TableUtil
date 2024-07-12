@@ -1,6 +1,9 @@
+--!optimize 2
+--!native
+
 local function MutableMergeDeep(Into, Data)
     for Key, Value in Data do
-        if (typeof(Value) == "table") then
+        if (type(Value) == "table") then
             local Got = Into[Key]
 
             if (not Got) then

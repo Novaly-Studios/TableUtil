@@ -1,8 +1,11 @@
+--!optimize 2
+--!native
+
 --- Binary search on an ordered array.
 local function BinarySearch<T>(Array: {T}, Target: T, ReturnClosestIndex: boolean?): number?
     local Min = 1
     local Max = #Array
-    local Middle = math.floor((Min + Max) / 2)
+    local Middle = (Min + Max) // 2
 
     while (Min <= Max) do
         local Value = Array[Middle]
@@ -15,7 +18,7 @@ local function BinarySearch<T>(Array: {T}, Target: T, ReturnClosestIndex: boolea
             Max = Middle - 1
         end
 
-        Middle = math.floor((Min + Max) / 2)
+        Middle = (Min + Max) // 2
     end
 
     return (ReturnClosestIndex and Middle or nil)

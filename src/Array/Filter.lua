@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 --- Filters an array for all items which satisfy some condition.
 local function Filter<T>(Array: {T}, Condition: (T, number) -> boolean, Allocate: number?): {T}
     local Result = table.create(Allocate or 0)

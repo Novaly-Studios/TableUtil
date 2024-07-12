@@ -12,14 +12,8 @@ local function Insert<T>(Set1: Set<T>, Value: T): Set<T>
         return Set1
     end
 
-    local Result = {}
-
-    for Key in Set1 do
-        Result[Key] = true
-    end
-
+    local Result = table.clone(Set1)
     Result[Value] = true
-
     return Result
 end
 

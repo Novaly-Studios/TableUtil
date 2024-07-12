@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 local IsArray = require(script.Parent:WaitForChild("IsArray"))
 local IsMap = require(script.Parent.Parent:WaitForChild("Map"):WaitForChild("IsMap"))
 

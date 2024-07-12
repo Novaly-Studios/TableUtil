@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 local BinarySearch = require(script.Parent:WaitForChild("BinarySearch"))
 
 --- Binary insertion on an ordered array.

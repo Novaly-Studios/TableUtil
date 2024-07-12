@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 local RandomGen = Random.new()
 
 --- Selects a random element from a flat array, along with its index. Takes optional random seed.

@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 local function _IsOrdered(Structure: {any}, AscendingOrDescending: boolean?): (boolean)
     -- Check ascending.
     if (AscendingOrDescending) then

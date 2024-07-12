@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 --- Selects the last item in an array which satisfies some condition.
 local function SelectLast<T>(Array: {T}, Condition: (T, number) -> boolean): (T?, number?)
     for Index = #Array, 1, -1 do

@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 --- Removes a single element from an array.
 local function Remove<T>(Array: {T}, Index: number?): {T}
     local ArrayLength = #Array

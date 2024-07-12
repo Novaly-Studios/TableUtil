@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 --- Flips all items in an array.
 local function MutableReverse<T>(Array: {T})
     local ArraySize = #Array

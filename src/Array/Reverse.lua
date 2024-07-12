@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 local MutableReverse = require(script.Parent:WaitForChild("MutableReverse"))
 
 --- Flips all items in an array.

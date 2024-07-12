@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 local PREVENT_WRITE_MT = {
     __newindex = function(_, Key)
         error(`Attempt to write to non-existent key: {Key}`, 2)

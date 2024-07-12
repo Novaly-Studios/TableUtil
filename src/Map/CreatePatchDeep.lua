@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 --- Creates a "patch template" into another object recursively.
 --- This allows us to apply an additional merge to add new fields to values which were not originally nil.
 --- Good use case: want to merge in new default fields to a player's data without overwriting existing fields.

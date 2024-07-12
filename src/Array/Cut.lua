@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 --- Cuts a chunk from an array given a starting and ending index - the difference in these indexes can be negative - faster if positive e.g. Cut(X, 1, 4) over Cut(X, 4, 1)
 local function Cut<T>(Array: {T}, From: number, To: number): {T}
     local Size = #Array

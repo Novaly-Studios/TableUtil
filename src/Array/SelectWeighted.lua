@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 local RandomGen = Random.new()
 
 --- Selects a random value from the given array, weighted by the given weights.

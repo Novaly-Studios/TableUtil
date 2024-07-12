@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 --- Locks down a table, freezing it and further preventing any reads.
 local function Lockdown(Subject: any)
     for Key in Subject do

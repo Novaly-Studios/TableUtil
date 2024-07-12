@@ -1,3 +1,6 @@
+--!optimize 2
+--!native
+
 local MutableMerge = require(script.Parent:WaitForChild("MutableMerge"))
 
 --- Merges various tables together.
