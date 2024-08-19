@@ -1,8 +1,9 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Creates a new table with the keys and values swapped. Duplicate values will overwrite each other when swapped to keys.
-local function InverseKeysValues<K, V>(Structure: {[K]: V}): {[V]: K}
+local function SwapKeysValues<K, V>(Structure: {[K]: V}): {[V]: K}
     local Result = {}
     for Key, Value in Structure do
         Result[Value] = Key
@@ -10,4 +11,4 @@ local function InverseKeysValues<K, V>(Structure: {[K]: V}): {[V]: K}
     return Result
 end
 
-return InverseKeysValues
+return SwapKeysValues

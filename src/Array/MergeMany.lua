@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Merges multiple arrays together, in order.
 local function MergeMany<T>(...: {T}): {T}

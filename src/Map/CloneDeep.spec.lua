@@ -40,5 +40,23 @@ return function()
             expect(Copied.Y.W).never.to.equal(Target.Y.W)
             expect(Copied.Y.W.P).to.equal("Test")
         end)
+
+        it("should preserve metatables", function()
+            local MT = {__tostring = function()
+                return "Test"
+            end}
+            local X = {
+                Y = {
+                    P = 1;
+                    Q = 2;
+                };
+                Z = {
+                    R = 3;
+                    S = 4;
+                    AHHH = setmetatable({}, MT);
+                };
+            }
+            expect(getmetatable(CloneDeep(X).Z.AHHH)).to.equal(MT)
+        end)
     end)
 end

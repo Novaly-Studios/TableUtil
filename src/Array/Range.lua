@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 local function Range(Min: number, Max: number): {number}
     if (Min > Max) then

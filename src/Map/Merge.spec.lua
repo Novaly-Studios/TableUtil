@@ -42,5 +42,46 @@ return function()
             expect(Result.Y).to.equal(3)
             expect(Result.Z).to.equal(4)
         end)
+
+        it("should preserve left-side metatables when the right-side has no metatable", function()
+            local MT = {__len = function() end}
+
+            -- With values inside.
+            local Result = Merge(setmetatable({Value1 = 1}, MT), {})
+            expect(getmetatable(Result)).to.equal(MT)
+
+            -- With no values inside.
+            Result = Merge(setmetatable({}, MT), {})
+            expect(getmetatable(Result)).to.equal(MT)
+        end)
+
+        it("should overwrite left-side metatables with right-side metatables", function()
+            local MT = {__len = function() end}
+            local MT2 = {__len = function() end}
+
+            -- With values inside.
+            local Result = Merge(setmetatable({Value1 = 1}, MT), setmetatable({Value2 = 2}, MT2))
+            expect(getmetatable(Result)).to.equal(MT2)
+
+            -- With no values inside.
+            local X = setmetatable({}, MT)
+            local Y = setmetatable({}, MT2)
+            Result = Merge(X, Y)
+            expect(getmetatable(Result)).to.equal(MT2)
+            expect(Result).never.to.equal(X)
+            expect(Result).never.to.equal(Y)
+        end)
+
+        it("should preserve right-side metatables when a new value is added", function()
+            local MT = {__len = function() end}
+
+            -- With values inside.
+            local Result = Merge({Value1 = 1}, setmetatable({Value2 = 2}, MT))
+            expect(getmetatable(Result)).to.equal(MT)
+
+            -- With no values inside.
+            Result = Merge({}, setmetatable({}, MT))
+            expect(getmetatable(Result)).to.equal(MT)
+        end)
     end)
 end

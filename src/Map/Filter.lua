@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Filters a table for all items which satisfy some condition.
 local function Filter<K, V>(Structure: {[K]: V}, Condition: (V, K) -> boolean): {[K]: V}

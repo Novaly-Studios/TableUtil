@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 local function Mean<T>(Array: {T}, From: number?, To: number?): T
     From = From or 1

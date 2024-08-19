@@ -1,7 +1,9 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Merges various tables together.
+--- Metatables are preserved, with new metatables overwrtiting old metatables.
 local function MergeMany(...)
     local Count = select("#", ...)
     if (Count == 0) then
@@ -10,8 +12,14 @@ local function MergeMany(...)
 
     local Result = table.clone((select(1, ...)))
     for Index = 2, Count do
-        for Key, Value in (select(Index, ...)) do
+        local Table = (select(Index, ...))
+        for Key, Value in Table do
             Result[Key] = Value
+        end
+
+        local MT = getmetatable(Table :: any)
+        if (MT) then
+            setmetatable(Result, MT)
         end
     end
     return Result

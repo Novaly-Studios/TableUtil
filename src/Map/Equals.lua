@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Checks if two structures are equal on their top level.
 local function Equals(X: {[any]: any}, Y: {[any]: any}): boolean

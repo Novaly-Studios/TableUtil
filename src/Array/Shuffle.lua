@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 local MutableShuffle = require(script.Parent:WaitForChild("MutableShuffle"))
 --- Scrambles an array with an optional random seed.

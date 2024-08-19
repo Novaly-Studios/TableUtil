@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 local BinarySearch = require(script.Parent:WaitForChild("BinarySearch"))
 

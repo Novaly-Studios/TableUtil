@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Produces a table of all possible combinations of a given dimension.
 local function Product(Array, Dimension)
@@ -22,7 +23,5 @@ local function Product(Array, Dimension)
 
     return Result
 end
-
-print(Product({1, 2}, 3))
 
 return Product

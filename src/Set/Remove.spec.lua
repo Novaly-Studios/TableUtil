@@ -1,7 +1,7 @@
-local Set = require(script.Parent)
-local Remove = require(script.Parent:FindFirstChild("Remove"))
-
 return function()
+    local Set = require(script.Parent)
+    local Remove = require(script.Parent:FindFirstChild("Remove"))
+
     describe("Set/Remove", function()
         it("should return the same set given a nil value", function()
             local Sample1 = Set({})

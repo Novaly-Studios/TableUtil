@@ -1,6 +1,7 @@
 return {
     BinarySearch = require(script.BinarySearch);
     Cut = require(script.Cut);
+    Equals = require(script.Equals);
     Filter = require(script.Filter);
     FoldLeft = require(script.FoldLeft);
     FoldRight = require(script.FoldRight);

@@ -101,5 +101,86 @@ return function()
             expect(Result).to.equal(X)
             expect(Result).to.equal(Y)
         end)
+
+        it("should preserve left-side metatables when the right-side has no metatable", function()
+            local MT = {__len = function() end}
+
+            -- With values inside.
+            local Result = MergeDeep({
+                Test = {
+                    Test = setmetatable({Value1 = 1}, MT);
+                };
+            }, {
+                Test = {
+                    Test = {Value2 = 2};
+                };
+            })
+            expect(getmetatable(Result.Test.Test)).to.equal(MT)
+
+            -- With no values inside.
+            Result = MergeDeep({
+                Test = {
+                    Test = setmetatable({}, MT);
+                };
+            }, {
+                Test = {
+                    Test = {};
+                };
+            })
+            expect(getmetatable(Result.Test.Test)).to.equal(MT)
+        end)
+
+        it("should overwrite left-side metatables with right-side metatables", function()
+            local MT = {__len = function() end}
+            local MT2 = {__len = function() end}
+
+            -- With values inside.
+            local Result = MergeDeep({
+                Test = {
+                    Test = setmetatable({Value1 = 1}, MT);
+                };
+            }, {
+                Test = {
+                    Test = setmetatable({Value2 = 2}, MT2);
+                };
+            })
+            expect(getmetatable(Result.Test.Test)).to.equal(MT2)
+
+            -- With no values inside.
+            local X = {
+                Test = {
+                    Test = setmetatable({}, MT);
+                };
+            }
+            local Y = {
+                Test = {
+                    Test = setmetatable({}, MT2);
+                };
+            }
+            Result = MergeDeep(X, Y)
+            expect(getmetatable(Result.Test.Test)).to.equal(MT2)
+            expect(Result.Test.Test).never.to.equal(X.Test)
+            expect(Result.Test.Test).never.to.equal(Y.Test)
+        end)
+
+        it("should preserve right-side metatables when a new value is added", function()
+            local MT = {__len = function() end}
+
+            -- With values inside.
+            local Result = MergeDeep({Value1 = 1}, {
+                Test = {
+                    Test = setmetatable({Value2 = 2}, MT);
+                };
+            })
+            expect(getmetatable(Result.Test.Test)).to.equal(MT)
+
+            -- With no values inside.
+            Result = MergeDeep({}, {
+                Test = {
+                    Test = setmetatable({}, MT);
+                };
+            })
+            expect(getmetatable(Result.Test.Test)).to.equal(MT)
+        end)
     end)
 end

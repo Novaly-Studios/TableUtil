@@ -35,5 +35,22 @@ return function()
             expect(Result.A).to.equal(1)
             expect(Result.B).to.equal(false)
         end)
+
+        it("should preserve a metatable on the left-side table with a non-metatable on the right-side table", function()
+            local MT = {__len = function() end}
+            local Left = setmetatable({A = 1, B = 2}, MT)
+            local Right = {C = 3, D = 4}
+            MutableMerge(Left, Right)
+            expect(getmetatable(Left)).to.equal(MT)
+        end)
+
+        it("should overwrite a left-side metatable with a right-side metatable", function()
+            local MT = {__len = function() end}
+            local MT2 = {__len = function() end}
+            local Left = setmetatable({A = 1, B = 2}, MT)
+            local Right = setmetatable({C = 3, D = 4}, MT2)
+            MutableMerge(Left, Right)
+            expect(getmetatable(Left)).to.equal(MT2)
+        end)
     end)
 end

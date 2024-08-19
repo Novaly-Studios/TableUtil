@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Filters an array for all items which satisfy some condition.
 local function Filter<T>(Array: {T}, Condition: (T, number) -> boolean, Allocate: number?): {T}

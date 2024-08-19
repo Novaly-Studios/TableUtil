@@ -1,4 +1,7 @@
+--!native
+--!optimize 2
 --!nonstrict
+
 local SetType = require(script.Parent:WaitForChild("_SetType"))
 type Set<T> = SetType.Set<T>
 

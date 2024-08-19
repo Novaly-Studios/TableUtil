@@ -9,7 +9,6 @@ return {
     Flatten = require(script.Flatten);
     FromKeyValueArray = require(script.FromKeyValueArray);
     GroupBy = require(script.GroupBy);
-    InverseKeysValues = require(script.InverseKeysValues);
     IsMap = require(script.IsMap);
     IsMixed = require(script.IsMixed);
     IsPureMap = require(script.IsPureMap);
@@ -24,6 +23,7 @@ return {
     MutableMergeMany = require(script.MutableMergeMany);
     Removals = require(script.Removals);
     SetUnresizable = require(script.SetUnresizable);
+    SwapKeysValues = require(script.SwapKeysValues);
     ToKeyValueArray = require(script.ToKeyValueArray);
     Values = require(script.Values);
 };

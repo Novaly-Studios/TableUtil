@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Finds keys in X which are not in Y (i.e. removed values with respect to a base table).
 local function Removals<K, V>(X: {[K]: V}, Y: {[K]: V}): {[K]: V}

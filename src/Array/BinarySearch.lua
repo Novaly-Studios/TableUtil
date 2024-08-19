@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Binary search on an ordered array.
 local function BinarySearch<T>(Array: {T}, Target: T, ReturnClosestIndex: boolean?): number?

@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 local function Sum<T>(Array: {T}, From: number?, To: number?): T
     local Size = #Array
@@ -15,12 +16,10 @@ local function Sum<T>(Array: {T}, From: number?, To: number?): T
     end
 
     local Sum = 0
-    for Index = From, To, math.sign(To - From) do
+    for Index = From :: number, To :: number, (To > From and 1 or -1) do
         Sum += Array[Index]
     end
     return Sum
 end
-
-print(">>>", Sum({1, 2, 3, 4}, 1, 3))
 
 return Sum

@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Removes a single element from an array.
 local function Remove<T>(Array: {T}, Index: number?): {T}
@@ -15,9 +16,8 @@ local function Remove<T>(Array: {T}, Index: number?): {T}
     assert(Index <= ArrayLength, "Index out of bounds")
 
     local Result = table.create(ArrayLength - 1)
-    table.move(Array, 1, Index - 1, 1, Result)
-    table.move(Array, Index + 1, ArrayLength, Index, Result)
-
+    table.move(Array, 1, Index :: number - 1, 1, Result)
+    table.move(Array, Index :: number + 1, ArrayLength, Index :: number, Result)
     return Result
 end
 

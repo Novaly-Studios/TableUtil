@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Obtains the keys from a table.
 local function Keys<K>(Structure: {[K]: any}): {K}

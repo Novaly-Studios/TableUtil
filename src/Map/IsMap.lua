@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Checks if the input table has a map / dictionary component. Not mutually exclusive to IsArray.
 local function IsMap(Structure: {[any]: any}): boolean

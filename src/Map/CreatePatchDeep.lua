@@ -1,5 +1,8 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
+
+-- Todo: support to-overwrite metatables in this.
 
 --- Creates a "patch template" into another object recursively.
 --- This allows us to apply an additional merge to add new fields to values which were not originally nil.

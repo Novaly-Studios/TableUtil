@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Merges the second given array into the first.
 local function MutableMerge(Into: {any}, New: {any})

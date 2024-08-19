@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Cuts a chunk from an array given a starting and ending index - the difference in these indexes can be negative - faster if positive e.g. Cut(X, 1, 4) over Cut(X, 4, 1)
 local function Cut<T>(Array: {T}, From: number, To: number): {T}
@@ -18,8 +19,8 @@ local function Cut<T>(Array: {T}, From: number, To: number): {T}
         return Array
     end
 
+    -- Faster, but table.move doesn't support iterating backwards over a range.
     if (Diff > 0) then
-        -- Faster, but table.move doesn't support iterating backwards over a range
         return table.move(Array, From, To, 1, {})
     end
 

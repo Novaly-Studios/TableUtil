@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Finds keys in Y which are not in X (i.e. new values with respect to a base table).
 local function Creations<K, V>(X: {[K]: V}, Y: {[K]: V}): {[K]: V}

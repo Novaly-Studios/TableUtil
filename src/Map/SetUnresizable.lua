@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 local PREVENT_WRITE_MT = {
     __newindex = function(_, Key)

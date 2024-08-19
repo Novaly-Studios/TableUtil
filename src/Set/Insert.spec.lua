@@ -1,7 +1,7 @@
-local Set = require(script.Parent)
-local Insert = require(script.Parent:FindFirstChild("Insert"))
-
 return function()
+    local Set = require(script.Parent)
+    local Insert = require(script.Parent:FindFirstChild("Insert"))
+
     describe("Set/Insert", function()
         it("should return the same set given a nil value", function()
             local Sample1 = Set({})

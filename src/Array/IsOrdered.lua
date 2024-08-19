@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 local function _IsOrdered(Structure: {any}, AscendingOrDescending: boolean?): (boolean)
     -- Check ascending.
@@ -8,11 +9,9 @@ local function _IsOrdered(Structure: {any}, AscendingOrDescending: boolean?): (b
 
         for Index = 2, #Structure do
             local Value = Structure[Index]
-
             if (Value < LastValue) then
                 return false
             end
-
             LastValue = Value
         end
 
@@ -24,11 +23,9 @@ local function _IsOrdered(Structure: {any}, AscendingOrDescending: boolean?): (b
 
     for Index = 2, #Structure do
         local Value = Structure[Index]
-
         if (Value > LastValue) then
             return false
         end
-
         LastValue = Value
     end
 
@@ -43,7 +40,6 @@ local function IsOrdered(Structure: {any}, AscendingOrDescendingOrEither: boolea
     if (AscendingOrDescendingOrEither == nil and Structure[1] ~= nil and Structure[2] ~= nil) then
         return _IsOrdered(Structure, Structure[1] < Structure[2])
     end
-
     return _IsOrdered(Structure, AscendingOrDescendingOrEither)
 end
 

@@ -1,21 +1,28 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
-local function MutableMergeDeep(Into, Data)
-    for Key, Value in Data do
+--- Merges both given tables recursively.
+--- Metatables are preserved, with new metatables overwrtiting old metatables.
+local function MutableMergeDeep(X, Y)
+    local MT = getmetatable(Y :: any)
+    if (MT) then
+        setmetatable(X, MT)
+    end
+
+    for Key, Value in Y do
         if (type(Value) == "table") then
-            local Got = Into[Key]
-
+            local Got = X[Key]
             if (not Got) then
                 Got = {}
-                Into[Key] = Got
+                X[Key] = Got
             end
 
             MutableMergeDeep(Got, Value)
             continue
         end
 
-        Into[Key] = Value
+        X[Key] = Value
     end
 end
 

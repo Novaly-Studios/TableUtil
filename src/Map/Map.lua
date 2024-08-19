@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Puts each key-value pair in a table through a transformation function, mapping the outputs into a new table.
 local function Map<K, V, KT, VT>(Structure: {[K]: V}, Operation: (V, K) -> (VT?, KT?)): {[KT | K]: VT}

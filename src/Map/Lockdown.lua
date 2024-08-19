@@ -1,5 +1,12 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
+
+local LockedMetatable = {
+    __index = function(_, Key)
+        error(`Attempted to read key from a locked down table: {Key}`, 2)
+    end;
+}
 
 --- Locks down a table, freezing it and further preventing any reads.
 local function Lockdown(Subject: any)
@@ -7,12 +14,7 @@ local function Lockdown(Subject: any)
         Subject[Key] = nil
     end
 
-    setmetatable(Subject, {
-        __index = function(_, Key)
-            error(`Attempted to read key from a locked down table: {Key}`, 2)
-        end;
-    })
-
+    setmetatable(Subject, LockedMetatable)
     table.freeze(Subject)
 end
 

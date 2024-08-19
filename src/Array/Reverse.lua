@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 local MutableReverse = require(script.Parent:WaitForChild("MutableReverse"))
 

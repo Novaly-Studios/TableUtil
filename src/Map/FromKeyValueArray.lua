@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Converts a table into an array of key-value objects.
 local function FromKeyValueArray<K, V>(Structure: {{Key: K, Value: V}}): {[K]: V}

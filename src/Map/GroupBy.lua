@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Groups elements of a table by a key returned by the grouper function. The grouper function is passed the value and key of each element.
 --- Usage: GroupBy({A = 1, B = 2, C = 3}, function(Value, Key) return Value % 2 end) --> {[0] = {B = 2}, [1] = {A = 1, C = 3}}

@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Flattens a deep table, merging all sub-tables into the top level. Takes an optional depth limit.
 local function Flatten(Structure: any, DepthLimit: number?)

@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Merges two arrays together.
 local function Merge<V1, V2>(Into: {V1}, New: {V2}): {V1 | V2}

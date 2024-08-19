@@ -1,5 +1,6 @@
---!optimize 2
 --!native
+--!optimize 2
+--!nonstrict
 
 --- Obtains the values from a table.
 local function Values<T>(Structure: {[any]: T}): {T}
