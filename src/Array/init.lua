@@ -22,7 +22,7 @@ return {
     Percentile = require(script.Percentile);
     Product = require(script.Product);
     Range = require(script.Range);
-    Remove = require(script.Remove);
+    Remove = require(script:FindFirstChild("Remove"));
     Reverse = require(script.Reverse);
     SelectFirst = require(script.SelectFirst);
     SelectLast = require(script.SelectLast);
