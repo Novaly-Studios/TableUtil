@@ -27,7 +27,12 @@ local function MergeDeep<K1, K2, V1, V2>(X: {[K1]: V1}, Y: {[K2]: V2}): {[K1 | K
 
     local Result = table.clone(X)
     for Key, Value in Y do
-        Result[Key] = (type(Value) == "table" and MergeDeep(Result[Key] or {}, Value) or Value)
+        local Type = type(Value)
+        Result[Key] = (
+            (Type == "table" and MergeDeep(Result[Key] or {}, Value)) or
+            (Type == "function" and Value(Result[Key])) or
+            Value
+        )
     end
 
     local MT = getmetatable(Y :: any)
