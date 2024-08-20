@@ -183,7 +183,7 @@ return function()
             expect(getmetatable(Result.Test.Test)).to.equal(MT)
         end)
 
-        it("should pass the left-side value for mapping into a right-side function", function()
+        it("should pass the left-side value for mapping into a right-side function when FunctionalAppliers is true", function()
             local Result = MergeDeep({
                 Inner = {
                     X = 1;
@@ -196,6 +196,22 @@ return function()
                     end;
                 };
             })
+
+            expect(Result.Inner.X).to.equal(1)
+            expect(Result.Inner.Y).to.be.a("function")
+
+            Result = MergeDeep({
+                Inner = {
+                    X = 1;
+                    Y = 2;
+                };
+            }, {
+                Inner = {
+                    Y = function(Value)
+                        return 1000 + Value
+                    end;
+                };
+            }, true)
 
             expect(Result.Inner.X).to.equal(1)
             expect(Result.Inner.Y).to.equal(1002)

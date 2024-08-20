@@ -3,8 +3,9 @@
 --!nonstrict
 
 --- Creates a new data structure, representing the recursive merge of one table into another.
---- Metatables are preserved, with new metatables overwrtiting old metatables.
-local function MergeDeep<K1, K2, V1, V2>(X: {[K1]: V1}, Y: {[K2]: V2}): {[K1 | K2]: V1 | V2}
+--- Metatables are preserved, with new metatables overwrtiting old metatables. If FunctionalAppliers
+--- is true, functions will map & replace respective values into the new table.
+local function MergeDeep<K1, K2, V1, V2>(X: {[K1]: V1}, Y: {[K2]: V2}, FunctionalAppliers: boolean?): {[K1 | K2]: V1 | V2}
     if (next(X) == nil) then
         local MT = getmetatable(Y :: any) or getmetatable(X :: any)
         if (MT) then
@@ -29,8 +30,8 @@ local function MergeDeep<K1, K2, V1, V2>(X: {[K1]: V1}, Y: {[K2]: V2}): {[K1 | K
     for Key, Value in Y do
         local Type = type(Value)
         Result[Key] = (
-            (Type == "table" and MergeDeep(Result[Key] or {}, Value)) or
-            (Type == "function" and Value(Result[Key])) or
+            (Type == "table" and MergeDeep(Result[Key] or {}, Value, FunctionalAppliers)) or
+            ((FunctionalAppliers and Type == "function") and Value(Result[Key])) or
             Value
         )
     end
