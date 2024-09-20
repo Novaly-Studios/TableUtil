@@ -1,5 +1,5 @@
 return function()
-    local Shuffle = require(script.Parent.Shuffle)
+    local Shuffle = require(script.Parent.Parent).Array.Shuffle
 
     describe("Array/Shuffle", function()
         it("should return an empty array given an empty array", function()

@@ -1,5 +1,5 @@
 return function()
-    local Merge = require(script.Parent.Merge)
+    local Merge = require(script.Parent.Parent).Array.Merge
 
     describe("Array/Merge", function()
         it("should return the 1st array when the 2nd is empty", function()

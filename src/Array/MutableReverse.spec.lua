@@ -1,5 +1,5 @@
 return function()
-    local MutableReverse = require(script.Parent.MutableReverse)
+    local MutableReverse = require(script.Parent.Parent).Array.MutableReverse
 
     describe("Array/MutableReverse", function()
         it("should return an empty array if passed an empty array", function()

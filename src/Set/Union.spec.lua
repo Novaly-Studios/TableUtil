@@ -1,6 +1,7 @@
 return function()
-    local Union = require(script.Parent.Union)
-    local FromValues = require(script.Parent.FromValues)
+    local Set = require(script.Parent.Parent).Set
+        local FromValues = Set.FromValues
+        local Union = Set.Union
 
     describe("Set/Union", function()
         it("should combine two empty sets into an empty set", function()

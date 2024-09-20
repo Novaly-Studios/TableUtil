@@ -1,5 +1,5 @@
 return function()
-    local MergeMany = require(script.Parent.MergeMany)
+    local MergeMany = require(script.Parent.Parent).Array.MergeMany
 
     describe("Array/MergeMany", function()
         it("should merge two blank arrays into a blank array", function()

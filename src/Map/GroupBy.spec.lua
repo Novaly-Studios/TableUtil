@@ -1,5 +1,5 @@
 return function()
-    local GroupBy = require(script.Parent.GroupBy)
+    local GroupBy = require(script.Parent.Parent).Map.GroupBy
 
     describe("Map/GroupBy", function()
         it("should group all by a sample value", function()

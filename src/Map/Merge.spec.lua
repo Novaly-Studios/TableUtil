@@ -1,5 +1,5 @@
 return function()
-    local Merge = require(script.Parent.Merge)
+    local Merge = require(script.Parent.Parent).Map.Merge
 
     describe("Map/Merge", function()
         it("should return the left table if the right is blank", function()
@@ -7,13 +7,6 @@ return function()
             local Right = {}
 
             expect(Merge(Left, Right)).to.equal(Left)
-        end)
-
-        it("should return the right table if the left is blank", function()
-            local Left = {}
-            local Right = {X = 1}
-
-            expect(Merge(Left, Right)).to.equal(Right)
         end)
 
         it("should return a flat merge of two tables", function()

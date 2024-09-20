@@ -1,20 +1,12 @@
 return function()
-    local MergeDeep = require(script.Parent.MergeDeep)
+    local MergeDeep = require(script.Parent.Parent).Map.MergeDeep
 
     describe("Map/MergeDeep", function()
-        it("should return the second table for two merged blank tables", function()
-            local X = {}
-            local Y = {}
-
-            local Result = MergeDeep(X, Y)
+        it("should return the same table for two equivalent merged tables", function()
+            local Test = {}
+            local Result = MergeDeep(Test, Test)
             expect(Result).to.be.a("table")
-            expect(next(Result)).to.equal(nil)
-            expect(Y).to.equal(Result)
-
-            local Reverse = MergeDeep(Y, X)
-            expect(Reverse).to.be.a("table")
-            expect(next(Reverse)).to.equal(nil)
-            expect(X).to.equal(Reverse)
+            expect(Result).to.equal(Test)
         end)
 
         it("should merge some flat values in and return a new table", function()
@@ -198,23 +190,26 @@ return function()
             })
 
             expect(Result.Inner.X).to.equal(1)
-            expect(Result.Inner.Y).to.be.a("function")
-
-            Result = MergeDeep({
-                Inner = {
-                    X = 1;
-                    Y = 2;
-                };
-            }, {
-                Inner = {
-                    Y = function(Value)
-                        return 1000 + Value
-                    end;
-                };
-            }, true)
-
-            expect(Result.Inner.X).to.equal(1)
             expect(Result.Inner.Y).to.equal(1002)
+        end)
+
+        it("should propagate the change up the structure but keep unchanged nodes equal", function()
+            local Base = {X = {Y = {Value = 1}, Z = {Value = 22}}}
+            local Result = MergeDeep(Base, {X = {Y = {Value = 2}, Z = {Value = 22}}})
+            expect(Result).never.to.equal(Base)
+            expect(Base.X.Z).to.equal(Result.X.Z)
+        end)
+
+        it("should produce unequal tables if the right-side metatable is different", function()
+            local Base = {}
+            local Result = MergeDeep(Base, setmetatable({}, {}))
+            expect(Result).never.to.equal(Base)
+        end)
+
+        it("should result in equal tables given equal values, under right side no metatable and left side has metatable condition", function()
+            local Base = {Test = setmetatable({}, {})}
+            local Result = MergeDeep(Base, {Test = {}})
+            expect(Result).to.equal(Base)
         end)
     end)
 end

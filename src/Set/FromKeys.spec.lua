@@ -1,5 +1,6 @@
 return function()
-    local FromKeys = require(script.Parent.FromKeys)
+    local Set = require(script.Parent.Parent).Set
+        local FromKeys = Set.FromKeys
 
     describe("Set/FromKeys", function()
         it("should return an empty table given an empty table", function()

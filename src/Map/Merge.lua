@@ -5,32 +5,30 @@
 --- Merges two tables together, returning a new one.
 --- Metatables are preserved, with new metatables overwrtiting old metatables.
 local function Merge<K1, K2, V1, V2>(X: {[K1]: V1}, Y: {[K2]: V2}): {[K1 | K2]: V1 | V2}
-    if (next(X) == nil) then
-        local MT = getmetatable(Y :: any) or getmetatable(X :: any)
-        if (MT) then
-            return setmetatable(table.clone(Y) :: any, MT)
-        end
-        return Y
-    end
-
-    if (next(Y) == nil) then
-        local MT = getmetatable(Y :: any) -- or getmetatable(X :: any)
-        if (MT) then
-            return setmetatable(table.clone(X) :: any, MT)
-        end
-        return X
-    end
-
     local Result = table.clone(X)
+    local Equal = true
+
     for Key, Value in Y do
-        Result[Key] = Value
+        local OtherValue = Result[Key]
+        local NewValue = (
+            -- If it's a mapper function -> call it with the value and subtitute whatever it returns.
+            (type(Value) == "function" and Value(OtherValue)) or
+            -- Otherwise, put value in directly.
+            Value
+        )
+        Equal = (Equal and OtherValue == NewValue)
+        Result[Key] = NewValue
     end
 
     local MT = getmetatable(Y :: any)
     if (MT) then
-        setmetatable(Result, MT)
+        Equal = Equal and (getmetatable(Result) == MT)
+        if (not Equal) then
+            setmetatable(Result, MT)
+        end
     end
-    return Result
+
+    return (Equal and X or Result)
 end
 
 return Merge

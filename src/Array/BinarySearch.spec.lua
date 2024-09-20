@@ -1,5 +1,5 @@
 return function()
-    local BinarySearch = require(script.Parent.BinarySearch)
+    local BinarySearch = require(script.Parent.Parent).Array.BinarySearch
 
     describe("Array/BinarySearch", function()
         it("should return nothing for an empty array", function()

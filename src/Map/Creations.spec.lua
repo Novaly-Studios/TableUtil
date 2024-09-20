@@ -1,5 +1,5 @@
 return function()
-    local Creations = require(script.Parent.Creations)
+    local Creations = require(script.Parent.Parent).Map.Creations
 
     describe("Map/Creations", function()
         it("it should give no creations for two empty tables", function()

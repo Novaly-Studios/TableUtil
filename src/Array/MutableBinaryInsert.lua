@@ -2,7 +2,7 @@
 --!optimize 2
 --!nonstrict
 
-local BinarySearch = require(script.Parent:WaitForChild("BinarySearch"))
+local BinarySearch = require(script.Parent.BinarySearch)
 
 --- Binary insertion on an ordered array.
 local function MutableBinaryInsert<T>(Array: {T}, Target: T)

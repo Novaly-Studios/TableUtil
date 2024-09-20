@@ -1,5 +1,5 @@
 return function()
-    local Mean = require(script.Parent.Mean)
+    local Mean = require(script.Parent.Parent).Array.Mean
 
     describe("Array/Mean", function()
         it("should return 0 for no elements", function()

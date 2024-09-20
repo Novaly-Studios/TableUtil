@@ -1,5 +1,5 @@
 return function()
-    local SelectLast = require(script.Parent.SelectLast)
+    local SelectLast = require(script.Parent.Parent).Array.SelectLast
 
     describe("Array/SelectLast", function()
         it("should select nothing on an empty array", function()

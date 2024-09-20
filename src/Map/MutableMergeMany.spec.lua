@@ -1,5 +1,5 @@
 return function()
-    local MutableMergeMany = require(script.Parent.MutableMergeMany)
+    local MutableMergeMany = require(script.Parent.Parent).Map.MutableMergeMany
 
     describe("Map/MutableMergeMany", function()
         it("should not modify a blank table given a blank table to merge in", function()

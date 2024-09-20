@@ -1,5 +1,5 @@
 return function()
-    local Map = require(script.Parent.Map)
+    local Map = require(script.Parent.Parent).Array.Map
 
     describe("Array/Map", function()
         it("should return a blank array if passed in a blank array", function()
@@ -48,6 +48,14 @@ return function()
             Map({2, 4, 6, 8}, function(Value, Index)
                 expect(Value / 2).to.equal(Index)
             end)
+        end)
+
+        it("should return the same table if values are the same", function()
+            local Base = {1, 2, 7, 8}
+            local Result = Map(Base, function(Value)
+                return Value
+            end)
+            expect(Result).to.equal(Base)
         end)
     end)
 end

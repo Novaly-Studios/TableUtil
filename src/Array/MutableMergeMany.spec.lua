@@ -1,5 +1,5 @@
 return function()
-    local MutableMergeMany = require(script.Parent.MutableMergeMany)
+    local MutableMergeMany = require(script.Parent.Parent).Array.MutableMergeMany
 
     describe("Array/MutableMergeMany", function()
         it("should not add anything to the array when the right-hand table is empty", function()

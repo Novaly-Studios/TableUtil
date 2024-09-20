@@ -12,8 +12,7 @@ local function Flatten(Structure: any, DepthLimit: number?)
     local Result = {}
     for Key, Value in Structure do
         if (type(Value) == "table") then
-            local Flattened = Flatten(Value, DepthLimit - 1)
-
+            local Flattened = Flatten(Value, DepthLimit :: number - 1)
             if (Flattened) then
                 for FlattenedKey, FlattenedValue in Flattened do
                     Result[FlattenedKey] = FlattenedValue

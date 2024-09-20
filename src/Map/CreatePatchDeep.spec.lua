@@ -1,5 +1,5 @@
 return function()
-    local CreatePatchDeep = require(script.Parent.CreatePatchDeep)
+    local CreatePatchDeep = require(script.Parent.Parent).Map.CreatePatchDeep
 
     describe("Map/CreatePatchDeep", function()
         it("should return a blank table for no data", function()

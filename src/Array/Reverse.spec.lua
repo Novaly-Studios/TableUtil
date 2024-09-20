@@ -1,5 +1,5 @@
 return function()
-    local Reverse = require(script.Parent:WaitForChild("Reverse"))
+    local Reverse = require(script.Parent.Parent).Array.Reverse
 
     describe("Array/Reverse", function()
         it("should return an empty array if passed an empty array", function()

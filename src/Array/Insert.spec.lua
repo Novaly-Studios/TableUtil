@@ -1,5 +1,5 @@
 return function()
-    local Insert = require(script.Parent.Insert)
+    local Insert = require(script.Parent.Parent).Array.Insert
 
     describe("Array/Insert", function()
         it("should insert an item in the first position in an empty array", function()

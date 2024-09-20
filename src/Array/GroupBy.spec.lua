@@ -1,5 +1,5 @@
 return function()
-    local GroupBy = require(script.Parent.GroupBy)
+    local GroupBy = require(script.Parent.Parent).Array.GroupBy
 
     describe("Array/GroupBy", function()
         it("should return an empty array from an empty array", function()

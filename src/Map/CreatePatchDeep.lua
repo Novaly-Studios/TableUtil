@@ -12,8 +12,8 @@ local function CreatePatchDeep(Existing, Template)
 
     for Key, Value in Template do
         local ExistingValue = Existing[Key]
-        local ExistingValueIsTable = typeof(ExistingValue) == "table"
-        local ValueIsTable = typeof(Value) == "table"
+        local ExistingValueIsTable = (typeof(ExistingValue) == "table")
+        local ValueIsTable = (typeof(Value) == "table")
 
         if (ExistingValueIsTable and ValueIsTable) then
             Result[Key] = CreatePatchDeep(ExistingValue, Value)

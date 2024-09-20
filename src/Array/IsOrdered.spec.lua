@@ -1,5 +1,5 @@
 return function()
-    local IsOrdered = require(script.Parent.IsOrdered)
+    local IsOrdered = require(script.Parent.Parent).Array.IsOrdered
 
     describe("Array/IsOrdered", function()
         it("should return true for an empty array", function()

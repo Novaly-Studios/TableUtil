@@ -1,5 +1,5 @@
 return function()
-    local Count = require(script.Parent.Count)
+    local Count = require(script.Parent.Parent).Map.Count
 
     describe("Map/Count", function()
         it("it should return 0 for an empty table", function()

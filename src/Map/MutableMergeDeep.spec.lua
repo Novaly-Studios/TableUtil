@@ -1,5 +1,5 @@
 return function()
-    local MutableMergeDeep = require(script.Parent.MutableMergeDeep)
+    local MutableMergeDeep = require(script.Parent.Parent).Map.MutableMergeDeep
 
     describe("Map/MutableMergeDeep", function()
         it("should not modify a blank table given a blank table to merge in", function()
@@ -65,6 +65,16 @@ return function()
             local Right = {Test = setmetatable({C = 3, D = 4}, MT2)}
             MutableMergeDeep(Left, Right)
             expect(getmetatable(Left.Test)).to.equal(MT2)
+        end)
+
+        it("should apply right-side functions to left-side values", function()
+            local Result = {X = 1, Y = 2}
+            MutableMergeDeep(Result, {
+                Y = function(Value)
+                    return 1000 + Value
+                end;
+            })
+            expect(Result.Y).to.equal(1002)
         end)
     end)
 end

@@ -2,13 +2,13 @@
 --!optimize 2
 --!nonstrict
 
-local function _IsOrdered(Structure: {any}, AscendingOrDescending: boolean?): (boolean)
+local function _IsOrdered(Array: {any}, AscendingOrDescending: boolean?): (boolean)
     -- Check ascending.
     if (AscendingOrDescending) then
-        local LastValue = Structure[1]
+        local LastValue = Array[1]
 
-        for Index = 2, #Structure do
-            local Value = Structure[Index]
+        for Index = 2, #Array do
+            local Value = Array[Index]
             if (Value < LastValue) then
                 return false
             end
@@ -19,10 +19,10 @@ local function _IsOrdered(Structure: {any}, AscendingOrDescending: boolean?): (b
     end
 
     -- Check descending.
-    local LastValue = Structure[1]
+    local LastValue = Array[1]
 
-    for Index = 2, #Structure do
-        local Value = Structure[Index]
+    for Index = 2, #Array do
+        local Value = Array[Index]
         if (Value > LastValue) then
             return false
         end
@@ -36,11 +36,11 @@ end
 --- AscendingOrDescendingOrEither: true -> ascending.
 --- AscendingOrDescendingOrEither: false -> descending.
 --- AscendingOrDescendingOrEither: nil -> either.
-local function IsOrdered(Structure: {any}, AscendingOrDescendingOrEither: boolean?): (boolean)
-    if (AscendingOrDescendingOrEither == nil and Structure[1] ~= nil and Structure[2] ~= nil) then
-        return _IsOrdered(Structure, Structure[1] < Structure[2])
+local function IsOrdered(Array: {any}, AscendingOrDescendingOrEither: boolean?): (boolean)
+    if (AscendingOrDescendingOrEither == nil and Array[1] ~= nil and Array[2] ~= nil) then
+        return _IsOrdered(Array, Array[1] < Array[2])
     end
-    return _IsOrdered(Structure, AscendingOrDescendingOrEither)
+    return _IsOrdered(Array, AscendingOrDescendingOrEither)
 end
 
 return IsOrdered

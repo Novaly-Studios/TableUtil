@@ -1,5 +1,5 @@
 return function()
-    local Equals = require(script.Parent.Equals)
+    local Equals = require(script.Parent.Parent).Map.Equals
 
     describe("Map/Equals", function()
         it("it should return true for two empty tables", function()

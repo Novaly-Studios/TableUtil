@@ -1,5 +1,5 @@
 return function()
-    local SelectRandom = require(script.Parent.SelectRandom)
+    local SelectRandom = require(script.Parent.Parent).Array.SelectRandom
 
     describe("Array/SelectRandom", function()
         it("should return nil for an empty array", function()

@@ -1,5 +1,5 @@
 return function()
-    local MutableShuffle = require(script.Parent.MutableShuffle)
+    local MutableShuffle = require(script.Parent.Parent).Array.MutableShuffle
 
     describe("Array/MutableShuffle", function()
         it("should keep the first element in a one-item array in the same position", function()

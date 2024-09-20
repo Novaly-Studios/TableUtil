@@ -3,14 +3,19 @@
 --!nonstrict
 
 --- Filters a table for all items which satisfy some condition.
-local function Filter<K, V>(Structure: {[K]: V}, Condition: (V, K) -> boolean): {[K]: V}
+local function Filter<K, V>(Structure: {[K]: V}, Predicate: ((V, K) -> (boolean))): {[K]: V}
     local Result = {}
+    local Equals = true
+
     for Key, Value in Structure do
-        if (Condition(Value, Key)) then
+        if (Predicate(Value, Key)) then
             Result[Key] = Value
+        else
+            Equals = false
         end
     end
-    return Result
+
+    return (Equals and Structure or Result)
 end
 
 return Filter

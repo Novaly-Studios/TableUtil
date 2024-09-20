@@ -1,6 +1,7 @@
 return function()
-    local SymmetricDifference = require(script.Parent.SymmetricDifference)
-    local FromValues = require(script.Parent.FromValues)
+    local Set = require(script.Parent.Parent).Set
+        local SymmetricDifference = Set.SymmetricDifference
+        local FromValues = Set.FromValues
 
     describe("Set/SymmetricDifference", function()
         it("should return a blank set from two blank set inputs", function()

@@ -1,5 +1,5 @@
 return function()
-    local Filter = require(script.Parent.Filter)
+    local Filter = require(script.Parent.Parent).Map.Filter
 
     describe("Map/Filter", function()
         it("should return a blank table for no data", function()
@@ -38,6 +38,15 @@ return function()
             expect(Results.A).to.equal(2)
             expect(Results.B).to.equal(4)
             expect(Results.C).never.to.be.ok()
+        end)
+
+        it("should return the original table if the condition is always true", function()
+            local Test = {A = 1, B = 2, C = 3}
+            local Result = Filter(Test, function()
+                return true
+            end)
+
+            expect(Result).to.equal(Test)
         end)
     end)
 end

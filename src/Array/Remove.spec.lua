@@ -1,5 +1,5 @@
 return function()
-    local Remove = require(script.Parent:FindFirstChild("Remove"))
+    local Remove = require(script.Parent.Parent).Array.Remove
 
     describe("Array/Remove", function()
         it("should return the same array upon removing from an empty array", function()

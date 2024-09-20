@@ -1,5 +1,5 @@
 return function()
-    local FoldLeft = require(script.Parent.FoldLeft)
+    local FoldLeft = require(script.Parent.Parent).Array.FoldLeft
 
     describe("Array/FoldLeft", function()
         it("should not call on an empty table", function()

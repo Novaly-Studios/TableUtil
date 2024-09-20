@@ -1,5 +1,5 @@
 return function()
-    local Range = require(script.Parent.Range)
+    local Range = require(script.Parent.Parent).Array.Range
 
     describe("Array/Range", function()
         it("should return a single element list for a range of 1", function()

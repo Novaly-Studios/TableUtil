@@ -1,2 +1,2 @@
-export type Set<T> = {[T]: boolean}
+export type Set<T> = {[T]: true}
 return true

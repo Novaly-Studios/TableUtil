@@ -1,5 +1,5 @@
 return function()
-    local Sort = require(script.Parent.Sort)
+    local Sort = require(script.Parent.Parent).Array.Sort
 
     describe("Array/Sort", function()
         it("should return an empty array given an empty array", function()

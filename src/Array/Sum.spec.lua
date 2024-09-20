@@ -1,5 +1,5 @@
 return function()
-    local Sum = require(script.Parent.Sum)
+    local Sum = require(script.Parent.Parent).Array.Sum
 
     describe("Array/Sum", function()
         it("should return the sum of a single element for From & To being equal", function()

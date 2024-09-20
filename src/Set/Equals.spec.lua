@@ -1,6 +1,7 @@
 return function()
-    local FromValues = require(script.Parent.FromValues)
-    local Equals = require(script.Parent.Equals)
+    local Set = require(script.Parent.Parent).Set
+        local FromValues = Set.FromValues
+        local Equals = Set.Equals
 
     describe("Set/Equals", function()
         it("should return true for two empty sets", function()

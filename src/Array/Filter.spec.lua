@@ -1,5 +1,5 @@
 return function()
-    local Filter = require(script.Parent.Filter)
+    local Filter = require(script.Parent.Parent).Array.Filter
 
     describe("Array/Filter", function()
         it("should return a blank table for no data", function()
@@ -43,6 +43,15 @@ return function()
                 expect(Index).to.equal(Value)
                 return true
             end)
+        end)
+
+        it("should return the original array if the condition is always true", function()
+            local Test = {1, 2, 3, 4}
+            local Result = Filter(Test, function()
+                return true
+            end)
+
+            expect(Result).to.equal(Test)
         end)
     end)
 end

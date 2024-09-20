@@ -3,7 +3,7 @@
 --!nonstrict
 
 --- Counts the number of elements in a flat table.
-local function Count(Structure: {[any]: any}): numbers
+local function Count(Structure: {[any]: any}): number
     local Result = 0
     for _ in Structure do
         Result += 1

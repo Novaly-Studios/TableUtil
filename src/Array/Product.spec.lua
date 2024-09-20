@@ -1,5 +1,5 @@
 return function()
-    local Product = require(script.Parent.Product)
+    local Product = require(script.Parent.Parent).Array.Product
 
     local function Check(Test, Index, Expected)
         local Pairing = Test[Index]

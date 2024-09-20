@@ -1,5 +1,5 @@
 return function()
-    local MutableBinaryInsert = require(script.Parent.MutableBinaryInsert)
+    local MutableBinaryInsert = require(script.Parent.Parent).Array.MutableBinaryInsert
 
     describe("Array/MutableBinaryInsert", function()
         it("should insert into the first index of an empty array", function()

@@ -1,5 +1,5 @@
 return function()
-    local SelectWeighted = require(script.Parent.SelectWeighted)
+    local SelectWeighted = require(script.Parent.Parent).Array.SelectWeighted
 
     local WeightTable = {
         {ID = "P", Weight = 10};

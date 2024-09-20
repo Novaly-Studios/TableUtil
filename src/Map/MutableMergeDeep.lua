@@ -5,13 +5,10 @@
 --- Merges both given tables recursively.
 --- Metatables are preserved, with new metatables overwrtiting old metatables.
 local function MutableMergeDeep(X, Y)
-    local MT = getmetatable(Y :: any)
-    if (MT) then
-        setmetatable(X, MT)
-    end
-
     for Key, Value in Y do
-        if (type(Value) == "table") then
+        local Type = type(Value)
+
+        if (Type == "table") then
             local Got = X[Key]
             if (not Got) then
                 Got = {}
@@ -20,9 +17,16 @@ local function MutableMergeDeep(X, Y)
 
             MutableMergeDeep(Got, Value)
             continue
+        elseif (Type == "function") then
+            Value = Value(X[Key])
         end
 
         X[Key] = Value
+    end
+
+    local MT = getmetatable(Y :: any)
+    if (MT) then
+        setmetatable(X, MT)
     end
 end
 

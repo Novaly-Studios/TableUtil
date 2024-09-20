@@ -1,5 +1,5 @@
 return function()
-    local FromKeyValueArray = require(script.Parent.FromKeyValueArray)
+    local FromKeyValueArray = require(script.Parent.Parent).Map.FromKeyValueArray
 
     describe("Map/FromKeyValueArray", function()
         it("should return a blank map given an empty array", function()

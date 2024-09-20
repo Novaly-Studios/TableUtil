@@ -1,5 +1,5 @@
 return function()
-    local Map = require(script.Parent.Map)
+    local Map = require(script.Parent.Parent).Map.Map
 
     describe("Map/Map", function()
         it("should return a blank array if passed in a blank array", function()

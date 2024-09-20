@@ -1,5 +1,5 @@
 return function()
-    local Removals = require(script.Parent.Removals)
+    local Removals = require(script.Parent.Parent).Map.Removals
 
     describe("Map/Removals", function()
         it("it should give no removals for two empty tables", function()

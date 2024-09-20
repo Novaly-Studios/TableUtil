@@ -1,9 +1,8 @@
-local SetType = require(script:WaitForChild("_SetType"))
+local SetType = require(script._SetType)
 export type Set<T> = SetType.Set<T>
 
-local FromValues = require(script.FromValues)
 local Result = {
-    FromValues = FromValues;
+    FromValues = require(script.FromValues);
     Difference = require(script.Difference);
     Equals = require(script.Equals);
     FromKeys = require(script.FromKeys);
@@ -17,10 +16,4 @@ local Result = {
     Union = require(script.Union);
 };
 
-setmetatable(Result, { -- Allows for Set({"X", "Y", "Z"})
-    __call = function(_, ...)
-        return FromValues(...)
-    end;
-})
-
-return Result
+return table.freeze(Result)

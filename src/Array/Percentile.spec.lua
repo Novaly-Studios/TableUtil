@@ -1,5 +1,5 @@
 return function()
-    local Percentile = require(script.Parent.Percentile)
+    local Percentile = require(script.Parent.Parent).Array.Percentile
 
     describe("Array/Percentile", function()
         it("should return nil for no elements", function()

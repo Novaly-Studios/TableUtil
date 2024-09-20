@@ -2,7 +2,7 @@
 --!optimize 2
 --!nonstrict
 
-local SetType = require(script.Parent:WaitForChild("_SetType"))
+local SetType = require(script.Parent._SetType)
 type Set<T> = SetType.Set<T>
 
 --- Returns true if all elements in the first set are also in the second set.

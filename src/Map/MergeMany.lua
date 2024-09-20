@@ -4,23 +4,21 @@
 
 --- Merges various tables together.
 --- Metatables are preserved, with new metatables overwrtiting old metatables.
+local Merge = require(script.Parent.Merge)
 local function MergeMany(...)
     local Count = select("#", ...)
     if (Count == 0) then
         return {}
     end
 
-    local Result = table.clone((select(1, ...)))
-    for Index = 2, Count do
-        local Table = (select(Index, ...))
-        for Key, Value in Table do
-            Result[Key] = Value
-        end
+    local First = (select(1, ...))
+    if (Count == 1) then
+        return First
+    end
 
-        local MT = getmetatable(Table :: any)
-        if (MT) then
-            setmetatable(Result, MT)
-        end
+    local Result = Merge(First, (select(2, ...)))
+    for Index = 3, Count do
+        Result = Merge(Result, (select(Index, ...)))
     end
     return Result
 end

@@ -1,5 +1,5 @@
 return function()
-    local ToKeyValueArray = require(script.Parent.ToKeyValueArray)
+    local ToKeyValueArray = require(script.Parent.Parent).Map.ToKeyValueArray
 
     describe("Map/ToKeyValueArray", function()
         it("should return a blank array given an empty table", function()

@@ -1,5 +1,5 @@
 return function()
-    local Flatten = require(script.Parent.Flatten)
+    local Flatten = require(script.Parent.Parent).Map.Flatten
 
     describe("Map/Flatten", function()
         it("should return a blank table for no data", function()

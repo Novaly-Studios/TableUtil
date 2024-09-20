@@ -2,7 +2,7 @@
 --!optimize 2
 --!nonstrict
 
-local SetType = require(script.Parent:WaitForChild("_SetType"))
+local SetType = require(script.Parent._SetType)
 type Set<T> = SetType.Set<T>
 
 --- Returns true if both sets are not equal and the first set is a subset of the second set.

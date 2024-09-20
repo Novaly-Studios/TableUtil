@@ -1,6 +1,7 @@
 return function()
-    local Intersection = require(script.Parent.Intersection)
-    local FromValues = require(script.Parent.FromValues)
+    local Set = require(script.Parent.Parent).Set
+        local Intersection = Set.Intersection
+        local FromValues = Set.FromValues
 
     describe("Set/Intersection", function()
         it("should find no intersection with two empty sets", function()

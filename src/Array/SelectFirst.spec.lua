@@ -1,5 +1,5 @@
 return function()
-    local SelectFirst = require(script.Parent.SelectFirst)
+    local SelectFirst = require(script.Parent.Parent).Array.SelectFirst
 
     describe("Array/SelectFirst", function()
         it("should select nothing on an empty array", function()

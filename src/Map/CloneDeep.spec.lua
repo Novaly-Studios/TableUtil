@@ -1,6 +1,6 @@
 return function()
-    local CloneDeep = require(script.Parent.CloneDeep)
-    local Equals = require(script.Parent.Equals)
+    local CloneDeep = require(script.Parent.Parent).Map.CloneDeep
+    local Equals = require(script.Parent.Parent).Map.Equals
 
     describe("Map/CloneDeep", function()
         it("it should copy a blank array into a new blank array", function()

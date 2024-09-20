@@ -1,4 +1,4 @@
-return {
+return table.freeze({
     Changes = require(script.Changes);
     CloneDeep = require(script.CloneDeep);
     Count = require(script.Count);
@@ -9,11 +9,6 @@ return {
     Flatten = require(script.Flatten);
     FromKeyValueArray = require(script.FromKeyValueArray);
     GroupBy = require(script.GroupBy);
-    IsMap = require(script.IsMap);
-    IsMixed = require(script.IsMixed);
-    IsPureMap = require(script.IsPureMap);
-    Keys = require(script.Keys);
-    Lockdown = require(script.Lockdown);
     Map = require(script.Map);
     Merge = require(script.Merge);
     MergeDeep = require(script.MergeDeep);
@@ -22,8 +17,17 @@ return {
     MutableMergeDeep = require(script.MutableMergeDeep);
     MutableMergeMany = require(script.MutableMergeMany);
     Removals = require(script.Removals);
-    SetUnresizable = require(script.SetUnresizable);
-    SwapKeysValues = require(script.SwapKeysValues);
     ToKeyValueArray = require(script.ToKeyValueArray);
-    Values = require(script.Values);
-};
+
+    -- Shared
+    IsArray = require(script.Parent.Shared.IsArray);
+    IsMap = require(script.Parent.Shared.IsMap);
+    IsMixed = require(script.Parent.Shared.IsMixed);
+    IsPureArray = require(script.Parent.Shared.IsPureArray);
+    IsPureMap = require(script.Parent.Shared.IsPureMap);
+    Keys = require(script.Parent.Shared.Keys);
+    Lockdown = require(script.Parent.Shared.Lockdown);
+    SetUnresizable = require(script.Parent.Shared.SetUnresizable);
+    SwapKeysValues = require(script.Parent.Shared.SwapKeysValues);
+    Values = require(script.Parent.Shared.Values);
+});

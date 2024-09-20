@@ -1,5 +1,5 @@
 return function()
-    local MergeMany = require(script.Parent.MergeMany)
+    local MergeMany = require(script.Parent.Parent).Map.MergeMany
 
     describe("Map/MergeMany", function()
         it("should return a blank table for no inputs", function()

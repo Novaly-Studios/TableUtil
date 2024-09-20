@@ -10,7 +10,6 @@ local function MergeMany<T>(...: {T}): {T}
 
     for SubArrayIndex = 2, select("#", ...) do
         local SubArray = select(SubArrayIndex, ...)
-
         if (not SubArray) then
             continue
         end

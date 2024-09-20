@@ -1,5 +1,5 @@
 return function()
-    local Changes = require(script.Parent.Changes)
+    local Changes = require(script.Parent.Parent).Map.Changes
 
     describe("Map/Changes", function()
         it("it should give no changes for two empty tables", function()
