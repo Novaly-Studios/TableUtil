@@ -59,7 +59,7 @@ function Library.WithFeatures(...: Feature): typeof(Library)
                 end
 
                 for FeatureID, Feature in require(FeatureModule) do
-                    if (not Cache[FeatureID]) then
+                    if (not table.find(Cache, FeatureID)) then
                         continue
                     end
 

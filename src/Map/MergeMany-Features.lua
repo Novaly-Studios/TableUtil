@@ -18,8 +18,11 @@ return table.freeze({
                 assert(type(Array) == "table" and not IsArray(Array), `Arg #{Index} was not a map`)
             end
 
-            local Last = (select(Count, ...))
-            assert((type(Last) == "table" and not IsArray(Last)) or type(Last) == "boolean", `Arg #{Count} was not a map or boolean`)
+            if (Count > 0) then
+                local Last = (select(Count, ...))
+                assert((type(Last) == "table" and not IsArray(Last)) or type(Last) == "boolean", `Arg #{Count} was not a map or boolean`)
+            end
+
             return Call(...)
         end
     end;

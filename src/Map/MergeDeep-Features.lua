@@ -21,20 +21,23 @@ end
 
 return table.freeze({
     Freeze = function(Call)
-        return function(X, Y)
-            local Result = Call(X, Y)            
+        return function(X, Y, FunctionsMap)
+            local Result = Call(X, Y, FunctionsMap)
+
             if (Result == X) then
                 return X
             end
+
             Freezes(Result, Y)
             return Result
         end
     end;
     Assert = function(Call)
-        return function(X, Y)
+        return function(X, Y, FunctionsMap)
             assert(type(X) == "table" and not IsArray(X), "Arg #1 was not a map")
             assert(type(Y) == "table" and not IsArray(Y), "Arg #2 was not a map")
-            return Call(X, Y)
+            assert(FunctionsMap == nil or type(FunctionsMap) == "boolean", `Arg #3 was not a boolean`)
+            return Call(X, Y, FunctionsMap)
         end
     end;
 })
