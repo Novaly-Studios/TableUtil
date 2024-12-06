@@ -66,5 +66,15 @@ return function()
             end}, true)
             expect(Test2.X).to.equal(2)
         end)
+
+        it("should correctly substitute in nil values with mapper functions", function()
+            local Test = {X = 1}
+            MutableMerge(Test, {
+                X = function()
+                    return nil
+                end;
+            }, true)
+            expect(Test.X).to.equal(nil)
+        end)
     end)
 end

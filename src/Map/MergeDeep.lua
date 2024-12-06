@@ -18,9 +18,9 @@ local function MergeDeep<K1, K2, V1, V2>(X: {[K1]: V1}, Y: {[K2]: V2}, Functions
             --      Does already exist in the result -> recurse further and merge the two tables.
             (Type == "table" and (OtherValue and MergeDeep(OtherValue, Value, FunctionsMap) or Value)) or
             -- If it's a mapper function -> call it with the value and subtitute whatever it returns.
-            (FunctionsMap and Type == "function" and Value(OtherValue)) or
+            if (FunctionsMap and Type == "function") then Value(OtherValue)
             -- Otherwise, put value in directly.
-            Value
+            else Value
         )
         Equal = (Equal and OtherValue == NewValue)
         Result[Key] = NewValue

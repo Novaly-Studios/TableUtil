@@ -227,5 +227,11 @@ return function()
             local Result = MergeDeep(Base, {Test = {}})
             expect(Result).to.equal(Base)
         end)
+
+        it("should correctly substitute in nil values with mapper functions", function()
+            expect(MergeDeep({X = {Y = 1}}, {X = {Y = function(Value)
+                return nil
+            end}}, true).X.Y).to.equal(nil)
+        end)
     end)
 end

@@ -86,5 +86,11 @@ return function()
                 return Value + 1
             end}, true).X).to.equal(2)
         end)
+
+        it("should correctly substitute in nil values with mapper functions", function()
+            expect(Merge({X = 1}, {X = function(Value)
+                return nil
+            end}, true).X).to.equal(nil)
+        end)
     end)
 end

@@ -82,5 +82,17 @@ return function()
             }, true)
             expect(Test2.Y.Z).to.equal(1002)
         end)
+
+        it("should correctly substitute in nil values with mapper functions", function()
+            local Test = {X = {Y = 1}}
+            MutableMergeDeep(Test, {
+                X = {
+                    Y = function()
+                        return nil
+                    end;
+                };
+            }, true)
+            expect(Test.X.Y).to.equal(nil)
+        end)
     end)
 end

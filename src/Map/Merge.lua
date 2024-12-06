@@ -12,9 +12,9 @@ local function Merge<K1, K2, V1, V2>(X: {[K1]: V1}, Y: {[K2]: V2}, FunctionsMap:
         local OtherValue = Result[Key]
         local NewValue = (
             -- If it's a mapper function -> call it with the value and subtitute whatever it returns.
-            (FunctionsMap and type(Value) == "function" and Value(OtherValue)) or
+            if (FunctionsMap and type(Value) == "function") then Value(OtherValue)
             -- Otherwise, put value in directly.
-            Value
+            else Value
         )
         Equal = (Equal and OtherValue == NewValue)
         Result[Key] = NewValue
