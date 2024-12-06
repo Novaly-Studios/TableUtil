@@ -67,5 +67,27 @@ return function()
             expect(Result.Value1).to.equal(1)
             expect(Result.Value2).to.equal(2)
         end)
+
+        it("should apply a mapper function to values when enabled", function()
+            local Test1 = {X = 1}
+            MutableMergeMany(Test1, {X = function(Value)
+                return Value + 1
+            end})
+            expect(Test1.X).to.be.a("function")
+
+            local Test2 = {X = 1}
+            MutableMergeMany(Test2, {X = function(Value)
+                return Value + 1
+            end}, true)
+            expect(Test2.X).to.equal(2)
+
+            local Test3 = {X = 1}
+            MutableMergeMany(Test3, {X = function(Value)
+                return Value + 1
+            end}, {X = function(Value)
+                return 123
+            end}, true)
+            expect(Test3.X).to.equal(123)
+        end)
     end)
 end

@@ -175,8 +175,8 @@ return function()
             expect(getmetatable(Result.Test.Test)).to.equal(MT)
         end)
 
-        it("should pass the left-side value for mapping into a right-side function when FunctionalAppliers is true", function()
-            local Result = MergeDeep({
+        it("should pass the left-side value for mapping into a right-side function when functional mappers is enabled", function()
+            local Test1 = MergeDeep({
                 Inner = {
                     X = 1;
                     Y = 2;
@@ -189,8 +189,24 @@ return function()
                 };
             })
 
-            expect(Result.Inner.X).to.equal(1)
-            expect(Result.Inner.Y).to.equal(1002)
+            expect(Test1.Inner.X).to.equal(1)
+            expect(Test1.Inner.Y).to.be.a("function")
+
+            local Test2 = MergeDeep({
+                Inner = {
+                    X = 1;
+                    Y = 2;
+                };
+            }, {
+                Inner = {
+                    Y = function(Value)
+                        return 1000 + Value
+                    end;
+                };
+            }, true)
+
+            expect(Test2.Inner.X).to.equal(1)
+            expect(Test2.Inner.Y).to.equal(1002)
         end)
 
         it("should propagate the change up the structure but keep unchanged nodes equal", function()

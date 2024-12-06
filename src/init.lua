@@ -20,11 +20,14 @@ local ValidFeatures = {
     Assert = true;
     Freeze = true;
 }
+local DefaultFeatures = {"Assert", "Freeze"}
+
+type Feature = ("Assert" | "Freeze")
 
 --- Allows turning on and off extension functions which wrap over the core functions.
 --- This allows the consumer to determine the compromise between security and performance.
 --- Passing nothing will return the library with all features disabled.
-function Library.WithFeatures(...: "Assert" | "Freeze"): typeof(Library)
+function Library.WithFeatures(...: Feature): typeof(Library)
     local Cache = {}
     for Index = 1, select("#", ...) do
         local Feature = select(Index, ...)
@@ -36,35 +39,52 @@ function Library.WithFeatures(...: "Assert" | "Freeze"): typeof(Library)
 
     local CacheKey = table.concat(Cache)
     local Cached = FeaturesCache[CacheKey]
+
     if (Cached) then
         return Cached
     end
 
     local Copy = table.clone(Library)
+
     for SubcategoryID, Subcategory in Library do
         if (type(Subcategory) == "table") then
             local SubcategoryCopy = table.clone(Subcategory)
+
             for FunctionID, Function in pairs(Subcategory) do -- Keep pairs here because of __call.
                 local ModuleName = `{FunctionID}-Features`
                 local FeatureModule = script[SubcategoryID]:FindFirstChild(ModuleName) or Shared:FindFirstChild(ModuleName)
+
                 if (not FeatureModule) then
                     continue
                 end
+
                 for FeatureID, Feature in require(FeatureModule) do
                     if (not Cache[FeatureID]) then
                         continue
                     end
+
                     Function = Feature(Function)
                 end
+
                 SubcategoryCopy[FunctionID] = Function
             end
             Copy[SubcategoryID] = table.freeze(SubcategoryCopy)
         end
     end
+
     FeaturesCache[CacheKey] = Copy
     return table.freeze(Copy)
 end
 
+--- Turning on additional / experimental features on top of the default recommended features.
+function Library.WithAdditionalFeatures(...: Feature): typeof(Library)
+    local NewFeatures = table.clone(DefaultFeatures)
+    for Index = 1, select("#", ...) do
+        table.insert(NewFeatures, (select(Index, ...)))
+    end
+    return Library.WithFeatures(unpack(NewFeatures))
+end
+
 -- By default, all features are enabled. They can be disasbled for performance via "TableUtil.WithFeatures()" (pass no args).
-local Default = Library.WithFeatures("Assert", "Freeze")
+local Default = Library.WithFeatures(unpack(DefaultFeatures))
 return Default

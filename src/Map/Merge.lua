@@ -4,7 +4,7 @@
 
 --- Merges two tables together, returning a new one.
 --- Metatables are preserved, with new metatables overwrtiting old metatables.
-local function Merge<K1, K2, V1, V2>(X: {[K1]: V1}, Y: {[K2]: V2}): {[K1 | K2]: V1 | V2}
+local function Merge<K1, K2, V1, V2>(X: {[K1]: V1}, Y: {[K2]: V2}, FunctionsMap: boolean?): {[K1 | K2]: V1 | V2}
     local Result = table.clone(X)
     local Equal = true
 
@@ -12,7 +12,7 @@ local function Merge<K1, K2, V1, V2>(X: {[K1]: V1}, Y: {[K2]: V2}): {[K1 | K2]: 
         local OtherValue = Result[Key]
         local NewValue = (
             -- If it's a mapper function -> call it with the value and subtitute whatever it returns.
-            (type(Value) == "function" and Value(OtherValue)) or
+            (FunctionsMap and type(Value) == "function" and Value(OtherValue)) or
             -- Otherwise, put value in directly.
             Value
         )

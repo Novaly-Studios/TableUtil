@@ -44,12 +44,6 @@ return function()
             expect(Result.Y).never.to.equal(MergeIn2.Y)
         end)
 
-
-
-
-
-
-
         it("should preserve a metatable on the left-side table with a non-metatable on the right-side table", function()
             local MT = {__len = function() end}
             local Left = {Test = setmetatable({A = 1, B = 2}, MT)}
@@ -67,14 +61,26 @@ return function()
             expect(getmetatable(Left.Test)).to.equal(MT2)
         end)
 
-        it("should apply right-side functions to left-side values", function()
-            local Result = {X = 1, Y = 2}
-            MutableMergeDeep(Result, {
-                Y = function(Value)
-                    return 1000 + Value
-                end;
+        it("should apply mapper functions to right-side values when enabled", function()
+            local Test1 = {X = 1, Y = {Z = 2}}
+            MutableMergeDeep(Test1, {
+                Y = {
+                    Z = function(Value)
+                        return 1000 + Value
+                    end;
+                };
             })
-            expect(Result.Y).to.equal(1002)
+            expect(Test1.Y.Z).to.be.a("function")
+
+            local Test2 = {X = 1, Y = {Z = 2}}
+            MutableMergeDeep(Test2, {
+                Y = {
+                    Z = function(Value)
+                        return 1000 + Value
+                    end;
+                };
+            }, true)
+            expect(Test2.Y.Z).to.equal(1002)
         end)
     end)
 end

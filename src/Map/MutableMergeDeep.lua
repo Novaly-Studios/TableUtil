@@ -4,7 +4,7 @@
 
 --- Merges both given tables recursively.
 --- Metatables are preserved, with new metatables overwrtiting old metatables.
-local function MutableMergeDeep(X, Y)
+local function MutableMergeDeep(X, Y, FunctionsMap: boolean?)
     for Key, Value in Y do
         local Type = type(Value)
 
@@ -15,9 +15,9 @@ local function MutableMergeDeep(X, Y)
                 X[Key] = Got
             end
 
-            MutableMergeDeep(Got, Value)
+            MutableMergeDeep(Got, Value, FunctionsMap)
             continue
-        elseif (Type == "function") then
+        elseif (FunctionsMap and Type == "function") then
             Value = Value(X[Key])
         end
 

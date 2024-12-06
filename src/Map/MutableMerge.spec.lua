@@ -52,5 +52,19 @@ return function()
             MutableMerge(Left, Right)
             expect(getmetatable(Left)).to.equal(MT2)
         end)
+
+        it("should apply a mapper function to values when enabled", function()
+            local Test1 = {X = 1}
+            MutableMerge(Test1, {X = function(Value)
+                return Value + 1
+            end})
+            expect(Test1.X).to.be.a("function")
+
+            local Test2 = {X = 1}
+            MutableMerge(Test2, {X = function(Value)
+                return Value + 1
+            end}, true)
+            expect(Test2.X).to.equal(2)
+        end)
     end)
 end

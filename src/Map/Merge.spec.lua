@@ -76,5 +76,15 @@ return function()
             Result = Merge({}, setmetatable({}, MT))
             expect(getmetatable(Result)).to.equal(MT)
         end)
+
+        it("should apply mapper functions to values when enabled", function()
+            expect(Merge({X = 1}, {X = function(Value)
+                return Value + 1
+            end}).X).to.be.a("function")
+
+            expect(Merge({X = 1}, {X = function(Value)
+                return Value + 1
+            end}, true).X).to.equal(2)
+        end)
     end)
 end

@@ -16,10 +16,13 @@ local function MergeMany(...)
         return First
     end
 
-    local Result = Merge(First, (select(2, ...)))
-    for Index = 3, Count do
-        Result = Merge(Result, (select(Index, ...)))
+    local FunctionsMap = ((select(Count, ...)) == true)
+    local Result = Merge(First, (select(2, ...)), FunctionsMap)
+
+    for Index = 3, (FunctionsMap and Count - 1 or Count) do
+        Result = Merge(Result, (select(Index, ...)), FunctionsMap)
     end
+
     return Result
 end
 

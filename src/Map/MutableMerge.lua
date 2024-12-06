@@ -4,9 +4,9 @@
 
 --- Merges two tables together.
 --- Metatables are preserved, with new metatables overwrtiting old metatables.
-local function MutableMerge(X: {[any]: any}, Y: {[any]: any})
+local function MutableMerge(X: {[any]: any}, Y: {[any]: any}, FunctionsMap: boolean?)
     for Key, Value in Y do
-        X[Key] = (type(Value) == "function" and Value(X[Key]) or Value)
+        X[Key] = (FunctionsMap and type(Value) == "function" and Value(X[Key]) or Value)
     end
 
     local MT = getmetatable(Y :: any)
