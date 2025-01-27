@@ -2,8 +2,6 @@
 --!optimize 2
 --!nonstrict
 
-local IsArray = require(script.Parent.Parent.Shared.IsArray)
-
 local function Freezes(X, Y)
     if (X == Y) then
         return
@@ -29,8 +27,8 @@ return table.freeze({
     end;
     Assert = function(Call)
         return function(X, Y, FunctionsMap)
-            assert(type(X) == "table" and not IsArray(X), "Arg #1 was not a map")
-            assert(type(Y) == "table" and not IsArray(Y), "Arg #2 was not a map")
+            assert(type(X) == "table", "Arg #1 was not a table")
+            assert(type(Y) == "table", "Arg #2 was not a table")
             assert(FunctionsMap == nil or type(FunctionsMap) == "boolean", `Arg #3 was not a boolean`)
             return Call(X, Y, FunctionsMap)
         end

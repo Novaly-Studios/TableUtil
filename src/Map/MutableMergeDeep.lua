@@ -9,14 +9,12 @@ local function MutableMergeDeep(X, Y, FunctionsMap: boolean?)
         local Type = type(Value)
 
         if (Type == "table") then
-            local Got = X[Key]
-            if (not Got) then
-                Got = {}
-                X[Key] = Got
-            end
+            local LeftValue = X[Key]
 
-            MutableMergeDeep(Got, Value, FunctionsMap)
-            continue
+            if (type(LeftValue) == "table") then
+                MutableMergeDeep(LeftValue, Value, FunctionsMap)
+                continue
+            end
         elseif (FunctionsMap and Type == "function") then
             Value = Value(X[Key])
         end

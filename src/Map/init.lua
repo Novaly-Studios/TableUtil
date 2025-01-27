@@ -27,6 +27,7 @@ return table.freeze({
     IsPureMap = require(script.Parent.Shared.IsPureMap);
     Keys = require(script.Parent.Shared.Keys);
     Lockdown = require(script.Parent.Shared.Lockdown);
+    MixedMergeDeep = require(script.Parent.Shared.MixedMergeDeep);
     SetUnresizable = require(script.Parent.Shared.SetUnresizable);
     SwapKeysValues = require(script.Parent.Shared.SwapKeysValues);
     Values = require(script.Parent.Shared.Values);

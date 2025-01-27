@@ -37,7 +37,7 @@ return function()
         end)
 
         it("should preserve left-side metatables when the right-side has no metatable", function()
-            local MT = {__len = function() end}
+            local MT = {__gt = function() return false end}
 
             -- With values inside.
             local Result = Merge(setmetatable({Value1 = 1}, MT), {})
@@ -49,8 +49,8 @@ return function()
         end)
 
         it("should overwrite left-side metatables with right-side metatables", function()
-            local MT = {__len = function() end}
-            local MT2 = {__len = function() end}
+            local MT = {__gt = function() return false end}
+            local MT2 = {__gt = function() return false end}
 
             -- With values inside.
             local Result = Merge(setmetatable({Value1 = 1}, MT), setmetatable({Value2 = 2}, MT2))
@@ -66,7 +66,7 @@ return function()
         end)
 
         it("should preserve right-side metatables when a new value is added", function()
-            local MT = {__len = function() end}
+            local MT = {__gt = function() return false end}
 
             -- With values inside.
             local Result = Merge({Value1 = 1}, setmetatable({Value2 = 2}, MT))

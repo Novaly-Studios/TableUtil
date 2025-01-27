@@ -37,9 +37,9 @@ return function()
         end)
 
         it("should allow left-hand metatables to be overwriten by right-hand metatables", function()
-            local MT1 = {__len = function() end}
-            local MT2 = {__len = function() end}
-            local MT3 = {__len = function() end}
+            local MT1 = {__gt = function() return false end}
+            local MT2 = {__gt = function() return false end}
+            local MT3 = {__gt = function() return false end}
 
             local Result = setmetatable({A = 1}, MT1)
             MutableMergeMany(
@@ -57,7 +57,7 @@ return function()
         end)
 
         it("should preserve left-side metatables when right-side has no metatable", function()
-            local MT1 = {__len = function() end}
+            local MT1 = {__gt = function() return false end}
             local Result = setmetatable({Value1 = 1}, MT1)
             MutableMergeMany(
                 Result,

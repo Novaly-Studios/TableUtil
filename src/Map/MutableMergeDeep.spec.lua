@@ -45,7 +45,7 @@ return function()
         end)
 
         it("should preserve a metatable on the left-side table with a non-metatable on the right-side table", function()
-            local MT = {__len = function() end}
+            local MT = {__gt = function() return false end}
             local Left = {Test = setmetatable({A = 1, B = 2}, MT)}
             local Right = {Test = {C = 3, D = 4}}
             MutableMergeDeep(Left, Right)
@@ -53,8 +53,8 @@ return function()
         end)
 
         it("should overwrite a left-side metatable with a right-side metatable", function()
-            local MT = {__len = function() end}
-            local MT2 = {__len = function() end}
+            local MT = {__gt = function() return false end}
+            local MT2 = {__gt = function() return false end}
             local Left = {Test = setmetatable({A = 1, B = 2}, MT)}
             local Right = {Test = setmetatable({C = 3, D = 4}, MT2)}
             MutableMergeDeep(Left, Right)
@@ -93,6 +93,15 @@ return function()
                 };
             }, true)
             expect(Test.X.Y).to.equal(nil)
+        end)
+        
+        it("should overwrite primitive values with a table", function()
+            local Result = {X = false, Y = 123}
+            MutableMergeDeep(Result, {X = {Value = 1}, Y = {Value = 2}})
+            expect(Result.X).to.be.a("table")
+            expect(Result.X.Value).to.equal(1)
+            expect(Result.Y).to.be.a("table")
+            expect(Result.Y.Value).to.equal(2)
         end)
     end)
 end
