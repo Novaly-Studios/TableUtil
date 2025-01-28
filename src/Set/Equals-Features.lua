@@ -9,6 +9,7 @@ return table.freeze({
         return function(Set1, Set2)
             assert(type(Set1) == "table" and DetectSet(Set1), "Arg #1 is not a set")
             assert(type(Set2) == "table" and DetectSet(Set2), "Arg #2 is not a set")
+
             return Call(Set1, Set2)
         end
     end;

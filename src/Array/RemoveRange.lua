@@ -6,6 +6,7 @@
 local function RemoveRange<T>(Array: {T}, Start: number, End: number): {T}
     local Range = End - Start + 1
     local Length = #Array
+
     if (Range == Length) then
         return Array
     end

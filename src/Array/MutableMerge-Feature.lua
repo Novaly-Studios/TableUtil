@@ -9,6 +9,7 @@ return table.freeze({
         return function(Into, New)
             assert(type(Into) == "table" and not IsMap(Into), "Arg #1 was not an array")
             assert(type(New) == "table" and not IsMap(New), "Arg #2 was not an array")
+
             return Call(Into, New)
         end
     end;

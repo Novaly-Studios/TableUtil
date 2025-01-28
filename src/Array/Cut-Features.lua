@@ -20,6 +20,7 @@ return table.freeze({
             assert(From >= 1, "Start index less than 1!")
             assert(To <= Size, "End index beyond array length!")
             assert(From <= To, "Start index must be less than or equal to end index")
+
             return Call(Array, From, To)
         end
     end;

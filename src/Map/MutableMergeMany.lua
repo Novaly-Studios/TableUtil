@@ -13,9 +13,11 @@ local function MutableMergeMany(...: {any}): {any}
 
     for Index = 2, (FunctionsMap and Count - 1 or Count) do
         local Table = (select(Index, ...))
+
         if (not Table) then
             continue
         end
+
         MutableMerge(Target, Table, FunctionsMap)
     end
 

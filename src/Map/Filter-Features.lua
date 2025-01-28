@@ -14,6 +14,7 @@ return table.freeze({
         return function(Structure, Predicate)
             assert(type(Structure) == "table" and not IsArray(Structure), "Arg #1 was not a map")
             assert(type(Predicate) == "function", "Arg #2 was not a function")
+
             return Call(Structure, Predicate)
         end
     end;

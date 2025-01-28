@@ -12,6 +12,8 @@ return table.freeze({
         return function(Min, Max)            
             assert(type(Min) == "number", "Arg #1 was not a number")
             assert(type(Max) == "number", "Arg #2 was not a number")
+            assert(Min <= Max, "Min must be less than or equal to Max")
+
             return Call(Min, Max)
         end
     end;

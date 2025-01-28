@@ -9,9 +9,11 @@ local function _IsOrdered(Array: {any}, AscendingOrDescending: boolean?): (boole
 
         for Index = 2, #Array do
             local Value = Array[Index]
+
             if (Value < LastValue) then
                 return false
             end
+
             LastValue = Value
         end
 
@@ -23,9 +25,11 @@ local function _IsOrdered(Array: {any}, AscendingOrDescending: boolean?): (boole
 
     for Index = 2, #Array do
         local Value = Array[Index]
+
         if (Value > LastValue) then
             return false
         end
+
         LastValue = Value
     end
 

@@ -23,6 +23,7 @@ local function SelectWeighted1D<V>(Array: {V & {}}, WeightKey: string, Seed: num
     end)
 
     local RandomWeight = UseRandom:NextNumber() * TotalWeight
+
     for _, Value in Array do
         RandomWeight -= Value[WeightKey]
         if (RandomWeight <= 0) then

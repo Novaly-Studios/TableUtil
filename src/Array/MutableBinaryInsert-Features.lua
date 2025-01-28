@@ -9,6 +9,7 @@ return table.freeze({
         return function(Array, Target)
             assert(type(Array) == "table" and not IsMap(Array), "Arg #1 was not an array")
             assert(Target ~= nil, "Arg #2 was nil")
+
             return Call(Array, Target)
         end
     end;

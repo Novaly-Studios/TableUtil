@@ -14,6 +14,7 @@ return table.freeze({
     Assert = function(Call)
         return function(Set, Value)
             assert(type(Set) == "table" and DetectSet(Set), "Arg #1 is not a set")
+
             return Call(Set, Value)
         end
     end;

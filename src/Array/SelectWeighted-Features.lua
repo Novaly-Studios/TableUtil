@@ -11,6 +11,7 @@ return table.freeze({
             assert(type(WeightKey) == "string", "Arg #2 was not a string")
             assert(Seed == nil or type(Seed) == "number", "Arg #3 was not a number or nil")
             assert(SortMutate == nil or type(SortMutate) == "boolean", "Arg #4 was not a boolean or nil")
+
             return Call(Array, WeightKey, Seed, SortMutate)
         end
     end;

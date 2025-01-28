@@ -14,6 +14,7 @@ return table.freeze({
         return function(Array, Condition)
             assert(type(Array) == "table" and not IsMap(Array), "Arg #1 was not an array")
             assert(Condition == nil or type(Condition) == "function", "Arg #2 was not a function or nil")
+
             return Call(Array, Condition)
         end
     end;

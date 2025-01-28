@@ -11,9 +11,16 @@ return table.freeze({
         end
     end;
     Assert = function(Call)
-        return function(Array, Index)            
+        return function(Array, Index)
+            local IndexNil = (Index == nil)
             assert(type(Array) == "table" and not IsMap(Array), "Arg #1 was not an array")
-            assert(Index == nil or type(Index) == "number", "Arg #2 was not a number or nil")
+            assert(IndexNil or type(Index) == "number", "Arg #2 was not a number or nil")
+
+            if (not IndexNil) then
+                assert(Index > 0, "Index must be greater than 0")
+                assert(Index <= #Array, "Index out of bounds")
+            end
+
             return Call(Array, Index)
         end
     end;

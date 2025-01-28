@@ -15,6 +15,7 @@ return table.freeze({
 
             local Last = (select(Count, ...))
             assert((type(Last) == "table" and not IsArray(Last)) or type(Last) == "boolean", `Arg #{Count} was not a map or boolean`)
+
             return Call(...)
         end
     end;

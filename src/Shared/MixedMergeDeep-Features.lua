@@ -30,6 +30,7 @@ return table.freeze({
             assert(type(X) == "table", "Arg #1 was not a table")
             assert(type(Y) == "table", "Arg #2 was not a table")
             assert(FunctionsMap == nil or type(FunctionsMap) == "boolean", `Arg #3 was not a boolean`)
+
             return Call(X, Y, FunctionsMap)
         end
     end;

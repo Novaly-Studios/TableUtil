@@ -2,7 +2,7 @@
 --!optimize 2
 --!nonstrict
 
---- Produces a table of all possible combinations of a given dimension.
+--- Produces a table of all possible combinations of values up to a given dimension.
 local function Product(Array, Dimension)
     local Result = table.create((#Array) ^ Dimension)
     local Is1D = (Dimension == 1)

@@ -16,9 +16,11 @@ local function Union<T>(Set1: Set<T>, Set2: Set<T>): Set<T>
     end
 
     local Result = table.clone(Set1)
+
     for Key in Set2 do
         Result[Key] = true
     end
+
     return Result
 end
 

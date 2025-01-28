@@ -14,6 +14,7 @@ return table.freeze({
         return function(Array, Grouper)
             assert(type(Array) == "table" and not IsMap(Array), "Arg #1 was not an array")
             assert(type(Grouper) == "function", "Arg #2 was not a function")
+
             return Call(Array, Grouper)
         end
     end;

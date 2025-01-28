@@ -7,8 +7,8 @@ local function FoldLeft<T>(Array: {T}, Processor: (T, T, number, number) -> T, I
     local Aggregate = Initial
     local Size = #Array
 
-    for Index = 1, Size do
-        Aggregate = Processor(Aggregate, Array[Index], Index, Size)
+    for Index, Value in Array do
+        Aggregate = Processor(Aggregate, Value, Index, Size)
     end
 
     return Aggregate

@@ -7,10 +7,14 @@ local function Mean<T>(Array: {T}, From: number?, To: number?): T
     To = To or #Array
 
     local Mean = 0
-    for Index = From :: number, To :: number do
-        Mean += Array[Index]
+
+    if (To > 0) then
+        for Index = From :: number, To :: number do
+            Mean += Array[Index]
+        end
     end
-    return Mean == 0 and Mean or Mean / (To :: number - From :: number + 1)
+
+    return Mean / math.max(1, To :: number - From :: number + 1)
 end
 
 return Mean

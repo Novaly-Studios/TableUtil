@@ -8,8 +8,8 @@ local function Map<T>(Array: {T}, Operator: ((T, number) -> (T?)), Allocate: num
     local Equals = true
     local Index = 1
 
-    for ItemIndex = 1, #Array do
-        local Transformed = Operator(Array[ItemIndex], ItemIndex)
+    for ItemIndex, Value in Array do
+        local Transformed = Operator(Value, ItemIndex)
 
         -- Skip nil values.
         if (Transformed == nil) then
@@ -17,9 +17,11 @@ local function Map<T>(Array: {T}, Operator: ((T, number) -> (T?)), Allocate: num
         end
 
         Result[Index] = Transformed
+
         if (Array[Index] ~= Transformed) then
             Equals = false
         end
+
         Index += 1
     end
 

@@ -11,6 +11,7 @@ return table.freeze({
     Assert = function(Call)
         return function(ValuesTable)
             assert(type(ValuesTable) == "table", "Arg #1 was not a table")
+
             return Call(ValuesTable)
         end
     end;

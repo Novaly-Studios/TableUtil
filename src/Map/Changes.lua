@@ -9,12 +9,11 @@ local function Changes<K, V>(X: {[K]: V}, Y: {[K]: V}): {[K]: V}
 
     for Key, Value in X do
         local YValue = Y[Key]
-        if (YValue == nil) then
+
+        if (YValue == nil or YValue == Value) then
             continue
         end
-        if (YValue == Value) then
-            continue
-        end
+
         Result[Key] = YValue
     end
 

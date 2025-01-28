@@ -13,6 +13,7 @@ return table.freeze({
     Assert = function(Call)
         return function(Structure)
             assert(type(Structure) == "table" and not IsMap(Structure), "Arg #1 was not an array")
+
             return Call(Structure)
         end
     end;
