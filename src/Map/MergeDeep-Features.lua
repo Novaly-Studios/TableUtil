@@ -9,8 +9,8 @@ local function Freezes(X, Y)
         return
     end
 
-    for Key, Value in Y do
-        local OtherValue = X[Key]
+    for Key, Value in X do
+        local OtherValue = Y[Key]
         if (type(OtherValue) == "table") then
             Freezes(OtherValue, Value)
         end
