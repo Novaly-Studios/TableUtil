@@ -13,7 +13,7 @@ local function MergeMany(...)
 
     local First = (select(1, ...))
     if (Count == 1) then
-        return First
+        return (table.isfrozen(First) and First or table.clone(First))
     end
 
     local FunctionsMap = ((select(Count, ...)) == true)

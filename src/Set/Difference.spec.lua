@@ -9,6 +9,31 @@ return function()
             expect(next(Result)).never.to.be.ok()
         end)
 
+        it("should return en empty set from two equal set inputs", function()
+            local Test = FromValues({1, 2, 3})
+            local Result = Difference(Test, Test)
+            expect(Result).to.be.a("table")
+            expect(next(Result)).never.to.be.ok()
+        end)
+
+        it("should return the left side set if the right side is empty and the left side is frozen", function()
+            local X = FromValues({1, 2, 3})
+            local Y = FromValues({})
+
+            local Result = Difference(X, Y)
+            expect(Result).to.equal(X)
+            expect(Result).to.never.equal(Y)
+        end)
+
+        it("should return the left side set if it is empty and frozen", function()
+            local X = FromValues({})
+            local Y = FromValues({1, 2, 3})
+
+            local Result = Difference(X, Y)
+            expect(Result).to.equal(X)
+            expect(Result).to.never.equal(Y)
+        end)
+
         it("should remove the latter from the former with one item", function()
             local Result = Difference(FromValues({1}), FromValues({1}))
             expect(next(Result)).never.to.be.ok()

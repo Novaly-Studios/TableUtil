@@ -5,9 +5,13 @@
 local IsArray = require(script.Parent.Parent.Shared.IsArray)
 
 return table.freeze({
-    Freeze = function(Call)
+    Protect = function(Call)
         return function(Structure, Predicate)
-            return table.freeze(Call(Structure, Predicate))
+            local Result = Call(Structure, Predicate)
+            return (
+                table.isfrozen(Result) and Result or -- Frozen already -> we can return it, no need to freeze.
+                table.freeze(Result == Structure and table.clone(Result) or Result) -- Otherwise, freeze the result, or a copy of the result if it was one of the args.
+            )
         end
     end;
     Assert = function(Call)

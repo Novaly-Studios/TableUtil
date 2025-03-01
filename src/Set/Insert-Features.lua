@@ -8,7 +8,10 @@ return table.freeze({
     Freeze = function(Call)
         return function(Set, Value)
             local Result = Call(Set, Value)
-            return (table.isfrozen(Result) and Result or table.freeze(Result))
+            return (
+                table.isfrozen(Result) and Result or -- Frozen already -> we can return it, no need to freeze.
+                table.freeze(Result == Set and table.clone(Result) or Result) -- Otherwise, freeze the result, or a copy of the result if it was one of the args.
+            )
         end
     end;
     Assert = function(Call)

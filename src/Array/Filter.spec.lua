@@ -45,13 +45,26 @@ return function()
             end)
         end)
 
-        it("should return the original array if the condition is always true", function()
-            local Test = {1, 2, 3, 4}
+        it("should return the original array if the condition is always true and the table is frozen", function()
+            local Test = table.freeze({1, 2, 3, 4})
             local Result = Filter(Test, function()
                 return true
             end)
 
             expect(Result).to.equal(Test)
+        end)
+
+        it("should return a copy of the original array if the condition is always true and the table is not frozen", function()
+            local Test = {1, 2, 3, 4}
+            local Result = Filter(Test, function()
+                return true
+            end)
+
+            expect(Result).never.to.equal(Test)
+            expect(Result[1]).to.equal(1)
+            expect(Result[2]).to.equal(2)
+            expect(Result[3]).to.equal(3)
+            expect(Result[4]).to.equal(4)
         end)
     end)
 end

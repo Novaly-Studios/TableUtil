@@ -5,6 +5,12 @@
 local IsMap = require(script.Parent.Parent.Shared.IsMap)
 
 return table.freeze({
+    Freeze = function(Call)
+        return function(Array, WeightKey, Seed, SortMutate)
+            local Result = Call(Array, WeightKey, Seed, SortMutate)
+            return (table.isfrozen(Result) and Result or table.freeze(table.clone(Result)))
+        end
+    end;
     Assert = function(Call)
         return function(Array, WeightKey, Seed, SortMutate)
             assert(type(Array) == "table" and not IsMap(Array), "Arg #1 was not an array")

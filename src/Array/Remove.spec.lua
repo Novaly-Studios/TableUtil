@@ -2,10 +2,14 @@ return function()
     local Remove = require(script.Parent.Parent).Array.Remove
 
     describe("Array/Remove", function()
-        it("should return the same array upon removing from an empty array", function()
+        it("should return the same array upon removing from an empty array only if frozen", function()
             local Original = {}
             local Result = Remove(Original)
+            expect(next(Result)).to.equal(nil)
+            expect(Original).never.to.equal(Result)
 
+            table.freeze(Original)
+            Result = Remove(Original)
             expect(next(Result)).to.equal(nil)
             expect(Original).to.equal(Result)
         end)

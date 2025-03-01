@@ -50,12 +50,25 @@ return function()
             end)
         end)
 
-        it("should return the same table if values are the same", function()
-            local Base = {1, 2, 7, 8}
+        it("should return the same table if values are the same and the input table is frozen", function()
+            local Base = table.freeze({1, 2, 7, 8})
             local Result = Map(Base, function(Value)
                 return Value
             end)
             expect(Result).to.equal(Base)
+        end)
+
+        it("should return a copy of the original table if values are the same and the input table is not frozen", function()
+            local Base = {1, 2, 7, 8}
+            local Result = Map(Base, function(Value)
+                return Value
+            end)
+
+            expect(Result).never.to.equal(Base)
+            expect(Result[1]).to.equal(1)
+            expect(Result[2]).to.equal(2)
+            expect(Result[3]).to.equal(7)
+            expect(Result[4]).to.equal(8)
         end)
     end)
 end

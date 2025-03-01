@@ -2,9 +2,13 @@ return function()
     local RemoveRange = require(script.Parent.Parent).Array.RemoveRange
 
     describe("Array/RemoveRange", function()
-        it("should return the same array given the full range", function()
+        it("should return the same array given the full range only if frozen", function()
             local Sample = {1, 2, 3}
             local Result = RemoveRange(Sample, 1, 3)
+            expect(Result).never.to.equal(Sample)
+
+            table.freeze(Sample)
+            Result = RemoveRange(Sample, 1, 3)
             expect(Result).to.equal(Sample)
         end)
 

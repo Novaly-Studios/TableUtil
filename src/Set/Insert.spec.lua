@@ -4,11 +4,17 @@ return function()
         local Insert = Set.Insert
 
     describe("Set/Insert", function()
-        it("should return the same set given a nil value", function()
-            local Sample1 = FromValues({})
-            expect(Insert(Sample1, nil)).to.equal(Sample1)
+        it("should return the same set given a nil value if frozen", function()
+            local Sample1 = {}
+            expect(Insert(Sample1, nil)).to.never.equal(Sample1)
 
-            local Sample2 = FromValues({1, 2, 3})
+            local Sample2 = {[1] = true, [2] = true, [3] = true}
+            expect(Insert(Sample2, nil)).to.never.equal(Sample2)
+
+            table.freeze(Sample1)
+            table.freeze(Sample2)
+
+            expect(Insert(Sample1, nil)).to.equal(Sample1)
             expect(Insert(Sample2, nil)).to.equal(Sample2)
         end)
 

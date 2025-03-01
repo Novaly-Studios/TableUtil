@@ -16,10 +16,7 @@ local Library = {
 
 local Shared = script.Shared
 
-local ValidFeatures = {
-    Assert = true;
-    Freeze = true;
-}
+local ValidFeatures = {"Assert", "Freeze"}
 local DefaultFeatures = {"Assert", "Freeze"}
 
 type Feature = ("Assert" | "Freeze")
@@ -29,14 +26,18 @@ type Feature = ("Assert" | "Freeze")
 --- Passing nothing will return the library with all features disabled.
 function Library.WithFeatures(...: Feature): typeof(Library)
     local Cache = {}
-    for Index = 1, select("#", ...) do
+    local FeatureCount = select("#", ...)
+
+    for Index = 1, FeatureCount do
         local Feature = select(Index, ...)
         assert(type(Feature) == "string", `Arg #{Index} invalid: must be a string`)
-        assert(ValidFeatures[Feature], `Arg #{Index} invalid: must be one of ({table.concat(ValidFeatures, ", ")})`)
+        assert(table.find(ValidFeatures, Feature), `Arg #{Index} invalid: must be one of ({table.concat(ValidFeatures, ", ")})`)
         table.insert(Cache, Feature)
     end
+
     table.sort(Cache) -- Ensures different orders of same set of strings go in the same cache key. Cache of X, Y = cache of Y, X and so on.
 
+    -- local AllFeatures = (FeatureCount == #DefaultFeatures)
     local CacheKey = table.concat(Cache)
     local Cached = FeaturesCache[CacheKey]
 
@@ -58,16 +59,35 @@ function Library.WithFeatures(...: Feature): typeof(Library)
                     continue
                 end
 
-                for FeatureID, Feature in require(FeatureModule) do
+                local Features = require(FeatureModule)
+
+                local function GetFunction()
+                    return Function
+                end
+
+                for FeatureID, Feature in Features do
+                    if (FeatureID == "Init") then
+                        continue
+                    end
+
                     if (not table.find(Cache, FeatureID)) then
                         continue
                     end
 
-                    Function = Feature(Function)
+                    Function = Feature(Function, GetFunction)
                 end
 
-                SubcategoryCopy[FunctionID] = Function
+                -- Some functions might need a self-reference as the final arg, but only during its initialization.
+                -- This prevents each recursion call from calling this Init function again. Better performance.
+                local FinalFunction = Function
+
+                if (Features.Init) then
+                    FinalFunction = Features.Init(Function, GetFunction)
+                end
+
+                SubcategoryCopy[FunctionID] = FinalFunction
             end
+
             Copy[SubcategoryID] = table.freeze(SubcategoryCopy)
         end
     end
@@ -79,9 +99,11 @@ end
 --- Turning on additional / experimental features on top of the default recommended features.
 function Library.WithAdditionalFeatures(...: Feature): typeof(Library)
     local NewFeatures = table.clone(DefaultFeatures)
+
     for Index = 1, select("#", ...) do
         table.insert(NewFeatures, (select(Index, ...)))
     end
+
     return Library.WithFeatures(unpack(NewFeatures))
 end
 

@@ -4,6 +4,14 @@
 
 --- Finds keys in X which are not in Y (i.e. removed values with respect to a base table).
 local function Removals<K, V>(X: {[K]: V}, Y: {[K]: V}): {[K]: V}
+    if (next(X) == nil) then
+        return X
+    end
+
+    if (next(Y) == nil) then
+        return X
+    end
+
     local Result = {}
 
     for Key, Value in X do

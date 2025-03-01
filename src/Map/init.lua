@@ -1,6 +1,5 @@
 return table.freeze({
     Changes = require(script.Changes);
-    CloneDeep = require(script.CloneDeep);
     Count = require(script.Count);
     CreatePatchDeep = require(script.CreatePatchDeep);
     Creations = require(script.Creations);
@@ -20,6 +19,7 @@ return table.freeze({
     ToKeyValueArray = require(script.ToKeyValueArray);
 
     -- Shared
+    CloneDeep = require(script.Parent.Shared.CloneDeep);
     IsArray = require(script.Parent.Shared.IsArray);
     IsMap = require(script.Parent.Shared.IsMap);
     IsMixed = require(script.Parent.Shared.IsMixed);
@@ -27,7 +27,7 @@ return table.freeze({
     IsPureMap = require(script.Parent.Shared.IsPureMap);
     Keys = require(script.Parent.Shared.Keys);
     Lockdown = require(script.Parent.Shared.Lockdown);
-    MixedMergeDeep = require(script.Parent.Shared.MixedMergeDeep);
+    -- MixedMergeDeep = require(script.Parent.Shared.MixedMergeDeep);
     SetUnresizable = require(script.Parent.Shared.SetUnresizable);
     SwapKeysValues = require(script.Parent.Shared.SwapKeysValues);
     Values = require(script.Parent.Shared.Values);

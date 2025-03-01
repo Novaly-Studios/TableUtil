@@ -7,7 +7,11 @@ local IsMap = require(script.Parent.Parent.Shared.IsMap)
 return table.freeze({
     Freeze = function(Call)
         return function(Array, Value, At)
-            return table.freeze(Call(Array, Value, At))
+            local Result = Call(Array, Value, At)
+            return (
+                table.isfrozen(Result) and Result or -- Frozen already -> we can return it, no need to freeze.
+                table.freeze(Result == Array and table.clone(Result) or Result) -- Otherwise, freeze the result, or a copy of the result if it was one of the args.
+            )
         end
     end;
     Assert = function(Call)

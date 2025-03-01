@@ -16,7 +16,11 @@ local function Insert<T>(Set1: Set<T>, Value: T): Set<T>
     end
 
     local Result = table.clone(Set1)
-    Result[Value] = true
+
+    if (Value) then
+        Result[Value] = true
+    end
+
     return Result
 end
 

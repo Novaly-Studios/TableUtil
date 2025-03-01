@@ -40,8 +40,17 @@ return function()
             expect(Results.C).never.to.be.ok()
         end)
 
-        it("should return the original table if the condition is always true", function()
-            local Test = {A = 1, B = 2, C = 3}
+        it("should return the original table if the condition is always true and the table is frozen", function()
+            local Test = table.freeze({A = 1, B = 2, C = 3})
+            local Result = Filter(Test, function()
+                return true
+            end)
+
+            expect(Result).to.equal(Test)
+        end)
+
+        it("should return a copy of the original table if the condition is always true and the table is not frozen", function()
+            local Test = table.freeze({A = 1, B = 2, C = 3})
             local Result = Filter(Test, function()
                 return true
             end)

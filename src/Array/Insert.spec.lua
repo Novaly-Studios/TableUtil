@@ -44,5 +44,20 @@ return function()
                 Insert({1, 2}, 1000, 4, true)
             end).to.throw()
         end)
+
+        it("should return the original array if the new value is being appended to the end and is nil, if the table is frozen", function()
+            local Test = table.freeze({1, 2, 3})
+            local Result = Insert(Test, nil)
+            expect(Result).to.equal(Test)
+
+            Result = Insert(Test, nil, 4)
+            expect(Result).to.equal(Test)
+        end)
+
+        it("should return a copy of the original array if the new value is being appended to the end and is nil, if the table is not frozen", function()
+            local Test = {1, 2, 3}
+            local Result = Insert(Test, nil)
+            expect(Result).never.to.equal(Test)
+        end)
     end)
 end
