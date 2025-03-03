@@ -1,0 +1,46 @@
+return table.freeze({
+    BinarySearch = require("./Array/BinarySearch");
+    Cut = require("./Array/Cut");
+    Equals = require("./Array/Equals");
+    Filter = require("./Array/Filter");
+    FoldLeft = require("./Array/FoldLeft");
+    FoldRight = require("./Array/FoldRight");
+    GroupBy = require("./Array/GroupBy");
+    Insert = require("./Array/Insert");
+    IsOrdered = require("./Array/IsOrdered");
+    Map = require("./Array/Map");
+    Mean = require("./Array/Mean");
+    Merge = require("./Array/Merge");
+    MergeMany = require("./Array/MergeMany");
+    MutableBinaryInsert = require("./Array/MutableBinaryInsert");
+    MutableMerge = require("./Array/MutableMerge");
+    MutableMergeMany = require("./Array/MutableMergeMany");
+    MutableReverse = require("./Array/MutableReverse");
+    MutableShuffle = require("./Array/MutableShuffle");
+    Percentile = require("./Array/Percentile");
+    Product = require("./Array/Product");
+    Range = require("./Array/Range");
+    Remove = require("./Array/Remove");
+    RemoveRange = require("./Array/RemoveRange");
+    Reverse = require("./Array/Reverse");
+    SelectFirst = require("./Array/SelectFirst");
+    SelectLast = require("./Array/SelectLast");
+    SelectRandom = require("./Array/SelectRandom");
+    SelectWeighted = require("./Array/SelectWeighted");
+    Shuffle = require("./Array/Shuffle");
+    Sort = require("./Array/Sort");
+    Sum = require("./Array/Sum");
+
+    -- Shared
+    CloneDeep = require("./Shared/CloneDeep");
+    IsArray = require("./Shared/IsArray");
+    IsMap = require("./Shared/IsMap");
+    IsMixed = require("./Shared/IsMixed");
+    IsPureArray = require("./Shared/IsPureArray");
+    IsPureMap = require("./Shared/IsPureMap");
+    Keys = require("./Shared/Keys");
+    Lockdown = require("./Shared/Lockdown");
+    SetUnresizable = require("./Shared/SetUnresizable");
+    SwapKeysValues = require("./Shared/SwapKeysValues");
+    Values = require("./Shared/Values");
+});

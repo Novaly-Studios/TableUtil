@@ -1,0 +1,20 @@
+return table.freeze({
+    Changes = require("./Changes-Features");
+    Count = require("./Count-Features");
+    CreatePatchDeep = require("./CreatePatchDeep-Features");
+    Creations = require("./Creations-Features");
+    Equals = require("./Equals-Features");
+    Filter = require("./Filter-Features");
+    Flatten = require("./Flatten-Features");
+    FromKeyValueArray = require("./FromKeyValueArray-Features");
+    GroupBy = require("./GroupBy-Features");
+    Map = require("./Map-Features");
+    Merge = require("./Merge-Features");
+    MergeDeep = require("./MergeDeep-Features");
+    MergeMany = require("./MergeMany-Features");
+    MutableMerge = require("./MutableMerge-Features");
+    MutableMergeDeep = require("./MutableMergeDeep-Features");
+    MutableMergeMany = require("./MutableMergeMany-Features");
+    Removals = require("./Removals-Features");
+    ToKeyValueArray = require("./ToKeyValueArray-Features");
+});
